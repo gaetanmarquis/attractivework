@@ -1,0 +1,55 @@
+Page d'accueil: 
+
+	-Login (En fonction du login on est redirigé vers un statut 1 2 ou 3)
+	-Formulaire d'inscription 
+	-Cards en bas de page avec des faux profils (API https://randomuser.me/) 
+	 	-Lien En savoir plus (redirection vers Inscription ou Connexion)
+	-Footer (CGU, Qui sommes nous, Conctacts, Copyright)
+
+
+Page formulaire d'inscription Candidats: 
+	-Log Idifiant 
+	-MDP 
+	-Nom 
+	-Prénom
+	-âge
+	-ville
+	-pays
+	-mail
+	-num tél
+	-type de personnalité (menu déroulant lien vers les types de personnalités détaillés)   
+	
+	
+Cards Candidats: 
+	-Photo
+	-Nom
+	-Prénom
+	-Poste recherché
+	-Ville
+	-Description (limitation des caractères qui s'affichent)
+
+Profil détaillé candidat 
+	-Mots clés atouts (menu déroulant)
+	-Infos personnelles (nom, prenom, adresse, tel, mail,)
+	-description 
+	-LM rédigée 
+	-CV popup
+	-Photo
+	-Linkin
+	-site web 
+	
+Cards Employeurs: 
+	-Photo/Logo entreprise
+	-Nom de l'entreprise
+	-Offre d'emploi
+	-Ville
+	-Description (limitation des caractères qui s'affichent)
+
+Profil détaillé employeur:
+	-Offre d'emploi
+	-Mots clés atouts (menu déroulant)
+	-Description de l'équipe à intégrer ou du boss futur environnement de travail
+	-Salaire 
+	-Infos entreprises(nom, prenom, adresse, tel, mail,)
+	-Linkin
+	-Site web 
