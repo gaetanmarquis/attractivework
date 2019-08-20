@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\MembreRepository")
@@ -56,6 +57,11 @@ class Membre
      * @ORM\Column(type="text", nullable=true)
      */
     private $photo_profil;
+
+    /**
+     * @var File
+     */
+    private $imageFile;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -174,6 +180,30 @@ class Membre
     public function setPhotoProfil(?string $photo_profil): self
     {
         $this->photo_profil = $photo_profil;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of imageFile
+     *
+     * @return  File
+     */ 
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * Set the value of imageFile
+     *
+     * @param  File  $imageFile
+     *
+     * @return  self
+     */ 
+    public function setImageFile(File $imageFile)
+    {
+        $this->imageFile = $imageFile;
 
         return $this;
     }
