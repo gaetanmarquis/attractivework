@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MessageController!{% endblock %}
+
+{% block body %}
+<table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>candidat</th>
+                <th>recruteur</th>
+                <th>message</th>
+                <th>date message</th>
+            </tr>
+        </thead>
+    
+        <tbody>
+            {# Pour chaque membre #}
+            {% for message in messages %}
+            <tr>
+                <th>{{ message.id }}</th>
+                <td>{{ message.candidat.membre.nom }} {{ message.candidat.membre.prenom }}</td>
+                <td>{{ message.recruteur.membre.nom }} {{ message.recruteur.membre.prenom }}</td>
+                <td>{{ message.message }}</td>
+                <td>{{ message.dateMessage|date('j/m/Y') }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

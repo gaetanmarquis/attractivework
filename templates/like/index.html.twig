@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LikeController!{% endblock %}
+
+{% block body %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>candidat</th>
+            <th>recruteur</th>
+            <th>date</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {# Pour chaque like #}
+        {% for like in likes %}
+        <tr>
+            <th>{{ like.id }}</th>
+            <td>{{ like.candidat.membre.nom }} {{ like.candidat.membre.prenom }}</td>
+            <td>{{ like.recruteur.membre.nom }} {{ like.recruteur.membre.prenom }}</td>
+            <td>{{ like.dateLike|date('j/m/Y') }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

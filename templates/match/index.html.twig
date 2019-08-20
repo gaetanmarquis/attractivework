@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MatchController!{% endblock %}
+
+{% block body %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>candidat</th>
+            <th>recruteur</th>
+            <th>date</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {# Pour chaque match #}
+        {% for match in matchs %}
+        <tr>
+            <th>{{ match.id }}</th>
+            <td>{{ match.candidat.membre.nom }} {{ match.candidat.membre.prenom }}</td>
+            <td>{{ match.recruteur.membre.nom }} {{ match.recruteur.membre.prenom }}</td>
+            <td>{{ match.dateMatch|date('j/m/Y') }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -23,7 +23,7 @@ class Message
     private $candidat;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\recruteur")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Recruteur")
      * @ORM\JoinColumn(nullable=false)
      */
     private $recruteur;
@@ -31,7 +31,7 @@ class Message
     /**
      * @ORM\Column(type="text")
      */
-    private $messagze;
+    private $message;
 
     /**
      * @ORM\Column(type="datetime")
@@ -55,26 +55,26 @@ class Message
         return $this;
     }
 
-    public function getRecruteur(): ?recruteur
+    public function getRecruteur(): ?Recruteur
     {
         return $this->recruteur;
     }
 
-    public function setRecruteur(?recruteur $recruteur): self
+    public function setRecruteur(?Recruteur $recruteur): self
     {
         $this->recruteur = $recruteur;
 
         return $this;
     }
 
-    public function getMessagze(): ?string
+    public function getMessage(): ?string
     {
-        return $this->messagze;
+        return $this->message;
     }
 
-    public function setMessagze(string $messagze): self
+    public function setMessage(string $message): self
     {
-        $this->messagze = $messagze;
+        $this->message = $message;
 
         return $this;
     }

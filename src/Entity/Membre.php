@@ -72,6 +72,11 @@ class Membre
      */
     private $date_inscription;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $description_photo;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -205,6 +210,18 @@ class Membre
     public function setDateInscription(\DateTimeInterface $date_inscription): self
     {
         $this->date_inscription = $date_inscription;
+
+        return $this;
+    }
+
+    public function getDescriptionPhoto(): ?string
+    {
+        return $this->description_photo;
+    }
+
+    public function setDescriptionPhoto(string $description_photo): self
+    {
+        $this->description_photo = $description_photo;
 
         return $this;
     }

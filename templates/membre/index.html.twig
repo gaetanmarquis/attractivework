@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MembreController!{% endblock %}
+
+{% block body %}
+<style>
+    img{
+        width: 100px;
+        height: 100px;
+    }
+</style>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>personnalité</th>
+            <th>nom</th>
+            <th>prenom</th>
+            <th>email</th>
+            <th>ville</th>
+            <th>pays</th>
+            <th>photo de profil</th>
+            <th>description</th>
+            <th>statut</th>
+            <th>date inscription</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {# Pour chaque membre #}
+        {% for membre in membres %}
+        <tr>
+            <th>{{ membre.id }}</th>
+            <td>{{ membre.personnalite.nom }}</td>
+            <td>{{ membre.nom }}</td>
+            <td>{{ membre.prenom }}</td>
+            <td>{{ membre.email }}</td>
+            <td>{{ membre.ville }}</td>
+            <td>{{ membre.pays }}</td>
+            <td><img src="{{ membre.photoProfil }}" alt="{{ membre.descriptionPhoto }}"></td>
+            <td>{{ membre.description }}</td>
+            <td>{{ membre.statut }}</td>
+            <td>{{ membre.dateInscription|date('j/m/Y') }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
