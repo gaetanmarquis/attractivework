@@ -46,5 +46,34 @@ class MessageController extends AbstractController
         return $this->render('message/index.html.twig', [
             'messages' => $messages,
         ]);
+
+    /**
+     * @Route("/message/add", name="message_add")
+     */
+    public function add(Request $request, ObjectManager $objectManager)
+    {
+        //Adapter les 3 lignes ci-dessous selon la table en BDD
+        //Il s'agit de la création du formulaire
+        $message = new Message();
+        $messageForm = $this->createForm(MessageType::class, $message);
+        $messageForm->handleRequest($request);
+
+        //A la soumission du formulaire
+        if( $messageForm->isSubmitted() && $messageForm->isValid() ){
+            //Pour les champs de type DateTime, utiliser le setter() avec comme argument new \DateTime
+            $message->setDateInscription( new \DateTime() );
+
+            //Injection en BDD
+            $objectManager->persist($message);
+            $objectManager->flush();
+
+            //Redirection vers l'affichage - Mettre en argument le nom de la route
+            return $this->redirectToRoute('message');
+        }
+
+        //Rendu du formulaire
+        return $this->render('message/add.html.twig', [
+            'massage_form' => $message_form->createView(),
+        ]);
     }
 }

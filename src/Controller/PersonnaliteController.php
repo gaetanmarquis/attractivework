@@ -24,7 +24,7 @@ class PersonnaliteController extends AbstractController
     }
 
     /**
-     * @Route("/membre/add", name="personnalite_add")
+     * @Route("/personnalite/add", name="personnalite_add")
      */
     public function add(Request $request, ObjectManager $objectManager)
     {
