@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello OffreController!{% endblock %}
+
+{% block body %}
+    <table>
+        <thead>
+        <tr>
+            <th>Id de l'offre</th>
+            <th>Id du recruteur</th>
+            <th>Titre du poste</th>
+            <th>Description du poste</th>
+            <th>Salaire pour le poste</th>
+            <th>Ville où le poste est proposé :</th>
+            <th>Pays où le poste est proposé :</th>
+            <th>Date de publication</th>
+        </tr>
+        </thead>
+
+
+        <tdbody>
+            {% for offre in offres %}
+            <tr>
+                <td>{{ offre.id }}</td>
+                <td>{{ offre.recruteur_id }}</td>
+                <td>{{ offre.titre }}</td>
+                <td>{{ offre.description_poste }}</td>
+                <td>{{ offre.salaire_poste }} €</td>
+                <td>{{ offre.ville_poste }}</td>
+                <td>{{ offre.pays_poste }}</td>
+                <td>{{ offre.date_publication|date("d/m/Y") }}</td>
+                {% endfor %}
+            </tr>
+        </tdbody>
+    </table>
+{% endblock %}
