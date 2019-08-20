@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Candidats{% endblock %}
+
+{% block body %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                id
+            </th>
+            <th>
+                Membre id
+            </th>
+            <th>
+                Date de naissance
+            </th>
+            <th>
+                Telephone
+            </th>
+            <th>
+                Autre fichier
+            </th>
+            <th>
+                Atout
+            </th>
+            <th>
+                Site web
+            </th>
+            <th>
+                Salaire
+            </th>
+            <th>
+                Date de disponibilité
+            </th>
+            <th>
+                Type de contrat
+            </th>
+            <th>
+                Métier
+            </th>
+            <th>
+                Année d'expérience
+            </th>
+            <th>
+                Langue parlée
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+    {% for candidat in candidats %}
+        <tr>
+            <td>{{ candidat.id }}</td>
+            <td>{{ candidat.membre.id }}</td>
+            <td>{{ candidat.dateNaissance|date("m/d/Y") }}</td>
+            <td>{{ candidat.telephone }}</td>
+            <td>{{ candidat.autreFichier }}</td>
+            <td>{{ candidat.atout }}</td>
+            <td>{{ candidat.siteWeb }}</td>
+            <td>{{ candidat.salaire }}</td>
+            <td>{{ candidat.dateDisponibilite }}</td>
+            <td>{{ candidat.typeContrat }}</td>
+            <td>{{ candidat.metier }}</td>
+            <td>{{ candidat.anneeExperience }}</td>
+            <td>{{ candidat.langueParlee }}</td>
+        </tr>
+
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

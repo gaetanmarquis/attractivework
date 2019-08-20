@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recruteurs{% endblock %}
+
+{% block body %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                id
+            </th>
+            <th>
+                Membre id
+            </th>
+            <th>
+                Nombre d'employé
+            </th>
+            <th>
+                Secteur d'activité
+            </th>
+            <th>
+                Logo entreprise
+            </th>
+            <th>
+                Nom de l'entreprise
+            </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for recruteur in recruteurs %}
+            <tr>
+                <td>{{ recruteur.id }}</td>
+                <td>{{ recruteur.membre.id }}</td>
+                <td>{{ recruteur.nbrEmploye }}</td>
+                <td>{{ recruteur.secteurActivite }}</td>
+                <td>{{ recruteur.logoEntreprise }}</td>
+                <td>{{ recruteur.nomEntreprise }}</td>
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
