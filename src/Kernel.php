@@ -8,7 +8,7 @@ use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
-use PUGX\AutocompleterBundle\PUGXAutocompleterBundle()
+use PUGX\AutocompleterBundle\PUGXAutocompleterBundle;
 
 
 class Kernel extends BaseKernel

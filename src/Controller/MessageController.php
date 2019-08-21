@@ -2,7 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Message;
+use App\Form\MessageType;
 use App\Repository\MessageRepository;
+use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -46,6 +50,7 @@ class MessageController extends AbstractController
         return $this->render('message/index.html.twig', [
             'messages' => $messages,
         ]);
+    }
 
     /**
      * @Route("/message/add", name="message_add")
@@ -77,33 +82,29 @@ class MessageController extends AbstractController
         ]);
     }
 
-    public function searchActionCandidat()
+    // ATTENTION A VERIFIER
+    /* public function searchActionCandidat()
     {
         $message = new  Message();
-
         $form = $this->createFormBuilder( $message, array(
         'action' => $this->generateUrl('homepage').'?term=',
         'method' => 'GET',
         ) )
             ->add('candidat', null, ['label' => ' Barre de recherche'] )
             ->getForm();
-
-
         return $this->render(':default/add.html.twig', ['form' => $form->createView() ]);
     }
-
+    // ATTENTION A VERIFIER
     public function searchActionRecruteur()
     {
         $message = new  Message();
-
         $form = $this->createFormBuilder( $message, array(
         'action' => $this->generateUrl('homepage').'?term=',
         'method' => 'GET',
         ) )
             ->add('recruteur', null, ['label' => ' Barre de recherche'] )
             ->getForm();
-
-
         return $this->render(':default/add.html.twig', ['form' => $form->createView() ]);
-    }
+        }
+    */
 }
