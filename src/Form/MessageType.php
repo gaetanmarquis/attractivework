@@ -3,10 +3,13 @@
 namespace App\Form;
 
 use App\Entity\Message;
+use App\Entity\Candidat;
+use App\Entity\Recruteur;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use PUGX\AutocompleterBundle\Form\Type\AutocompleteType;
 
 class MessageType extends AbstractType
 {
@@ -15,8 +18,12 @@ class MessageType extends AbstractType
         $builder
             ->add('message', TextareaType::class, ['label' => 'Message'
         ])
-            ->add('candidat') /* TO DO */
-            ->add('recruteur') /* TO DO */
+            ->add('candidat', AutocompleteType::class, ['label' => 'Candidat:'
+        ]) 
+            ->add('recruteur', AutocompleteType::class, ['label' => 'Recruteur:'
+        ])
+            ->add('submit', SubmitType::class, ['label' => 'Enregistrer'
+        ])
         ;
     }
 

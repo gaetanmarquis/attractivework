@@ -76,4 +76,34 @@ class MessageController extends AbstractController
             'massage_form' => $message_form->createView(),
         ]);
     }
+
+    public function searchActionCandidat()
+    {
+        $message = new  Message();
+
+        $form = $this->createFormBuilder( $message, array(
+        'action' => $this->generateUrl('homepage').'?term=',
+        'method' => 'GET',
+        ) )
+            ->add('candidat', null, ['label' => ' Barre de recherche'] )
+            ->getForm();
+
+
+        return $this->render(':default/add.html.twig', ['form' => $form->createView() ]);
+    }
+
+    public function searchActionRecruteur()
+    {
+        $message = new  Message();
+
+        $form = $this->createFormBuilder( $message, array(
+        'action' => $this->generateUrl('homepage').'?term=',
+        'method' => 'GET',
+        ) )
+            ->add('recruteur', null, ['label' => ' Barre de recherche'] )
+            ->getForm();
+
+
+        return $this->render(':default/add.html.twig', ['form' => $form->createView() ]);
+    }
 }
