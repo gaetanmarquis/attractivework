@@ -1,0 +1,55 @@
+git remote add origin https://github.com/gaetanmarquis/attractivework.git
+git push -u origin master
+
+
+$ symfony new NomProjet
+$ cd NomProjet
+$ composer require maker
+$ composer require twig 
+$ composer require annotations
+$ composer require doctrine
+$ composer require asset
+$ composer require profiler
+$ composer require security
+$ composer require form validator
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+
+git pull origin dev
+
+git branch __nom_branche__
+git checkout __nom_branche__
+
+==>> MODIFICATIONS
+
+git add .
+git commit -m "__message__"
+git push -u origin __nom_branche__
+
+git checkout dev
+git merge __nom_branche__
+
+git push -u origin dev
+
+git branch -d __nom_branche__
+git push -d origin __nom_branche__
+
+
+--------------------------------------------------------------------------------------------------------------------
+
+
+$ php bin/console make:entity
+	-> répondre aux questions
+	-> après création des entités
+$ php bin/console make:migration
+$ php bin/console doctrine:migrations:migrate
+
+$ php bin/console make:controller
+
+$ php bin/console make:form
+	-> se rattache à une entity
+
+
+--------------------------------------------------------------------------------------------------------------------

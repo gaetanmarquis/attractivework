@@ -57,9 +57,9 @@
             <td>{{ candidat.telephone }}</td>
             <td>{{ candidat.autreFichier }}</td>
             <td>{{ candidat.atout }}</td>
-            <td>{{ candidat.siteWeb }}</td>
+            <td><a href="{{ candidat.siteWeb }}">{{ candidat.siteWeb }}</a></td>
             <td>{{ candidat.salaire }}</td>
-            <td>{{ candidat.dateDisponibilite }}</td>
+            <td>{{ candidat.dateDisponibilite|date("m/d/Y") }}</td>
             <td>{{ candidat.typeContrat }}</td>
             <td>{{ candidat.metier }}</td>
             <td>{{ candidat.anneeExperience }}</td>

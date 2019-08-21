@@ -5,6 +5,59 @@
 {% block body %}
     <div class="container">
         {{ form_start(candidat_form) }}
+            <div class="form-group">
+                {{ form_label(candidat_form.date_naissance) }}
+                {{ form_widget(candidat_form.date_naissance, {attr : {class : 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(candidat_form.telephone) }}
+                {{ form_widget(candidat_form.telephone, {attr : {class : 'form-control'}}) }}
+            </div>
+            <div class="custom-file mt-4 mb-4">
+                {{ form_label(candidat_form.cv, null, {label_attr : {class : 'custom-file-label'}}) }}
+                {{ form_widget(candidat_form.cv, {attr : {class : 'custom-file-input'}}) }}
+            </div>
+            <div class="custom-file mt-4 mb-4">
+                {{ form_label(candidat_form.autre_fichier, null, {label_attr : {class : 'custom-file-label'}}) }}
+                {{ form_widget(candidat_form.autre_fichier, {attr : {class : 'custom-file-input'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(candidat_form.atout) }}
+                {{ form_widget(candidat_form.atout, {attr : {class : 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(candidat_form.site_web) }}
+                {{ form_widget(candidat_form.site_web, {attr : {class : 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(candidat_form.salaire) }}
+                {{ form_widget(candidat_form.salaire, {attr : {class : 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(candidat_form.date_disponibilite) }}
+                {{ form_widget(candidat_form.date_disponibilite, {attr : {class : 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(candidat_form.type_contrat) }}
+                {{ form_widget(candidat_form.type_contrat, {attr : {class : 'custom-select'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(candidat_form.metier) }}
+                {{ form_widget(candidat_form.metier, {attr : {class : 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(candidat_form.annee_experience) }}
+                {{ form_widget(candidat_form.annee_experience, {attr : {class : 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(candidat_form.langue_parlee) }}
+                {{ form_widget(candidat_form.langue_parlee, {attr : {class : 'form-control'}}) }}
+            </div>
+
+            <div>
+                {{ form_label(candidat_form.submit) }}
+                {{ form_widget(candidat_form.submit, {attr : {class : 'btn btn-primary m-2'}}) }}
+            </div>
         {{ form_end(candidat_form) }}
     </div>
 {% endblock %}

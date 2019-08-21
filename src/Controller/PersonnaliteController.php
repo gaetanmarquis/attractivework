@@ -36,9 +36,6 @@ class PersonnaliteController extends AbstractController
 
         //A la soumission du formulaire
         if( $personnaliteForm->isSubmitted() && $personnaliteForm->isValid() ){
-            //Pour les champs de type DateTime, utiliser le setter() avec comme argument new \DateTime
-            $personnalite->setDateInscription( new \DateTime() );
-
             //Injection en BDD
             $objectManager->persist($personnalite);
             $objectManager->flush();
@@ -49,7 +46,7 @@ class PersonnaliteController extends AbstractController
 
         //Rendu du formulaire
         return $this->render('personnalite/add.html.twig', [
-            'personnalite_form' => $personnalite_form->createView(),
+            'personnalite_form' => $personnaliteForm->createView(),
         ]);
     }
 }

@@ -38,9 +38,19 @@ class Recruteur
     private $logo_entreprise;
 
     /**
+     * @var File
+     */
+    private $imageFile;
+
+    /**
      * @ORM\Column(type="string", length=100)
      */
     private $nom_entreprise;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $description_logo;
 
     public function getId(): ?int
     {
@@ -95,6 +105,30 @@ class Recruteur
         return $this;
     }
 
+    /**
+     * Get the value of imageFile
+     *
+     * @return  File
+     */ 
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * Set the value of imageFile
+     *
+     * @param  File  $imageFile
+     *
+     * @return  self
+     */ 
+    public function setImageFile(File $imageFile)
+    {
+        $this->imageFile = $imageFile;
+
+        return $this;
+    }
+
     public function getNomEntreprise(): ?string
     {
         return $this->nom_entreprise;
@@ -103,6 +137,18 @@ class Recruteur
     public function setNomEntreprise(string $nom_entreprise): self
     {
         $this->nom_entreprise = $nom_entreprise;
+
+        return $this;
+    }
+
+    public function getDescriptionLogo(): ?string
+    {
+        return $this->description_logo;
+    }
+
+    public function setDescriptionLogo(string $description_logo): self
+    {
+        $this->description_logo = $description_logo;
 
         return $this;
     }

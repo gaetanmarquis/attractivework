@@ -3,7 +3,7 @@
 {% block title %}Hello PersonnaliteController!{% endblock %}
 
 {% block body %}
-    <table>
+    <table class="table">
         <thead>
 
         <tr>
@@ -23,9 +23,8 @@
             <td>{{ personnalite.reference }}</td>
             <td>{{ personnalite.categorie }}</td>
             <td>{{ personnalite.description }}</td>
-
+        </tr>
         {% endfor %}
-         </tr>
         </tbody>
     </table>
 {% endblock %}
