@@ -48,13 +48,13 @@ class MessageRepository extends ServiceEntityRepository
     }
     */
 
-    // ATTENTION
+    // ATTENTION A VERIFIER
     /**
      * @param string $candidat
      *
      * @return array
      */
-    public function findLike($candidat)
+    /*public function findLike($candidat)
     {
         return $this
             ->createQueryBuilder('a')
@@ -66,14 +66,15 @@ class MessageRepository extends ServiceEntityRepository
             ->execute()
             ;
     }
+    */
 
-    // ATTENTION
+    // ATTENTION A VERIFIER
     /**
      * @param string $recruteur
      *
      * @return array
      */
-    public function findLike($recruteur)
+    /*public function findLike($recruteur)
     {
         return $this
             ->createQueryBuilder('a')
@@ -85,4 +86,5 @@ class MessageRepository extends ServiceEntityRepository
             ->execute()
             ;
     }
+    */
 }
