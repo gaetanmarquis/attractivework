@@ -11,6 +11,7 @@
                 <th>recruteur</th>
                 <th>message</th>
                 <th>date message</th>
+                <th>Options</th>
             </tr>
         </thead>
     
@@ -23,6 +24,10 @@
                 <td>{{ message.recruteur.membre.nom }} {{ message.recruteur.membre.prenom }}</td>
                 <td>{{ message.message }}</td>
                 <td>{{ message.dateMessage|date('j/m/Y') }}</td>
+                <td>
+                    <a href="{{ path('message_edit', { 'id' : message.id }) }}"><i class="fas fa-pen"></i></a>
+                    <a href="{{ path('message_delete', { 'id' : message.id }) }}"><i class="fas fa-trash-alt"></i></a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>

@@ -6,10 +6,14 @@ use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use PUGX\AutocompleterBundle\PUGXAutocompleterBundle;
 use Symfony\Component\Routing\RouteCollectionBuilder;
+<<<<<<< HEAD
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
+=======
+use PUGX\AutocompleterBundle\PUGXAutocompleterBundle;
+>>>>>>> message
 
 
 class Kernel extends BaseKernel
