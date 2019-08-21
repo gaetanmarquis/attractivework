@@ -2,7 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Message;
+use App\Form\MessageType;
 use App\Repository\MessageRepository;
+use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -46,6 +50,7 @@ class MessageController extends AbstractController
         return $this->render('message/index.html.twig', [
             'messages' => $messages,
         ]);
+    }
 
     /**
      * @Route("/message/add", name="message_add")
