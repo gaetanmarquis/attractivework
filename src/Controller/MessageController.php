@@ -73,7 +73,7 @@ class MessageController extends AbstractController
 
         //Rendu du formulaire
         return $this->render('message/add.html.twig', [
-            'massage_form' => $message_form->createView(),
+            'message_form' => $message_form->createView(),
         ]);
     }
 
