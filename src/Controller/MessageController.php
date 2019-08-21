@@ -54,12 +54,15 @@ class MessageController extends AbstractController
 
     /**
      * @Route("/message/add", name="message_add")
+     * @Route("/message/edit/{id}", name="message_edit")
      */
-    public function add(Request $request, ObjectManager $objectManager)
+    public function add(Request $request, ObjectManager $objectManager, Message $message = null)
     {
         //Adapter les 3 lignes ci-dessous selon la table en BDD
         //Il s'agit de la création du formulaire
-        $message = new Message();
+        if ($message = new Message) {
+            $message = new Message();
+        }
         $messageForm = $this->createForm(MessageType::class, $message);
         $messageForm->handleRequest($request);
 
@@ -80,6 +83,17 @@ class MessageController extends AbstractController
         return $this->render('message/add.html.twig', [
             'message_form' => $message_form->createView(),
         ]);
+    }
+
+    /*
+    * @Route("/message/delete/{id}", name="message_delete")
+    */
+    public function delete(Message $message, ObjectManager $objectManager){
+
+        if( $message !== null ){
+            $objectManager->remove($message);
+            $objectManager->flush();
+        }
     }
 
     // ATTENTION A VERIFIER
