@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Offre;
 use App\Form\OffreType;
+use App\Repository\MembreRepository;
 use App\Repository\OffreRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -40,22 +41,26 @@ class OffreController extends AbstractController
 
     /**
      * @Route("/offre/add", name="offre_add")
-     * @Assert\DateTime
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     * @var string A "d-m-Y H:i:s" formatted value
      */
-    public function add(Request $request, ObjectManager $objectManager)
+    public function add(Request $request, ObjectManager $objectManager,  MembreRepository $membreRepository, Offre $offre = null)
     {
         //Adapter les 3 lignes ci-dessous selon la table en BDD
         //Il s'agit de la création du formulaire
         $offre = new offre();
+
+        if ($offre === null) {
+            $offre = new Offre();
+            $id_offre = $_GET['id_offre'];
+            $membre = $membreRepository->find($id_membre);
+        }
+
         $offreForm = $this->createForm(offreType::class, $offre);
         $offreForm->handleRequest($request);
 
         //A la soumission du formulaire
-        if( $offreForm->isSubmitted() && $offreForm->isValid() ){
+        if ($offreForm->isSubmitted() && $offreForm->isValid()) {
             //Pour les champs de type DateTime, utiliser le setter() avec comme argument new \DateTime
-            $offre->setter( new \DateTime() );
+            $offre->setDatePublication(new \DateTime());
 
             //Injection en BDD
             $objectManager->persist($offre);
@@ -69,6 +74,20 @@ class OffreController extends AbstractController
         return $this->render('offre/add.html.twig', [
             'offre_form' => $offreForm->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/offre/delete/{id}", name="delete_offre")
+     */
+    public function delete(ObjectManager $objectManager, Offre $offre)
+    {
+        if ($offre !== null) {
+            $objectManager->remove($offre);
+            $objectManager->flush();
+        }
+
+        //Redirection vers l'affichage - Mettre en argument le nom de la route
+        return $this->redirectToRoute('offre');
     }
 
 }

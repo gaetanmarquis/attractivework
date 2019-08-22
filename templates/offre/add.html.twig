@@ -3,8 +3,51 @@
 {% block title %}Page d'ajout des offres de postes{% endblock %}
 
 {% block body %}
+    <div class="container">
+        {{ form_start(offre_form) }}
+        <br><br>
+        <div class="form-group">
+            {{ form_label(offre_form.titre) }}
+            {{ form_widget(offre_form.titre, {attr : {class : 'form-control'}}) }}
+        </div>
 
-    {{ form_start(offre_form) }}
-    {{ form_end(offre_form) }}
+        <div class="form-group">
+            {{ form_label(offre_form.description_poste) }}
+            {{ form_widget(offre_form.description_poste, {attr : {class : 'form-control'}}) }}
+        </div>
 
+        <div class="form-group">
+            {{ form_label(offre_form.salaire_poste) }}
+            {{ form_widget(offre_form.salaire_poste, {attr : {class : 'form-control'}}) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(offre_form.ville_poste) }}
+            {{ form_widget(offre_form.ville_poste, {attr : {class : 'form-control'}}) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(offre_form.pays_poste) }}
+            {{ form_widget(offre_form.pays_poste, {attr : {class : 'form-control'}}) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(offre_form.date_publication) }}
+            {{ form_widget(offre_form.date_publication, {attr : {class : 'form-control'}}) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(offre_form.recruteur) }}
+            {{ form_widget(offre_form.recruteur, {attr : {class : 'form-control'}}) }}
+        </div>
+
+        <div>
+            <div>
+                {{ form_label(offre_form.submit) }}
+                {{ form_widget(offre_form.submit, {attr : {class : 'btn btn-primary m-2'}}) }}
+            </div>
+        </div>
+
+        {{ form_end(offre_form) }}
+    </div>
 {% endblock %}

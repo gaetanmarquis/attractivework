@@ -4,20 +4,29 @@
 
 {% block body %}
     <table class="table">
-        <thead>
+        <thead class="thead-dark">
 
         <tr>
+<<<<<<< HEAD
             <th>Id</th>
             <th>Nom</th>
             <th>Reference</th>
             <th>Catégorie</th>
             <th>Description</th>
             <th>Options</th>
+=======
+            <th scope="row">Id</th>
+            <th scope="row">Nom</th>
+            <th scope="row">Reference</th>
+            <th scope="row">Catégorie</th>
+            <th scope="row">Description</th>
+>>>>>>> controller
         </tr>
         </thead>
 
         <tbody>
         {% for personnalite in personnalites %}
+<<<<<<< HEAD
          <tr>
             <td>{{ personnalite.id }}</td>
             <td>{{ personnalite.nom }}</td>
@@ -29,6 +38,19 @@
                     <a href="{{ path('personnalite_delete', { 'id' : personnalite.id }) }}"><i class="fas fa-trash-alt"></i></a>
                 </td>
         </tr>
+=======
+            <tr scope="row">
+                <td scope="row">{{ personnalite.id }}</td>
+                <td scope="row">{{ personnalite.nom }}</td>
+                <td scope="row">{{ personnalite.reference }}</td>
+                <td scope="row">{{ personnalite.categorie }}</td>
+                <td scope="row">{{ personnalite.description }}</td>
+                <td scope="row"><a class="btn btn-primary" href="{{ path('personnalite_edit', {'id' : personnalite.membre.id }) }}"
+                       role="button"> Modifier</a></td>
+                <td><a class="btn btn-danger" href="{{ path('delete_personnalite', {'id' : personnalite.membre.id }) }}"
+                       role="button">Supprimer</a></td>
+            </tr>
+>>>>>>> controller
         {% endfor %}
         </tbody>
     </table>

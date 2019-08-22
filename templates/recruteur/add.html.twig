@@ -5,26 +5,31 @@
 {% block body %}
     <div class="container">
         {{ form_start(recruteur_form) }}
-            <div class="form-group">
-                {{ form_label(recruteur_form.nom_entreprise) }}
-                {{ form_widget(recruteur_form.nom_entreprise, {attr : {class : 'form-control'}}) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(recruteur_form.secteur_activite) }}
-                {{ form_widget(recruteur_form.secteur_activite, {attr : {class : 'form-control'}}) }}
-            </div>
-            <div class="custom-file mt-4 mb-4">
-                {{ form_label(recruteur_form.logo_entreprise, null, {label_attr : {class : 'custom-file-label'}}) }}
-                {{ form_widget(recruteur_form.logo_entreprise, {attr : {class : 'custom-file-input'}}) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(recruteur_form.nbr_employe) }}
-                {{ form_widget(recruteur_form.nbr_employe, {attr : {class : 'form-control'}}) }}
-            </div>
+        <br><br>
+        <div class="form-group">
+            {{ form_label(recruteur_form.nom_entreprise) }}
+            {{ form_widget(recruteur_form.nom_entreprise, {attr : {class : 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(recruteur_form.secteur_activite) }}
+            {{ form_widget(recruteur_form.secteur_activite, {attr : {class : 'form-control'}}) }}
+        </div>
+        <div class="custom-file mt-4 mb-4">
+            {{ form_label(recruteur_form.logo_entreprise, null, {label_attr : {class : 'custom-file-label'}}) }}
+            {{ form_widget(recruteur_form.logo_entreprise, {attr : {class : 'custom-file-input'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(recruteur_form.nbr_employe) }}
+            {{ form_widget(recruteur_form.nbr_employe, {attr : {class : 'form-control'}}) }}
+        </div>
+        <div>
             <div>
                 {{ form_label(recruteur_form.submit) }}
                 {{ form_widget(recruteur_form.submit, {attr : {class : 'btn btn-primary m-2'}}) }}
             </div>
+        </div>
+
+
         {{ form_end(recruteur_form) }}
     </div>
 {% endblock %}
