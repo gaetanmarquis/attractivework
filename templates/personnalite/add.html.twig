@@ -3,6 +3,36 @@
 {% block title %}Hello PersonnaliteController!{% endblock %}
 
 {% block body %}
+    <div>
     {{ form_start(personnalite_form) }}
+
+        <div class="form-group">
+            <br><br>
+            {{ form_label(personnalite_form.nom) }}
+            {{ form_widget(personnalite_form.nom, {attr : {class : 'form-control'}}) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(personnalite_form.reference) }}
+            {{ form_widget(personnalite_form.reference, {attr : {class : 'form-control'}}) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(personnalite_form.categorie) }}
+            {{ form_widget(personnalite_form.categorie, {attr : {class : 'form-control'}}) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(personnalite_form.description) }}
+            {{ form_widget(personnalite_form.description, {attr : {class : 'form-control'}}) }}
+        </div>
+
+        <div>
+            {{ form_label(personnalite_form.submit) }}
+            {{ form_widget(personnalite_form.submit, {attr : {class : 'btn btn-primary m-2'}}) }}
+        </div>
+
+
     {{ form_end(personnalite_form) }}
+    </div>
 {% endblock %}

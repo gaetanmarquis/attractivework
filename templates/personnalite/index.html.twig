@@ -4,26 +4,30 @@
 
 {% block body %}
     <table class="table">
-        <thead>
+        <thead class="thead-dark">
 
         <tr>
-            <th>Id</th>
-            <th>Nom</th>
-            <th>Reference</th>
-            <th>Catégorie</th>
-            <th>Description</th>
+            <th scope="row">Id</th>
+            <th scope="row">Nom</th>
+            <th scope="row">Reference</th>
+            <th scope="row">Catégorie</th>
+            <th scope="row">Description</th>
         </tr>
         </thead>
 
         <tbody>
         {% for personnalite in personnalites %}
-         <tr>
-            <td>{{ personnalite.id }}</td>
-            <td>{{ personnalite.nom }}</td>
-            <td>{{ personnalite.reference }}</td>
-            <td>{{ personnalite.categorie }}</td>
-            <td>{{ personnalite.description }}</td>
-        </tr>
+            <tr scope="row">
+                <td scope="row">{{ personnalite.id }}</td>
+                <td scope="row">{{ personnalite.nom }}</td>
+                <td scope="row">{{ personnalite.reference }}</td>
+                <td scope="row">{{ personnalite.categorie }}</td>
+                <td scope="row">{{ personnalite.description }}</td>
+                <td scope="row"><a class="btn btn-primary" href="{{ path('personnalite_edit', {'id' : personnalite.membre.id }) }}"
+                       role="button"> Modifier</a></td>
+                <td><a class="btn btn-danger" href="{{ path('delete_personnalite', {'id' : personnalite.membre.id }) }}"
+                       role="button">Supprimer</a></td>
+            </tr>
         {% endfor %}
         </tbody>
     </table>
