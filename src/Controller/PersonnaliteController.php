@@ -25,12 +25,16 @@ class PersonnaliteController extends AbstractController
 
     /**
      * @Route("/personnalite/add", name="personnalite_add")
+     * @Route("/personnalite/edit/{id}", name="personnalite_edit")
      */
-    public function add(Request $request, ObjectManager $objectManager)
+    public function add(Request $request, ObjectManager $objectManager,  Personnalite $personnalite = null)
     {
+
+        if ($personnalite === null) {
+            $personnalite = new Personnalite();
+        }
         //Adapter les 3 lignes ci-dessous selon la table en BDD
         //Il s'agit de la création du formulaire
-        $personnalite = new Personnalite();
         $personnaliteForm = $this->createForm(PersonnaliteType::class, $personnalite);
         $personnaliteForm->handleRequest($request);
 
@@ -49,4 +53,14 @@ class PersonnaliteController extends AbstractController
             'personnalite_form' => $personnaliteForm->createView(),
         ]);
     }
+
+    /*
+    * @Route("/personnalite/delete/{id}", name="personnalite_delete")
+    */
+    public function delete(Personnalite $personnalite, ObjectManager $objectManager){
+
+        if( $personnalite !== null ){
+            $objectManager->remove($personnalite);
+            $objectManager->flush();
+        }
 }

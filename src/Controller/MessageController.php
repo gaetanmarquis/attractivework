@@ -60,16 +60,11 @@ class MessageController extends AbstractController
     {
         //Adapter les 3 lignes ci-dessous selon la table en BDD
         //Il s'agit de la création du formulaire
-<<<<<<< HEAD
+
         if ($message === null) {
             $message = new Message();
         }
 
-=======
-        if ($message = new Message) {
-            $message = new Message();
-        }
->>>>>>> message
         $messageForm = $this->createForm(MessageType::class, $message);
         $messageForm->handleRequest($request);
 
@@ -101,10 +96,10 @@ class MessageController extends AbstractController
             $objectManager->remove($message);
             $objectManager->flush();
         }
-<<<<<<< HEAD
-=======
+
+
     }
->>>>>>> message
+
 
     // ATTENTION A VERIFIER
     /* public function searchActionCandidat()
@@ -118,10 +113,10 @@ class MessageController extends AbstractController
             ->getForm();
         return $this->render(':default/add.html.twig', ['form' => $form->createView() ]);
     }
-<<<<<<< HEAD
 
-=======
->>>>>>> message
+
+
+
     // ATTENTION A VERIFIER
     public function searchActionRecruteur()
     {
@@ -134,9 +129,10 @@ class MessageController extends AbstractController
             ->getForm();
         return $this->render(':default/add.html.twig', ['form' => $form->createView() ]);
         }
-    */
-<<<<<<< HEAD
     }
-=======
->>>>>>> message
+    */
+
+    
+
+
 }
