@@ -4,11 +4,14 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\MembreRepository")
+ * @UniqueEntity("email")
  */
-class Membre
+class Membre implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -28,14 +31,21 @@ class Membre
     private $prenom;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=100, unique=true)
      */
     private $email;
+
+    private $username;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $mdp;
+
+    /**
+     * @var string The hashed password
+     */
+    private $password;
 
     /**
      * @ORM\Column(type="string", length=100)
@@ -88,6 +98,17 @@ class Membre
         return $this->id;
     }
 
+    /**
+     * A visual identifier that represents this user.
+     *
+     * @see UserInterface
+     */
+    public function getUsername(): string
+    {
+        $this->username = $this->email;
+        return (string) $this->username;
+    }
+
     public function getNom(): ?string
     {
         return $this->nom;
@@ -124,6 +145,15 @@ class Membre
         return $this;
     }
 
+    /**
+     * @see UserInterface
+     */
+    public function getPassword(): string
+    {
+        $this->password = $this->mdp;
+        return (string) $this->password;
+    }
+
     public function getMdp(): ?string
     {
         return $this->mdp;
@@ -134,6 +164,23 @@ class Membre
         $this->mdp = $mdp;
 
         return $this;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getSalt()
+    {
+        // not needed when using the "bcrypt" algorithm in security.yaml
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function eraseCredentials()
+    {
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
     }
 
     public function getVille(): ?string
@@ -218,6 +265,18 @@ class Membre
         $this->description = $description;
 
         return $this;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getRoles(): array
+    {
+        $roles = explode(',', $this->role);
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
     }
 
     public function getStatut(): ?string
