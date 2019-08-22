@@ -69,4 +69,5 @@ class CandidatController extends AbstractController
             $objectManager->remove($candidat);
             $objectManager->flush();
         }
+    }    
 }
