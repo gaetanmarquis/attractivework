@@ -51,12 +51,15 @@ class MatchController extends AbstractController
 
     /**
      * @Route("/match/add", name="match_add")
+     * @Route("/match/edit/{id}", name="match_edit")
      */
-    public function add(Request $request, ObjectManager $objectManager)
+    public function add(Request $request, ObjectManager $objectManager, Match $match = null)
     {
         //Adapter les 3 lignes ci-dessous selon la table en BDD
         //Il s'agit de la création du formulaire
+        if( $match === null ){
         $match = new Match();
+        }
         $matchForm = $this->createForm(MatchType::class, $match);
         $matchForm->handleRequest($request);
 
@@ -70,12 +73,24 @@ class MatchController extends AbstractController
             $objectManager->flush();
 
             //Redirection vers l'affichage - Mettre en argument le nom de la route
-            return $this->redirectToRoute('membre');
+            return $this->redirectToRoute('match');
         }
 
         //Rendu du formulaire
         return $this->render('match/add.html.twig', [
             'match_form' => $matchForm->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/match/delete/{id}", name="match_delete")
+     */
+    public function delete(Match $match, ObjectManager $objectManager)
+    {
+        if( $match !== null ){
+            $objectManager->remove($match);
+            $objectManager->flush();
+        }
+        return $this->redirectToRoute('match');
     }
 }

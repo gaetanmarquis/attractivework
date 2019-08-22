@@ -8,7 +8,6 @@ use App\Entity\Recruteur;
 use Symfony\Component\Form\AbstractType;
 use PUGX\AutocompleterBundle\Form\Type\AutocompleteType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,9 +16,6 @@ class LikeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('date_like', DateType::class, [
-                'label'=>"Date du like"
-    ])
             ->add('candidat', AutocompleteType::class, [
                 'class' => Candidat::class,
                 'label' => "id candidat"
