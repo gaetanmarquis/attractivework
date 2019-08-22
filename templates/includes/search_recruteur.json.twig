@@ -1,0 +1,4 @@
+[{% for message in messages -%}
+    {{ {value: message.id, label: message.recruteur}|json_encode|raw }}
+    {%- if not loop.last %},{% endif -%}
+    {%- endfor %}]

@@ -47,4 +47,48 @@ class MessageRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    // ATTENTION A VERIFIER
+    /**
+     * @param string $candidat
+     *
+     * @return array
+     */
+
+    /*
+    public function findLike($candidat)
+    {
+        return $this
+            ->createQueryBuilder('a')
+            ->where('a.candidat LIKE :candidat')
+            ->setParameter( 'candidat', "%$candidat%")
+            ->orderBy('a.candidat')
+            ->setMaxResults(5)
+            ->getQuery()
+            ->execute()
+            ;
+    }
+    */
+
+    // ATTENTION A VERIFIER
+    /**
+     * @param string $recruteur
+     *
+     * @return array
+     */
+
+    /*
+    public function findLike($recruteur)
+    {
+        return $this
+            ->createQueryBuilder('a')
+            ->where('a.recruteur LIKE :recruteur')
+            ->setParameter( 'recruteur', "%$recruteur%")
+            ->orderBy('a.recruteur')
+            ->setMaxResults(5)
+            ->getQuery()
+            ->execute()
+            ;
+    }
+    */
 }

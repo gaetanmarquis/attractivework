@@ -31,10 +31,15 @@ class CandidatController extends AbstractController
 
     /**
      * @Route("/candidat/add", name="candidat_add")
+    * @Route("/candidat/edit/{id}", name="candidat_edit")
      */
-    public function add(Request $request, ObjectManager $objectManager, MembreRepository $membreRepository)
+    public function add(Request $request, ObjectManager $objectManager, MembreRepository $membreRepository, Candidat $candidat = null)
     {
-        $candidat = new Candidat();
+
+        if ($candidat === null) {
+            $candidat = new Candidat();
+        }
+
         $candidatForm = $this->createForm(CandidatType::class, $candidat);
         $candidatForm->handleRequest($request);
 
@@ -54,4 +59,14 @@ class CandidatController extends AbstractController
             'candidat_form' => $candidatForm->createView(),
         ]);
     }
+
+    /*
+    * @Route("/candidat/delete/{id}", name="candidat_delete")
+    */
+    public function delete(Candidat $candidat, ObjectManager $objectManager){
+
+        if( $candidat !== null ){
+            $objectManager->remove($candidat);
+            $objectManager->flush();
+        }
 }

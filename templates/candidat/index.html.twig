@@ -45,6 +45,9 @@
             <th>
                 Langue parlée
             </th>
+            <th>
+                Options
+            </th>
         </tr>
     </thead>
 
@@ -64,9 +67,14 @@
             <td>{{ candidat.metier }}</td>
             <td>{{ candidat.anneeExperience }}</td>
             <td>{{ candidat.langueParlee }}</td>
+            <td>
+                    <a href="{{ path('candidat_edit', { 'id' : candidat.id }) }}"><i class="fas fa-pen"></i></a>
+                    <a href="{{ path('candidat_delete', { 'id' : candidat.id }) }}"><i class="fas fa-trash-alt"></i></a>
+                </td>
         </tr>
 
     {% endfor %}
     </tbody>
 </table>
+<a href="{{ path('candidat_add', { 'id' : candidat.id }) }}"><button type="button" class="btn btn-info">Ajouter un candidat</button></a>
 {% endblock %}

@@ -1,8 +1,23 @@
 {% extends 'base.html.twig' %}
 
+
 {% block title %}Hello MessageController!{% endblock %}
 
 {% block body %}
     {{ form_start(message_form) }}
     {{ form_end(message_form) }}
+{% endblock %}
+
+{% block javascripts %}
+	{#
+<<<<<<< HEAD
+	{% include "../../js/autocompleter_candidat.js" %}
+	{% include "../../js/autocompleter_recruteur.js" %}
+	{% include "../includes/auto_complete.html.twig" %}
+=======
+	{% include "autocompleter_candidat.js" %}
+	{% include "autocompleter_recruteur.js" %}
+	{% include "auto_complete.html.twig" %}
+>>>>>>> message
+	#}
 {% endblock %}
