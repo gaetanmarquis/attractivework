@@ -45,6 +45,11 @@
             <th>
                 Langue parlée
             </th>
+            <th>
+
+                <a class="btn btn-success" href="{{ path('candidat_add') }}" role="button">Ajouter un candidat</a>
+
+            </th>
         </tr>
     </thead>
 
@@ -64,6 +69,8 @@
             <td>{{ candidat.metier }}</td>
             <td>{{ candidat.anneeExperience }}</td>
             <td>{{ candidat.langueParlee }}</td>
+            <td><a class="btn btn-primary" href="{{ path('candidat_edit', { 'id' : candidat.id })  }}" role="button">Modifier ce candidat</a></td>
+            <td><a class="btn btn-danger" href="{{ path('candidat_delete', { 'id' : candidat.id })  }}" role="button">Supprimer ce candidat</a></td>
         </tr>
 
     {% endfor %}

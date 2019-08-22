@@ -51,12 +51,16 @@ class LikeController extends AbstractController
 
     /**
      * @Route("/like/add", name="like_add")
+     * @Route("/like/edit/{id}", name="like_edit")
+     *
      */
-    public function add(Request $request, ObjectManager $objectManager)
+    public function add(Request $request, ObjectManager $objectManager, Like $like = null)
     {
         //Adapter les 3 lignes ci-dessous selon la table en BDD
         //Il s'agit de la création du formulaire
+        if( $like === null ){
         $like = new Like();
+        }
         $likeForm = $this->createForm(LikeType::class, $like);
         $likeForm->handleRequest($request);
 
@@ -77,6 +81,19 @@ class LikeController extends AbstractController
         return $this->render('like/add.html.twig', [
             'like_form' => $likeForm->createView(),
         ]);
+    }
+
+    /**
+     *@Route("/like/delete/{id}", name="like_delete")
+     *
+     */
+    public function delete(Like $like, ObjectManager $objectManager)
+    {
+        if( $like !== null ){
+            $objectManager->remove($like);
+            $objectManager->flush();
+        }
+        return $this->redirectToRoute('like');
     }
 
 }

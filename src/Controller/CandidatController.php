@@ -31,15 +31,18 @@ class CandidatController extends AbstractController
 
     /**
      * @Route("/candidat/add", name="candidat_add")
+     * @Route("/candidat/edit/{id}", name="candidat_edit")
      */
-    public function add(Request $request, ObjectManager $objectManager, MembreRepository $membreRepository)
+    public function add(Request $request, ObjectManager $objectManager, MembreRepository $membreRepository, Candidat $candidat = null)
     {
+        if( $candidat === null ){
         $candidat = new Candidat();
+         $id_membre = $_GET['id_membre'];
+         $membre = $membreRepository->find($id_membre);
+        }
         $candidatForm = $this->createForm(CandidatType::class, $candidat);
         $candidatForm->handleRequest($request);
 
-        $id_membre = $_GET['id_membre'];
-        $membre = $membreRepository->find($id_membre);
 
         if( $candidatForm->isSubmitted() && $candidatForm->isValid() ){
             $candidat->setMembre( $membre );
@@ -53,5 +56,17 @@ class CandidatController extends AbstractController
         return $this->render('candidat/add.html.twig', [
             'candidat_form' => $candidatForm->createView(),
         ]);
+    }
+
+    /**
+     *@Route("/candidat/delete/{id}", name="candidat_delete")
+     */
+    public function delete(Candidat $candidat, ObjectManager $objectManager)
+    {
+        if( $candidat !== null ){
+            $objectManager->remove($candidat);
+            $objectManager->flush();
+        }
+        return $this->redirectToRoute('candidat');
     }
 }

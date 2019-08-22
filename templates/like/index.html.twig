@@ -10,18 +10,28 @@
             <th>candidat</th>
             <th>recruteur</th>
             <th>date</th>
+            <th>
+
+                <a class="btn btn-success" href="{{ path('like_add') }}" role="button">Ajouter un like</a>
+
+            </th>
         </tr>
     </thead>
 
     <tbody>
         {# Pour chaque like #}
         {% for like in likes %}
+
         <tr>
             <th>{{ like.id }}</th>
             <td>{{ like.candidat.membre.nom }} {{ like.candidat.membre.prenom }}</td>
             <td>{{ like.recruteur.membre.nom }} {{ like.recruteur.membre.prenom }}</td>
-            <td>{{ like.dateLike|date('j/m/Y') }}</td>
+            <td>{{ like.dateLike|date('j/m/Y h:m:s') }}</td>
+            <td><a class="btn btn-primary" href="{{ path('like_edit', { 'id' : like.id })  }}" role="button">Modifier ce like</a></td>
+            <td><a class="btn btn-danger" href="{{ path('like_delete', { 'id' : like.id })  }}" role="button">Supprimer ce like</a></td>
         </tr>
+
+
         {% endfor %}
     </tbody>
 </table>
