@@ -12,6 +12,7 @@
             <th>Reference</th>
             <th>Catégorie</th>
             <th>Description</th>
+            <th>Options</th>
         </tr>
         </thead>
 
@@ -23,8 +24,13 @@
             <td>{{ personnalite.reference }}</td>
             <td>{{ personnalite.categorie }}</td>
             <td>{{ personnalite.description }}</td>
+            <td>
+                    <a href="{{ path('personnalite_edit', { 'id' : personnalite.id }) }}"><i class="fas fa-pen"></i></a>
+                    <a href="{{ path('personnalite_delete', { 'id' : personnalite.id }) }}"><i class="fas fa-trash-alt"></i></a>
+                </td>
         </tr>
         {% endfor %}
         </tbody>
     </table>
+    <a href="{{ path('personnalite_add', { 'id' : personnalite.id }) }}"><button type="button" class="btn btn-info">Ajouter une personnalité</button></a>
 {% endblock %}

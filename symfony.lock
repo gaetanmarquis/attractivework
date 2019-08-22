@@ -275,15 +275,6 @@
             "./config/packages/security.yaml"
         ]
     },
-    "symfony/security-core": {
-        "version": "v4.3.3"
-    },
-    "symfony/security-csrf": {
-        "version": "v4.3.3"
-    },
-    "symfony/security-guard": {
-        "version": "v4.3.3"
-    },
     "symfony/security-http": {
         "version": "v4.3.3"
     },
