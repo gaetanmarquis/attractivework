@@ -63,4 +63,5 @@ class PersonnaliteController extends AbstractController
             $objectManager->remove($personnalite);
             $objectManager->flush();
         }
+    }    
 }

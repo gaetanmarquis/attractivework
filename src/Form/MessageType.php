@@ -17,19 +17,14 @@ class MessageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-<<<<<<< HEAD
+
             ->add('candidat', AutocompleteType::class, [
                 'class' => Candidat::class,
                 'label' => 'Candidat:'
-=======
-            ->add('candidat', AutocompleteType::class, ['label' => 'Candidat:'
->>>>>>> message
         ]) 
             ->add('recruteur', AutocompleteType::class, [
                 'class' => Recruteur::class,
                 'label' => 'Recruteur:'
-        ])
-            ->add('message', TextareaType::class, ['label' => 'Message'
         ])
             ->add('message', TextareaType::class, ['label' => 'Message'
         ])

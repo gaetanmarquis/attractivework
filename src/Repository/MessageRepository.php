@@ -54,12 +54,9 @@ class MessageRepository extends ServiceEntityRepository
      *
      * @return array
      */
-<<<<<<< HEAD
-    /*public function findLike($candidat)
-=======
+
     /*
     public function findLike($candidat)
->>>>>>> message
     {
         return $this
             ->createQueryBuilder('a')
@@ -79,12 +76,9 @@ class MessageRepository extends ServiceEntityRepository
      *
      * @return array
      */
-<<<<<<< HEAD
-    /*public function findLike($recruteur)
-=======
+
     /*
     public function findLike($recruteur)
->>>>>>> message
     {
         return $this
             ->createQueryBuilder('a')
