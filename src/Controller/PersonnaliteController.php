@@ -27,25 +27,13 @@ class PersonnaliteController extends AbstractController
      * @Route("/personnalite/add", name="personnalite_add")
      * @Route("/personnalite/edit/{id}", name="personnalite_edit")
      */
-<<<<<<< HEAD
-    public function add(Request $request, ObjectManager $objectManager,  Personnalite $personnalite = null)
-=======
     public function add(Request $request, ObjectManager $objectManager , Personnalite $personnalite = null)
->>>>>>> controller
     {
 
         if ($personnalite === null) {
             $personnalite = new Personnalite();
         }
-        //Adapter les 3 lignes ci-dessous selon la table en BDD
-        //Il s'agit de la création du formulaire
-<<<<<<< HEAD
-=======
 
-            if($personnalite === null){
-            $personnalite = new Personnalite();
-            }
->>>>>>> controller
         $personnaliteForm = $this->createForm(PersonnaliteType::class, $personnalite);
         $personnaliteForm->handleRequest($request);
 
@@ -65,18 +53,7 @@ class PersonnaliteController extends AbstractController
         ]);
     }
 
-<<<<<<< HEAD
-    /*
-    * @Route("/personnalite/delete/{id}", name="personnalite_delete")
-    */
-    public function delete(Personnalite $personnalite, ObjectManager $objectManager){
 
-        if( $personnalite !== null ){
-            $objectManager->remove($personnalite);
-            $objectManager->flush();
-        }
-    }    
-=======
     /**
      * @Route("/personnalite/delete/{id}", name="delete_personnalite")
      */
@@ -89,5 +66,4 @@ class PersonnaliteController extends AbstractController
         //Redirection vers l'affichage - Mettre en argument le nom de la route
         return $this->redirectToRoute('personnalite');
     }
->>>>>>> controller
 }
