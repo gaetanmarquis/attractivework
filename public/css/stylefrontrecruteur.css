@@ -1,0 +1,30 @@
+.navbar{
+    background-color: #b13f9a;
+}
+
+
+
+.card, .masthead {
+    border-top:  #b13f9a solid 9px;
+}
+
+img{
+    min-width: auto;
+    max-width: 30%;
+    border-color: #b13f9a;
+}
+
+.btn-outline{
+    background-color: #b13f9a;
+}
+
+h2, h1{
+    color: #15445b ;
+
+}
+
+.fas{
+    color: #b13f9a;
+
+   }
+

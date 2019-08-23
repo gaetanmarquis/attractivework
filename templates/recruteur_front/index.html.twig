@@ -1,0 +1,137 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="{{ asset('css/stylefrontrecruteur.css') }}" rel="stylesheet">"
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+{% endblock %}
+
+{% block title %}Hello RecruteurFrontController!{% endblock %}
+
+{% block body %}
+<body id="page-top">
+
+<!-- Barre de Navigation -->
+<nav class="navbar navbar-expand-md navbar-dark fixed-top text-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">Dropdown</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+<!-- Profil Recruteur Masthead -->
+<header class="bg-light text-white text-center">
+    <!--    {% for recruteur in recruteurs %}    -->
+    <div class="container d-flex align-items-center flex-column">
+
+        <!-- Masthead Avatar Image -->
+        <img class="masthead-avatar mb-5 rounded-circle border border-danger pt-1 pb-1 pr-1 pl-1" src="{{ asset('image/drapeau_mugiwara.jpg') }}"
+             alt="logoentreprise">
+         {{ recruteur.logoEntreprise }}
+        <!-- Masthead Heading -->
+        <h1 class="masthead-heading display-3 mt-2 mb-0 font-weight-bolder">{{ recruteur.nomEntreprise }}</h1>
+
+
+
+        <!-- Masthead Subheading -->
+        <p class="masthead-subheading font-weight-light text-black-50 mb-0">GA & WD Cie - CEO</p>
+        <p class="card-text text-center text-dark">This is a longer card with supporting text below as a natural lead-in to
+            additional content. This content is a little bit longer.</p>
+        <p><a class="btn btn-outline btn-lg text-light rounded-pill mt-2" href="#" role="button">Suivre</a></p>
+        <div class="d-flex"><p class="text-center text-dark font-weight-bolder col-md-3">Abonnés: 400</p><p class="text-center text-dark font-weight-bolder col-md-3">Abonnements: 100</p><p class="text-center text-dark font-weight-bolder col-3">J'aime: 50</p></div>
+
+    </div>
+    <!--    {% endfor %}-->
+</header>
+
+<!-- Candidat Section -->
+<section class="page-section candidat" id="candidat">
+    <div class="container">
+
+        <!--         Candidat Section Heading -->
+        <h2 class="page-section-heading text-center display-3 font-weight-bolder mb-0"><img src="{{ asset('image/icon_Recru.png') }}" alt="iconerecruteur"> &#8226; Candidats</h2>
+        <br><br>
+        <hr>
+        <br><br><br><br>
+
+        <!-- Portfolio Grid Items -->
+
+        <div class="container" style="background-color: #f9f9f9;">
+
+            <!-- cards section -->
+            <div class="card-deck">
+                {% for recruteur in recruteurs %}
+               <div class="card">
+                    <img src="{{ asset('image/robin.jpg') }}"
+                         class="card-img-top img-responsive rounded-circle border border-danger mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">{{ recruteur.membre.nom }} {{ recruteur.membre.prenom }}</h5>
+                        <h6 class="card-title text-center font-weight-light text-black-50">{{ recruteur.membre.ville }},{{ recruteur.membre.pays }}</h6>
+                        <p class="card-text text-center">This is a longer card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                        <p><a href="#" role="button"><i class="fas fa-plus-square fa-2x"></i></a></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="{{ asset('image/luffy.jpg') }}" class="card-img-top rounded-circle border border-danger mt-2 pt-1 pb-1 pr-1 pl-1 mx-auto"
+                         alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">{{ recruteur.membre.nom }} {{ recruteur.membre.prenom }}</h5>
+                        <h6 class="card-title text-center font-weight-light text-black-50">{{ recruteur.membre.ville }},{{ recruteur.membre.pays }}</h6>
+                        <p class="card-text text-center">This card has supporting text below as a natural lead-in to additional
+                            content.</p>
+                        <p><a href="#" role="button"><i class="fas fa-plus-square fa-2x"></i></a></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="{{ asset('image/eren.png') }}" class="card-img-top rounded-circle border border-danger mt-2 pt-1 pb-1 pr-1 pl-1 mx-auto" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">{{ recruteur.membre.nom }} {{ recruteur.membre.prenom }}</h5>
+                        <h6 class="card-title text-center font-weight-light text-black-50">{{ recruteur.membre.ville }},{{ recruteur.membre.pays }}</h6>
+                        <p class="card-text text-center">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This card has even longer content than the first to show that equal
+                            height action.</p>
+                        <p><a href="#" role="button" class=" btn-light"><i class="fas fa-plus-square fa-2x"></i></a></p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <!--            End cards section-->
+
+            <hr>
+
+        </div> <!-- /container -->
+
+
+        <!-- Footer -->
+
+        {% endblock %}
