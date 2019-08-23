@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block title %}Hello AccueilCandidatController!{% endblock %}
+
+{% block body %}
+{% include 'navbar_candidat/index.html.twig' %}
+<style>
+    
+</style>
+
+<div class="container">
+
+	<!-- Bloc de filtres -->
+	<div class="container">
+
+		<label for="filtreSecteur">Secteur d'activité</label>
+		<input type="text" id="filtreSecteur" name="filtreSecteur">
+
+		<label for="filtreRegion">Région</label>
+		<input type="text" id="filtreRegion" name="filtreRegion">
+
+		<label for="filtreVille">Ville</label>
+		<input type="text" id="filtreVille" name="filtreVille">
+
+		<label for="filtreEntreprise">Entreprise</label>
+		<input type="text" id="filtreEntreprise" name="filtreEntreprise">
+	</div>
+	<!-- Fin bloc de filtres -->
+
+	<!-- Bloc de cards -->
+	<div>
+
+		{% for recruteur in recruteurs %}
+		<div class="card-deck">
+  			<div class="card">
+    			<img src="{{ recruteur.membre.photoProfil }}" class="card-img-top" alt="{{ recruteur.membre.descriptionPhoto }}">
+    			<div class="card-body">
+      				<h5 class="card-title">{{ recruteur.membre.nom }} {{ recruteur.membre.prenom }}</h5>
+      				<p class="card-text">{{ recruteur.secteurActivite }} {{ recruteur.nomEntreprise }}</p>
+      				<p class="card-text"><small class="text-muted">{{ recruteur.membre.pays }} {{ recruteur.membre.ville }}</small></p>
+    			</div>
+  			</div>
+		</div>
+		{% endfor %}
+	</div>
+	<!-- Fin bloc de cards -->
+
+  
+</div>
+{% endblock %}
+
