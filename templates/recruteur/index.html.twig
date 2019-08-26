@@ -3,7 +3,7 @@
 {% block title %}Page des Recruteurs{% endblock %}
 
 {% block body %}
-    <a class="btn btn-success" href="{{ path('recruteur_add') }}" role="button"> Ajouter</a>
+    <a class="btn btn-success" href="{{ path('membre_add') }}" role="button"> Ajouter un recruteur</a>
     <table class="table">
         <thead>
         <tr>
@@ -37,8 +37,8 @@
                 <td>{{ recruteur.secteurActivite }}</td>
                 <td><img src="{{ recruteur.logoEntreprise }}" alt="{{ recruteur.descriptionLogo }}"></td>
                 <td>{{ recruteur.nomEntreprise }}</td>
-                <td><a class="btn btn-primary" href="{{ path('recruteur_edit', {'id' : recruteur.membre.id }) }}" role="button"> Modifier</a></td>
-                <td><a class="btn btn-danger" href="{{ path('delete_recruteur', {'id' : recruteur.membre.id }) }}" role="button">Supprimer</a></td>
+                <td><a class="btn btn-primary" href="{{ path('recruteur_edit', {'id' : recruteur.id }) }}" role="button"> Modifier</a></td>
+                <td><a class="btn btn-danger" href="{{ path('delete_recruteur', {'id' : recruteur.id }) }}" role="button">Supprimer</a></td>
             </tr>
 
         {% endfor %}

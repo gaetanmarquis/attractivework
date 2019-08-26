@@ -4,13 +4,11 @@ namespace App\Controller;
 
 use App\Entity\Offre;
 use App\Form\OffreType;
-use App\Repository\MembreRepository;
 use App\Repository\OffreRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Validator\Constraints as Assert;
 
 class OffreController extends AbstractController
 {
@@ -41,17 +39,13 @@ class OffreController extends AbstractController
 
     /**
      * @Route("/offre/add", name="offre_add")
+     * @Route("/offre/edit/{id}", name="edit_offre")
      */
-    public function add(Request $request, ObjectManager $objectManager,  MembreRepository $membreRepository, Offre $offre = null)
+    public function add(Request $request, ObjectManager $objectManager, Offre $offre = null)
     {
-        //Adapter les 3 lignes ci-dessous selon la table en BDD
-        //Il s'agit de la création du formulaire
-        $offre = new offre();
 
         if ($offre === null) {
             $offre = new Offre();
-            $id_offre = $_GET['id_offre'];
-            $membre = $membreRepository->find($id_membre);
         }
 
         $offreForm = $this->createForm(offreType::class, $offre);

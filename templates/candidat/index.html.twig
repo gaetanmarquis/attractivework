@@ -3,6 +3,7 @@
 {% block title %}Candidats{% endblock %}
 
 {% block body %}
+<a href="{{ path('membre_add') }}"><button type="button" class="btn btn-success">Ajouter un candidat</button></a>
 <table class="table">
     <thead>
         <tr>
@@ -45,10 +46,6 @@
             <th>
                 Langue parlée
             </th>
-            <th>
-
-                <a class="btn btn-success" href="{{ path('candidat_add') }}" role="button">Ajouter un candidat</a>
-            </th>
         </tr>
     </thead>
 
@@ -79,5 +76,4 @@
     {% endfor %}
     </tbody>
 </table>
-<a href="{{ path('candidat_add') }}"><button type="button" class="btn btn-info">Ajouter un candidat</button></a>
 {% endblock %}

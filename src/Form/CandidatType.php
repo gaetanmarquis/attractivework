@@ -29,9 +29,11 @@ class CandidatType extends AbstractType
             ])
             ->add('cv', FileType::class, [
                 'label' => 'CV',
+                'data_class' => null,
             ])
             ->add('autre_fichier', FileType::class, [
                 'label' => 'Autre fichier',
+                'data_class' => null,
             ])
             ->add('atout', TextType::class, [
                 'label' => 'Atout',

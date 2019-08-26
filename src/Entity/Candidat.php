@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Membre;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -18,7 +19,7 @@ class Candidat
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Membre", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
     private $membre;
 

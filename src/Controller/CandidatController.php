@@ -35,6 +35,8 @@ class CandidatController extends AbstractController
      */
     public function add(Request $request, ObjectManager $objectManager, MembreRepository $membreRepository, Candidat $candidat = null)
     {
+        // dump($candidat);
+        
         if ($candidat === null) {
             $candidat = new Candidat();
             $id_membre = $_GET['id_membre'];
@@ -46,7 +48,9 @@ class CandidatController extends AbstractController
 
 
         if ($candidatForm->isSubmitted() && $candidatForm->isValid()) {
-            $candidat->setMembre($membre);
+            if ($candidat === null) {
+                $candidat->setMembre($membre);
+            }
 
             $objectManager->persist($candidat);
             $objectManager->flush();
