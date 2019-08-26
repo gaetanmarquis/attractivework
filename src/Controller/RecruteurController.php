@@ -9,6 +9,7 @@ use App\Repository\RecruteurRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class RecruteurController extends AbstractController
@@ -31,15 +32,18 @@ class RecruteurController extends AbstractController
 
     /**
      * @Route("/recruteur/add", name="recruteur_add")
+     * @Route("/recruteur/edit/{id}", name="recruteur_edit")
      */
-    public function add(Request $request, ObjectManager $objectManager, MembreRepository $membreRepository)
+    public function add(Request $request, ObjectManager $objectManager, MembreRepository $membreRepository, Recruteur $recruteur = null)
     {
-        $recruteur = new Recruteur();
+            if($recruteur === null){
+                $recruteur = new Recruteur();
+                $id_membre = $_GET['id_membre'];
+                $membre = $membreRepository->find($id_membre);
+            }
+
         $recruteurForm = $this->createForm(RecruteurType::class, $recruteur);
         $recruteurForm->handleRequest($request);
-
-        $id_membre = $_GET['id_membre'];
-        $membre = $membreRepository->find($id_membre);
 
         if( $recruteurForm->isSubmitted() && $recruteurForm->isValid() ){
             $recruteur->setMembre( $membre );
@@ -55,6 +59,7 @@ class RecruteurController extends AbstractController
                 $recruteur->setLogoEntreprise( $folder . DIRECTORY_SEPARATOR . $filename );
             }
 
+            //Injection en BDD
             $objectManager->persist($recruteur);
             $objectManager->flush();
 
@@ -64,5 +69,18 @@ class RecruteurController extends AbstractController
         return $this->render('recruteur/add.html.twig', [
             'recruteur_form' => $recruteurForm->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/recruteur/delete/{id}", name="delete_recruteur")
+     */
+    public function delete(ObjectManager $objectManager, Recruteur $recruteur)
+    {
+        if ($recruteur !== null) {
+            $objectManager->remove($recruteur);
+            $objectManager->flush();
+        }
+
+        return $this->redirectToRoute('recruteur');
     }
 }

@@ -1,0 +1,64 @@
+INSERT INTO personnalite(
+	nom,
+	reference,
+	categorie,
+	description
+)VALUES
+( "Architecte", "INTJ", "Les Analystes", "On se sent seul en haut et, comme ils sont un des types de personnalité les plus rares et les plus capables sur le plan stratégique, les Architectes ne le savent que trop bien. Les Architectes forment juste deux pourcent de la population et les femmes de ce type de personnalité sont particulièrement rares, car elles ne forment que 0,8 % de la population. Pour les Architectes, il est souvent difficile de trouver des individus de même sensibilité qui soient capables de suivre leur implacable intellectualisme et leurs manoeuvres de joueurs d’échec. Les gens qui ont le type de personnalité « Architecte » sont imaginatifs mais catégoriques, ambitieux et pourtant secrets, étonnamment curieux, mais ils ne gaspillent pas leur énergie."),
+( "Logicien", "INTP", "Les Analystes", "Le type de personnalité « Logicien » est assez rare, car il ne constitue que trois pourcent de la population, ce qui est incontestablement une bonne chose pour eux, car rien ne les attristerait plus que d’être « ordinaires ». Les Logiciens s’enorgueillissent de leur inventivité et de leur créativité, de leur perspective hors du commun et de la vigueur de leur intellect. Habituellement connus sous les traits du philosophe, de l’architecte ou du professeur rêveur, les Logiciens ont été à l’origine de nombreuses découvertes scientifiques tout au long de l’histoire."),
+( "Avocat", "INFJ", "Les Diplomates", "Le type de personnalité « Avocat » est très rare et constitue moins de un pourcent de la population, mais cela ne les empêche pas de laisser leur empreinte sur le monde. Ils ont un sens inné de l’idéalisme et de la morale, mais leur détermination et leur fermeté les différencie des autres types de personnalité. Les Avocats ne sont pas des rêveurs inactifs, mais des gens capables de prendre des mesures concrètes pour réaliser leurs buts et laisser un impact durablement positif."),
+( "Inspirateur", "ENFP", "Les Diplomates", "La personnalité « Inspirateur » est un véritable esprit libre. Ils sont souvent l’âme d’une soirée mais, à la différence des Explorateurs, ils sont moins intéressés par l’excitation et le plaisir purs du moment présent que par l’appréciation des connexions sociales et émotionnelles qu’ils établissent avec autrui. Charmants, indépendants, énergiques et compatissants, les 7 % de la population qu’ils représentent peuvent certainement se repérer dans n’importe quelle foule.");
+
+
+
+INSERT INTO membre(
+	personnalite_id,
+	nom,
+	prenom,
+	email,
+	mdp,
+	ville,
+	pays,
+	photo_profil,
+	description,
+	statut,
+	date_inscription,
+	description_photo
+) VALUES
+(1, "Evans", "Chris", "chris.evans@gmail.com", "chrisevans", "New-York", "Etats-Unis", "http://fr.web.img3.acsta.net/pictures/15/08/12/12/23/376279.jpg", "Je suis Chris Evans le mari de Caroline", "Candidat", NOW(), "Chris Evans"),
+(2, "Stan", "Sebastian", "sebastian.stan@gmail.com", "sebastianstan", "New-York", "Etats-Unis", "https://66.media.tumblr.com/0c2194a587e04469578b9501edfbcf14/tumblr_po46yeJO9O1tdoh6jo2_400.jpg", "Je suis Sebastian Stan", "Candidat", NOW(), "Sebastian Stan"),
+(3, "Hart", "Kevin", "kevin.hart@gmail.com", "kevinhart", "New-York", "Etats-Unis", "https://img.huffingtonpost.com/asset/5c92b9e32300008b00e885e3.jpeg?ops=scalefit_630_noupscale", "Je suis Kevin Hart", "Recruteur", NOW(), "Kevin Hart"),
+(4, "Crews", "Terry", "terry.crews@gmail.com", "terrycrews", "New-York", "Etats-Unis", "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/03/18/13/gettyimages-1135216462.jpg", "Je suis Terry Crews", "Recruteur", NOW(), "Terry Crews");
+
+
+
+INSERT INTO candidat(
+	membre_id,
+	date_naissance,
+	telephone,
+	atout,
+	site_web,
+	salaire,
+	date_disponibilite,
+	type_contrat,
+	metier,
+	annee_experience,
+	langue_parlee
+) VALUES
+( 1, '04/05/1992', 0123456789, "Intelligent, beau, drole", "chris.evans.com", 30000, '23/08/2019', "CDI", "Acteur", 10, "Anglais"),
+( 2, '04/05/1992', 0123456789, "Intelligent, beau, drole", "chris.evans.com", 30000, '23/08/2019', "CDI", "Acteur", 10, "Anglais"),
+
+
+
+
+
+INSERT INTO recruteur(
+	membre_id,
+	secteur_activite,
+	logo_entreprise,
+	nom_entreprise,
+	description_logo
+) VALUES
+( 3, "Cinema", "https://img.huffingtonpost.com/asset/5c92b9e32300008b00e885e3.jpeg?ops=scalefit_630_noupscale", "Kevin Ent.", "Kevin Ent."),
+( 4, "Cinema", "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/03/18/13/gettyimages-1135216462.jpg", "Terry Ent.", "Terry Ent.");
+

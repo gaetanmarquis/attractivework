@@ -3,17 +3,17 @@
 {% block title %}Page des offres{% endblock %}
 
 {% block body %}
-    <table>
-        <thead>
+    <table class="table">
+        <thead class="thead-dark">
         <tr>
-            <th>Id de l'offre</th>
-            <th>Id du recruteur</th>
-            <th>Titre du poste</th>
-            <th>Description du poste</th>
-            <th>Salaire pour le poste</th>
-            <th>Ville où le poste est proposé :</th>
-            <th>Pays où le poste est proposé :</th>
-            <th>Date de publication</th>
+            <th scope="row"></th>
+            <th scope="row">Id du recruteur</th>
+            <th scope="row">Titre du poste</th>
+            <th scope="row">Description du poste</th>
+            <th scope="row">Salaire pour le poste</th>
+            <th scope="row">Ville où le poste est proposé</th>
+            <th scope="row">Pays où le poste est proposé</th>
+            <th scope="row">Date de publication</th>
         </tr>
         </thead>
 
@@ -21,16 +21,19 @@
         <tdbody>
             {% for offre in offres %}
             <tr>
-                <td>{{ offre.id }}</td>
-                <td>{{ offre.recruteur_id }}</td>
-                <td>{{ offre.titre }}</td>
-                <td>{{ offre.description_poste }}</td>
-                <td>{{ offre.salaire_poste }} €</td>
-                <td>{{ offre.ville_poste }}</td>
-                <td>{{ offre.pays_poste }}</td>
-                <td>{{ offre.date_publication|date("d/m/Y") }}</td>
+                <td scope="row">{{ offre.id }}</td>
+                <td scope="row">{{ offre.recruteur_id }}</td>
+                <td scope="row">{{ offre.titre }}</td>
+                <td scope="row">{{ offre.descriptionPoste }}</td>
+                <td scope="row">{{ offre.salairePoste }} €</td>
+                <td scope="row">{{ offre.villePoste }}</td>
+                <td scope="row">{{ offre.paysPoste }}</td>
+                <td scope="row">{{ offre.datePublication|date("d/m/Y") }}</td>
+                <td scope="row"><a class="btn btn-primary" href="{{ path('offre_edit', {'id' : offre.membre.id }) }}" role="button"> Modifier</a></td>
+                <td scope="row"><a class="btn btn-danger" href="{{ path('delete_offre', {'id' : offre.membre.id }) }}" role="button">Supprimer</a></td>
                 {% endfor %}
             </tr>
+
         </tdbody>
     </table>
 {% endblock %}

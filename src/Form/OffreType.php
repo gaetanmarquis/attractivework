@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Offre;
+use App\Entity\Recruteur;
+//use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -32,10 +34,12 @@ class OffreType extends AbstractType
                 'label' => 'Pays du poste'
             ])
             ->add('date_publication', DateType::class, [
-                'label' => 'Date de publication'
+                'label' => 'Date de publication',
+                'format' => 'dd/MM/yyyy'
             ])
+            //correction de TextType en EntityTime
             ->add('recruteur', TextType::class, [
-                'label' => 'Recruteur'
+                'class' => Recruteur::class
             ])
 
             ->add('submit', SubmitType::class,[
