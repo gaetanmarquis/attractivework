@@ -103,6 +103,7 @@ class ProfilPersoCandidatController extends AbstractController
 
         return $this->render('membre/add.html.twig', [
             'membre_form' => $membreForm->createView(),
+            'value_btn' => 'modifier',
         ]);
     }
 }
