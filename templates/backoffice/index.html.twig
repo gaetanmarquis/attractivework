@@ -3,16 +3,6 @@
 {% block title %}Hello BackOfficeController!{% endblock %}
 
 {% block body %}
-<h1>Bonjour Administrateur</h1>
-
-<ul>
-    <li><a href="{{ path('personnalite') }}">personnalite</a></li>
-    <li><a href="{{ path('membre') }}">membre</a></li>
-    <li><a href="{{ path('candidat') }}">candidat</a></li>
-    <li><a href="{{ path('recruteur') }}">recruteur</a></li>
-    <li><a href="{{ path('like') }}">like</a></li>
-    <li><a href="{{ path('match') }}">match</a></li>
-    <li><a href="{{ path('message') }}">message</a></li>
-    <li><a href="{{ path('offre') }}">offre</a></li>
-</ul>
+  {% include 'backoffice/navbar.html.twig' %}
+  <h1>Bonjour Administrateur</h1>
 {% endblock %}

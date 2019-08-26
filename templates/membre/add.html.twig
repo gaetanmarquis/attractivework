@@ -60,6 +60,11 @@
             {{ form_widget(membre_form.role_emploi, {attr : {class : 'custom-select'}}) }}
         </div>
 
+        <div class="form-group {% if not is_granted('ROLE_ADMIN') %} d-none {% endif %}">
+            {{ form_label(membre_form.statut) }}
+            {{ form_widget(membre_form.statut, {attr : {class : 'custom-select'}}) }}
+        </div>
+
         <input type="hidden" name="type_submit" value="{{ value_btn }}">
 
         <div>

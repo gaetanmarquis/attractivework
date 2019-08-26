@@ -29,6 +29,8 @@ class OffreController extends AbstractController
         $offres = $offreRepository->createQueryBuilder('o')
             ->join('o.recruteur', 'r')
             ->addSelect('r')
+            ->join('r.membre', 'm')
+            ->addSelect('m')
             ->getQuery()
             ->getResult();
 

@@ -3,6 +3,10 @@
 {% block title %}Hello MessageController!{% endblock %}
 
 {% block body %}
+{% include 'backoffice/navbar.html.twig' %}
+
+<a href="{{ path('message_add') }}"><button type="button" class="btn btn-success">Ajouter un message</button></a>
+<a class="btn btn-info" href="{{ path('match') }}">Liste des match</a>
 <table class="table">
         <thead>
             <tr>
@@ -32,5 +36,4 @@
             {% endfor %}
         </tbody>
     </table>
-    <a href="{{ path('message_add') }}"><button type="button" class="btn btn-info">Ajouter un message</button></a>
 {% endblock %}

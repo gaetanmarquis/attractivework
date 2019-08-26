@@ -58,7 +58,7 @@ class MatchController extends AbstractController
         //Adapter les 3 lignes ci-dessous selon la table en BDD
         //Il s'agit de la création du formulaire
         if( $match === null ){
-        $match = new Match();
+            $match = new Match();
         }
         $matchForm = $this->createForm(MatchType::class, $match);
         $matchForm->handleRequest($request);

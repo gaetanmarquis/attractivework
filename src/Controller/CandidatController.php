@@ -36,6 +36,7 @@ class CandidatController extends AbstractController
     public function add(Request $request, ObjectManager $objectManager, MembreRepository $membreRepository, Candidat $candidat = null)
     {
         // dump($candidat);
+        // echo $_GET['id_membre'];
         
         if ($candidat === null) {
             $candidat = new Candidat();
@@ -43,12 +44,15 @@ class CandidatController extends AbstractController
             $membre = $membreRepository->find($id_membre);
         }
 
+        // dump($membre);
+
         $candidatForm = $this->createForm(CandidatType::class, $candidat);
         $candidatForm->handleRequest($request);
 
 
         if ($candidatForm->isSubmitted() && $candidatForm->isValid()) {
-            if ($candidat === null) {
+            //si la condition est excate, c'est qu'un nouvel utilisateur est créé, sinon c'est une modification (setMembre n'a pas à être appelée)
+            if ($id_membre === $_GET['id_membre']) {
                 $candidat->setMembre($membre);
             }
 

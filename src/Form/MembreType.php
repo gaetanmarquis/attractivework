@@ -59,11 +59,18 @@ class MembreType extends AbstractType
                 'choice_label' => 'nom',
             ])
             ->add('role_emploi', ChoiceType::class, [
-                'label' => 'Roles',
+                'label' => 'Role',
                 'choices' => [
                     'Candidat' => 'candidat',
                     'Recruteur' => 'recruteur'
                 ]
+            ])
+            ->add('statut', ChoiceType::class, [
+                'label' => 'Statut',
+                'choices' => [
+                    'Membre' => 'ROLE_USER',
+                    'Admin' => 'ROLE_USER,ROLE_ADMIN'
+                ] 
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Enregistrer'

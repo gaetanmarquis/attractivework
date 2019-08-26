@@ -3,7 +3,12 @@
 {% block title %}Page des Recruteurs{% endblock %}
 
 {% block body %}
+{% include 'backoffice/navbar.html.twig' %}
+
     <a class="btn btn-success" href="{{ path('membre_add') }}" role="button"> Ajouter un recruteur</a>
+    <a class="btn btn-info" href="{{ path('membre') }}" role="button"> Retour aux membres</a>
+    <a class="btn btn-info" href="{{ path('offre') }}" role="button"> Liste des offres</a>
+
     <table class="table">
         <thead>
         <tr>

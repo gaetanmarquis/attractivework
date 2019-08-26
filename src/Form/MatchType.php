@@ -17,9 +17,6 @@ class MatchType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('date_match', DateType::class, [
-                'label'=>"Date du match"
-            ])
             ->add('candidat', AutocompleteType::class, [
                 'class' => Candidat::class,
                 'label' => "id candidat"

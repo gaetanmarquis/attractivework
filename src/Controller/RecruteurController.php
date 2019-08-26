@@ -36,7 +36,7 @@ class RecruteurController extends AbstractController
      */
     public function add(Request $request, ObjectManager $objectManager, MembreRepository $membreRepository, Recruteur $recruteur = null)
     {
-        dump($recruteur);
+        // dump($recruteur);
 
         if($recruteur === null){
             $recruteur = new Recruteur();
