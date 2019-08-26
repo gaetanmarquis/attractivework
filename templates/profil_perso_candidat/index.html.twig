@@ -3,14 +3,66 @@
 {% block title %}Hello ProfilPersoCandidatController!{% endblock %}
 
 {% block body %}
-	{% include 'navbar_candidat/index.html.twig' %}
+
+{% include 'navbar_candidat/index.html.twig' %}
+
 <style>
     
+	.photoProfil{
+		max-width: 300px;
+		max-height: 300px;
+		border-radius: 50%;
+		padding: 3px;
+		border: solid 3px #a2ddf7;
+	}
+
 </style>
 
 <div class="container">
-    
 
-   
+	<div class="">
+		<img src="{{ candidat.membre.photoProfil }}" alt="{{ candidat.membre.descriptionPhoto }}" class="photoProfil img-fluid">
+	</div>
+
+	<div>
+		
+		<div>
+			<h2>Vos informations <a href="{{ path('profil_perso_infos_edit', { 'id' : candidat.id}) }}"><i class="fas fa-pencil-alt"></i></a></h2>
+			<ul>
+				<li>{{ candidat.membre.prenom }} {{ candidat.membre.nom }}</li>
+				<li>{{ candidat.dateNaissance|date('d/m/Y') }}</li>
+				<li>{{ candidat.membre.email }}</li>
+				<li>{{ candidat.telephone }}</li>
+				<li>{{ candidat.membre.ville }} {{ candidat.membre.pays }}</li>
+			</ul>
+
+			<hr>
+			<h2>Vos informations professionnelles</h2>
+			<ul>
+				<li>{{ candidat.dateDisponibilite|date('d/m/Y')  }}</li>
+				<li>{{ candidat.typeContrat }}</li>
+				<li>{{ candidat.salaire }}</li>
+				<li>{{ candidat.anneeExperience }}</li>
+				<li>{{ candidat.langueParlee }}</li>
+				<li>{{ candidat.siteWeb }}</li>
+				<li><a href="{{ candidat.cv }}" download="CV"></a></li>
+				<li><a href="{{ candidat.autreFichier }}" download="Autre fichier"></a></li>
+			</ul>
+		</div>
+
+		<div>
+			<h1>{{ candidat.metier }}</h1>
+
+			<!-- <h2><a href="{{ path() }}">{{ candidat.membre.personnalite.nom }}</a></h2> -->
+			<h2>Atouts : {{ candidat.atout }}</h2>
+
+			<h3>Description</h3>
+			<p>{{ candidat.membre.description }}</p>
+			<a href="{{ path('profil_perso_cv_edit', { 'id' : candidat.id}) }}"><i class="fas fa-pencil-alt"></i></a>
+		</div>
+
+	</div>
+
 </div>
 {% endblock %}
+

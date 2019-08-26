@@ -76,11 +76,11 @@ class MembreController extends AbstractController
             $objectManager->flush();
 
             if( $valueBtn === 'ajouter' ){
-                if( $_POST['role'] === 'candidat' ){
+                if( $membre->getRoleEmploi() === 'candidat' ){
                     //formulaire candidat
                     return $this->redirectToRoute('candidat_add', ['id_membre' => $membre->getId()]);
                 }
-                elseif( $_POST['role'] === 'recruteur' ){
+                elseif( $membre->getRoleEmploi() === 'recruteur' ){
                     //formulaire recruteur
                     return $this->redirectToRoute('recruteur_add', ['id_membre' => $membre->getId()]);
                 }

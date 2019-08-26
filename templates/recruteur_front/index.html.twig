@@ -1,10 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="{{ asset('css/stylefrontrecruteur.css') }}" rel="stylesheet">"
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+    {{ parent() }}
+    <link href="{{ asset('css/stylefrontrecruteur.css') }}" rel="stylesheet">
 {% endblock %}
 
 {% block title %}Hello RecruteurFrontController!{% endblock %}
@@ -18,26 +16,24 @@
         <div class="col-lg-12">
             <div class="card mt-5 recruteur-top">
                 <div class="card-body">
-                    {% for recruteur in recruteurs %}
-                        <div class="card border-0 mx-auto" style="width: 18rem;">
-                            <img src="{{ asset('image/robin.jpg') }}"
-                                 class="card-img-top img-responsive rounded-circle border border-danger mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
-                                 alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">{{ recruteur.membre.nom }} {{ recruteur.membre.prenom }}</h5>
-                                <h6 class="card-title text-center font-weight-light text-black-50">{{ recruteur.membre.ville }}
-                                    ,{{ recruteur.membre.pays }}</h6>
-                                <p class="card-text text-center">This is a longer card with supporting text below as a
-                                    natural lead-in
-                                    to
-                                    additional content. This content is a little bit longer.</p>
-                                <button type="button"
-                                        class="btn btn-lg rounded-pill pl-lg-5 pr-lg-5 col px-md-5 font-weight-bolder text-white">
-                                    Suivre
-                                </button>
-                            </div>
+                    <div class="card border-0 mx-auto" style="width: 18rem;">
+                        <img src="{{ asset('image/robin.jpg') }}"
+                             class="card-img-top img-responsive rounded-circle border border-danger mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
+                             alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">{{ app.user.nom }} {{ app.user.prenom }}</h5>
+                            <h6 class="card-title text-center font-weight-light text-black-50">{{ app.user.ville }}
+                                ,{{ app.user.pays }}</h6>
+                            <p class="card-text text-center">This is a longer card with supporting text below as a
+                                natural lead-in
+                                to
+                                additional content. This content is a little bit longer.</p>
+                            <button type="button"
+                                    class="btn btn-lg rounded-pill pl-lg-5 pr-lg-5 col px-md-5 font-weight-bolder text-white">
+                                Suivre
+                            </button>
                         </div>
-                    {% endfor %}
+                    </div>
                 </div>
 
                 {# DébutZone Abonnements#}
@@ -62,8 +58,6 @@
     <!--Fin Candidat Card-->
 
 
-
-
     <!-- Section Candidat  -->
     <section class="page-section candidat" id="candidat">
         <div class="container">
@@ -76,165 +70,34 @@
 
             <!-- Début cards section -->
             <div class="container pt-2" style="background-color: #f9f9f9;">
-
-
                 <div class="card-deck">
                     {% for candidat in candidats %}
-                    <div class="card">
-                        <img src="{{ asset('image/robin.jpg') }}"
-                             class="card-img-top img-responsive rounded-circle border border-primary mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
-                             alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">{{ candidat.membre.nom }} {{ candidat.membre.prenom }}</h5>
-                            <h6 class="card-title text-center font-weight-light text-black-50">{{ candidat.metier }}, {{ candidat.membre.ville }}
-                                ,{{ recruteur.membre.pays }}</h6>
-                            <p class="card-text text-center">This is a longer card with supporting text below as a
-                                natural
-                                lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <p><a href="#" role="button"><i class="fas fa-plus-square fa-2x"></i></a></p>
+                        <div class="card">
+                            <img src="{{ asset('image/eren.png') }}"
+                                 class="card-img-top img-responsive rounded-circle border border-primary mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
+                                 alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">{{ candidat.membre.nom }} {{ candidat.membre.prenom }}</h5>
+                                <h6 class="card-title text-center font-weight-light text-black-50">{{ candidat.metier }}
+                                    , {{ candidat.membre.ville }}
+                                    ,{{ candidat.membre.pays }}</h6>
+                                <p class="card-text text-center">This is a longer card with supporting text below as a
+                                    natural
+                                    lead-in to
+                                    additional content. This content is a little bit longer.</p>
+                                <p><a href="#" role="button"><i class="fas fa-plus-square fa-2x"></i></a></p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <img src="{{ asset('image/luffy.jpg') }}"
-                             class="card-img-top rounded-circle border border-primary mt-2 pt-1 pb-1 pr-1 pl-1 mx-auto"
-                             alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">{{ candidat.membre.nom }} {{ candidat.membre.prenom }}</h5>
-                            <h6 class="card-title text-center font-weight-light text-black-50">{{ candidat.metier }}, {{ candidat.membre.ville }}
-                                ,{{ recruteur.membre.pays }}</h6>
-                            <p class="card-text text-center">This card has supporting text below as a natural lead-in to
-                                additional
-                                content.</p>
-                            <p><a href="#" role="button"><i class="fas fa-plus-square fa-2x"></i></a></p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="{{ asset('image/eren.png') }}"
-                             class="card-img-top rounded-circle border border-primary mt-2 pt-1 pb-1 pr-1 pl-1 mx-auto"
-                             alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">{{ candidat.membre.nom }} {{ candidat.membre.prenom }}</h5>
-                            <h6 class="card-title text-center font-weight-light text-black-50">{{ candidat.metier }}, {{ candidat.membre.ville }}
-                                ,{{ candidat.membre.pays }}</h6>
-                            <p class="card-text text-center">This is a wider card with supporting text below as a
-                                natural
-                                lead-in to
-                                additional content. This card has even longer content than the first to show that equal
-                                height action.</p>
-                            <p><a href="#" role="button" class=" btn-light"><i
-                                            class="fas fa-plus-square fa-2x "></i></a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-deck pt-4">
-                    <div class="card">
-                        <img src="{{ asset('image/robin.jpg') }}"
-                             class="card-img-top img-responsive rounded-circle border border-primary mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
-                             alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">{{ candidat.membre.nom }} {{ candidat.membre.prenom }}</h5>
-                            <h6 class="card-title text-center font-weight-light text-black-50">{{ candidat.metier }}, {{ candidat.membre.ville }}
-                                ,{{ recruteur.membre.pays }}</h6>
-                            <p class="card-text text-center">This is a longer card with supporting text below as a
-                                natural
-                                lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <p><a href="#" role="button"><i class="fas fa-plus-square fa-2x"></i></a></p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="{{ asset('image/luffy.jpg') }}"
-                             class="card-img-top rounded-circle border border-primary mt-2 pt-1 pb-1 pr-1 pl-1 mx-auto"
-                             alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">{{ candidat.membre.nom }} {{ candidat.membre.prenom }}</h5>
-                            <h6 class="card-title text-center font-weight-light text-black-50">{{ candidat.metier }}, {{ candidat.membre.ville }}
-                                ,{{ candidat.membre.pays }}</h6>
-                            <p class="card-text text-center">This card has supporting text below as a natural lead-in to
-                                additional
-                                content.</p>
-                            <p><a href="#" role="button"><i class="fas fa-plus-square fa-2x"></i></a></p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="{{ asset('image/eren.png') }}"
-                             class="card-img-top rounded-circle border border-primary mt-2 pt-1 pb-1 pr-1 pl-1 mx-auto"
-                             alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">{{ candidat.membre.nom }} {{ candidat.membre.prenom }}</h5>
-                            <h6 class="card-title text-center font-weight-light text-black-50">{{ candidat.metier }}, {{ candidat.membre.ville }}
-                                ,{{ candidat.membre.pays }}</h6>
-                            <p class="card-text text-center">This is a wider card with supporting text below as a
-                                natural
-                                lead-in to
-                                additional content. This card has even longer content than the first to show that equal
-                                height action.</p>
-                            <p><a href="#" role="button" class=" btn-light"><i
-                                            class="fas fa-plus-square fa-2x "></i></a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-deck pt-4">
-                    <div class="card">
-                        <img src="{{ asset('image/robin.jpg') }}"
-                             class="card-img-top img-responsive rounded-circle border border-primary mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
-                             alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">{{ candidat.membre.nom }} {{ candidat.membre.prenom }}</h5>
-                            <h6 class="card-title text-center font-weight-light text-black-50">{{ candidat.metier }}, {{ candidat.membre.ville }}
-                                ,{{ candidat.membre.pays }}</h6>
-                            <p class="card-text text-center">This is a longer card with supporting text below as a
-                                natural
-                                lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <p><a href="#" role="button"><i class="fas fa-plus-square fa-2x"></i></a></p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="{{ asset('image/luffy.jpg') }}"
-                             class="card-img-top rounded-circle border border-primary mt-2 pt-1 pb-1 pr-1 pl-1 mx-auto"
-                             alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">{{ candidat.membre.nom }} {{ candidat.membre.prenom }}</h5>
-                            <h6 class="card-title text-center font-weight-light text-black-50">{{ candidat.metier }}, {{ candidat.membre.ville }}
-                                ,{{ candidat.membre.pays }}</h6>
-                            <p class="card-text text-center">This card has supporting text below as a natural lead-in to
-                                additional
-                                content.</p>
-                            <p><a href="#" role="button"><i class="fas fa-plus-square fa-2x"></i></a></p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="{{ asset('image/eren.png') }}"
-                             class="card-img-top rounded-circle border border-primary mt-2 pt-1 pb-1 pr-1 pl-1 mx-auto"
-                             alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">{{ candidat.membre.nom }} {{ candidat.membre.prenom }}</h5>
-                            <h6 class="card-title text-center font-weight-light text-black-50">{{ candidat.metier }}, {{ candidat.membre.ville }}
-                                ,{{ candidat.membre.pays }}</h6>
-                            <p class="card-text text-center">This is a wider card with supporting text below as a
-                                natural
-                                lead-in to
-                                additional content. This card has even longer content than the first to show that equal
-                                height action.</p>
-                            <p><a href="#" role="button" class=" btn-light"><i
-                                            class="fas fa-plus-square fa-2x "></i></a>
-                            </p>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-                <!-- Fin cards section-->
+                    {% endfor %}
+                    <!-- Fin cards section-->
 
-                <hr>
+                    <hr>
 
-            </div> <!-- /container -->
-        </div>
+                </div> <!-- /container -->
+            </div>
+        </div> <!-- /container -->
     </section>
-    </body>
+
 
 
     <!-- Footer -->

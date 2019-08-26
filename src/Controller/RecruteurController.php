@@ -36,11 +36,13 @@ class RecruteurController extends AbstractController
      */
     public function add(Request $request, ObjectManager $objectManager, MembreRepository $membreRepository, Recruteur $recruteur = null)
     {
-            if($recruteur === null){
-                $recruteur = new Recruteur();
-                $id_membre = $_GET['id_membre'];
-                $membre = $membreRepository->find($id_membre);
-            }
+        dump($recruteur);
+
+        if($recruteur === null){
+            $recruteur = new Recruteur();
+            $id_membre = $_GET['id_membre'];
+            $membre = $membreRepository->find($id_membre);
+        }
 
         $recruteurForm = $this->createForm(RecruteurType::class, $recruteur);
         $recruteurForm->handleRequest($request);
