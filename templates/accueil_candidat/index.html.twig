@@ -4,12 +4,17 @@
 
 {% block title %}Hello AccueilCandidatController!{% endblock %}
 
+{% block stylesheets %}
+{{ parent() }}
+<style>
+    img{
+		width: 15% !important;
+	}
+</style>
+{% endblock %}
+
 {% block body %}
 {% include 'navbar_candidat/index.html.twig' %}
-<style>
-    
-</style>
-
 <div class="container">
 
 	<!-- Bloc de filtres -->
@@ -35,7 +40,7 @@
 		{% for recruteur in recruteurs %}
 		<div class="card-deck">
   			<div class="card">
-    			<img src="{{ recruteur.membre.photoProfil }}" class="card-img-top" alt="{{ recruteur.membre.descriptionPhoto }}">
+    			<img src="{{ asset(recruteur.membre.photoProfil) }}" class="card-img-top" alt="{{ recruteur.membre.descriptionPhoto }}">
     			<div class="card-body">
       				<h5 class="card-title">{{ recruteur.membre.nom }} {{ recruteur.membre.prenom }}</h5>
       				<p class="card-text">{{ recruteur.secteurActivite }} {{ recruteur.nomEntreprise }}</p>
