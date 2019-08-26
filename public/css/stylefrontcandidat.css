@@ -1,13 +1,14 @@
 .navbar{
-    background-color: #a2ddf7;
+    background-color: #b13f9a;
 }
 
 .btn-lg{
-    background-color: #b13f9a;
+    background-color: #a2ddf7;
+
 }
 
 .badge{
-    background-color: #b13f9a;
+    background-color: #a2ddf7;
 }
 
 .headcard{
@@ -15,38 +16,38 @@
 }
 
 .card, .masthead {
-    border-top:  #a2ddf7 solid 9px;
+    border-top:  #b13f9a solid 9px;
 }
 
 .recruteur-top{
-    border-top:  #b13f9a solid 9px;
+    border-top:  #a2ddf7 solid 9px;
 }
 
 img{
     min-width: auto;
     max-width: 30%;
-    border-color: #a2ddf7;
+    border-color: #b13f9a;
 }
 
 .btn-outline{
-    background-color: #a2ddf7;
+    background-color: #b13f9a;
 }
 
 h2, h1{
     color: #15445b ;
 }
 
-.text-recruteur{
-    color:#a2ddf7;
+.text-candidat{
+    color:#b13f9a;
 }
 
 .fas{
-    color: #a2ddf7;
+    color: #b13f9a;
     width: 30px;
     height: 30px;
     bottom: 0%;
     right: 0%;
     position: absolute;
 
-   }
+}
 

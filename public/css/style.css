@@ -66,6 +66,7 @@ hr{
 
 .card{
     border-top: #a2ddf7 9px solid;
+    position: relative;
 }
 .recruteurCard{
     border-top: #b13f9a 9px solid;
