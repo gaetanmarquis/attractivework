@@ -3,13 +3,16 @@
 {% block title %}Page des offres{% endblock %}
 
 {% block body %}
-    <a class="btn btn-info" href="{{ path('offre_add') }}">Ajout offre</a>
+{% include 'backoffice/navbar.html.twig' %}
+
+    <a class="btn btn-success" href="{{ path('offre_add') }}">Ajout offre</a>
+    <a class="btn btn-info" href="{{ path('recruteur') }}">Liste des recruteurs</a>
 
     <table class="table">
         <thead class="thead-dark">
         <tr>
             <th scope="row"></th>
-            <th scope="row">Id du recruteur</th>
+            <th scope="row">Nom du recruteur</th>
             <th scope="row">Titre du poste</th>
             <th scope="row">Description du poste</th>
             <th scope="row">Salaire pour le poste</th>
@@ -24,15 +27,15 @@
             {% for offre in offres %}
             <tr>
                 <td scope="row">{{ offre.id }}</td>
-                <td scope="row">{{ offre.recruteur_id }}</td>
+                <td scope="row">{{ offre.recruteur.membre.nom }} {{ offre.recruteur.membre.prenom }}</td>
                 <td scope="row">{{ offre.titre }}</td>
                 <td scope="row">{{ offre.descriptionPoste }}</td>
                 <td scope="row">{{ offre.salairePoste }} €</td>
                 <td scope="row">{{ offre.villePoste }}</td>
                 <td scope="row">{{ offre.paysPoste }}</td>
                 <td scope="row">{{ offre.datePublication|date("d/m/Y") }}</td>
-                <td scope="row"><a class="btn btn-primary" href="{{ path('offre_edit', {'id' : offre.membre.id }) }}" role="button"> Modifier</a></td>
-                <td scope="row"><a class="btn btn-danger" href="{{ path('delete_offre', {'id' : offre.membre.id }) }}" role="button">Supprimer</a></td>
+                <td scope="row"><a class="btn btn-primary" href="{{ path('edit_offre', {'id' : offre.id }) }}" role="button">Modifier</a></td>
+                <td scope="row"><a class="btn btn-danger" href="{{ path('delete_offre', {'id' : offre.id }) }}" role="button">Supprimer</a></td>
                 {% endfor %}
             </tr>
 

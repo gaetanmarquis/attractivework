@@ -3,7 +3,12 @@
 {% block title %}Candidats{% endblock %}
 
 {% block body %}
+
+{% include 'backoffice/navbar.html.twig' %}
+
 <a href="{{ path('membre_add') }}"><button type="button" class="btn btn-success">Ajouter un candidat</button></a>
+<a class="btn btn-info" href="{{ path('membre') }}" role="button"> Retour aux membres</a>
+
 <table class="table">
     <thead>
         <tr>

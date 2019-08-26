@@ -3,6 +3,10 @@
 {% block title %}Hello MatchController!{% endblock %}
 
 {% block body %}
+{% include 'backoffice/navbar.html.twig' %}
+
+<a class="btn btn-info" href="{{ path('like') }}">Liste des likes</a>
+<a class="btn btn-info" href="{{ path('message') }}">Liste des messages</a>
 <table class="table">
     <thead>
         <tr>

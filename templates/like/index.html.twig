@@ -3,6 +3,9 @@
 {% block title %}Hello LikeController!{% endblock %}
 
 {% block body %}
+{% include 'backoffice/navbar.html.twig' %}
+
+<a class="btn btn-info" href="{{ path('match') }}">Liste des match</a>
 <table class="table">
     <thead>
         <tr>
