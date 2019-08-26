@@ -37,7 +37,7 @@
   			<div class="card">
     			<img src="{{ recruteur.membre.photoProfil }}" class="card-img-top" alt="{{ recruteur.membre.descriptionPhoto }}">
     			<div class="card-body">
-      				<h5 class="card-title">{{ recruteur.membre.nom }} {{ recruteur.membre.prenom }}</h5>
+      				<h5 class="card-title"><a href="{{ path('profil_recruteur', { 'id' : recruteur.id }) }}">{{ recruteur.membre.nom }} {{ recruteur.membre.prenom }}</a></h5>
       				<p class="card-text">{{ recruteur.secteurActivite }} {{ recruteur.nomEntreprise }}</p>
       				<p class="card-text"><small class="text-muted">{{ recruteur.membre.pays }} {{ recruteur.membre.ville }}</small></p>
     			</div>
