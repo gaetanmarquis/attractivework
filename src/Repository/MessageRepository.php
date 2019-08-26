@@ -54,13 +54,8 @@ class MessageRepository extends ServiceEntityRepository
      *
      * @return array
      */
-<<<<<<< HEAD
-/*    public function findLike($candidat)
-=======
-
     /*
     public function findLike($candidat)
->>>>>>> 4400aa96dcad7c625e0c326a36c4bf784178448a
     {
         return $this
             ->createQueryBuilder('a')
@@ -71,12 +66,7 @@ class MessageRepository extends ServiceEntityRepository
             ->getQuery()
             ->execute()
             ;
-<<<<<<< HEAD
     }*/
-=======
-    }
-    */
->>>>>>> 4400aa96dcad7c625e0c326a36c4bf784178448a
 
     // ATTENTION A VERIFIER
     /**
@@ -84,13 +74,11 @@ class MessageRepository extends ServiceEntityRepository
      *
      * @return array
      */
-<<<<<<< HEAD
+
 /*    public function findLike($recruteur)
-=======
 
     /*
     public function findLike($recruteur)
->>>>>>> 4400aa96dcad7c625e0c326a36c4bf784178448a
     {
         return $this
             ->createQueryBuilder('a')
@@ -101,10 +89,5 @@ class MessageRepository extends ServiceEntityRepository
             ->getQuery()
             ->execute()
             ;
-<<<<<<< HEAD
     }*/
-=======
-    }
-    */
->>>>>>> 4400aa96dcad7c625e0c326a36c4bf784178448a
 }

@@ -1,0 +1,142 @@
+body{
+    font-family: Arial, sans-serif;
+}
+
+/* ====== HEADER ======== */
+
+.banner_part {
+    height: 800px;
+    position: relative;
+    overflow: hidden;
+    background-image: url(../image/bg_img.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+
+}
+.banner_text_iner {
+    align-items: center;
+    border: blue 2px solid;
+    text-align: center;
+    color: white;
+    margin: auto;
+
+}
+h1{
+    font-weight: bold;
+    margin-top: 20px;
+
+}
+h2{
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+}
+hr{
+    width: 40%;
+    border: #073b53 1px solid;
+}
+.paraIntro{
+    margin-left: 20px;
+}
+.mt-4{
+    margin-top: 200px !important;
+}
+.inscription {
+    border-radius: 30px;
+    background-color: #57d0fd;
+    border: 1px solid transparent;
+    color: black;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: 20px;
+
+}
+.connexion {
+    border-radius: 30px;
+    background-color: white;
+    border: 1px solid transparent;
+    color: black;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: 20px;
+}
+
+/* ====== MAIN ======== */
+
+.card{
+    border-top: #a2ddf7 9px solid;
+}
+.recruteurCard{
+    border-top: #b13f9a 9px solid;
+}
+
+.card-columns{
+    position: relative;
+}
+.img-card-candi{
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+    padding: 3px;
+    border: 2px #a2ddf7 solid;
+}
+.img-card-recru{
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+    padding: 3px;
+    border: 2px #b13f9a solid;
+}
+.row{
+    justify-content: center;
+}
+h5{
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+    margin-bottom: 0;
+
+
+}
+h3{
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #a2ddf7;
+}
+/*h3:before{
+    content: "";
+    display: block;
+    width: 80px;
+    height: 80px;
+    background: url("../image/icon_card.png") no-repeat;
+    float: left;
+
+}*/
+.col-lg-6{
+    text-align: center;
+}
+.spanCard{
+    font-size: 0.8rem;
+    display: block;
+    margin-bottom: 10px;
+    color: #929292;
+    text-align: center;
+}
+.paraCard{
+    color: #929292;
+}
+.iconPlus{
+    width: 30px;
+    height: 30px;
+    bottom: 0%;
+    right: 0%;
+    position: absolute;
+}
+.iconC{
+    display: inline-block;
+}
+.recruTitle{
+   color: #b13f9a;
+}
