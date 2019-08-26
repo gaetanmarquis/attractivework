@@ -24,6 +24,7 @@
             <th>description</th>
             <th>statut</th>
             <th>date inscription</th>
+            <th>option</th>
         </tr>
     </thead>
 
@@ -42,6 +43,10 @@
             <td>{{ membre.description }}</td>
             <td>{{ membre.statut }}</td>
             <td>{{ membre.dateInscription|date('j/m/Y') }}</td>
+            <td>
+                <a class="btn btn-primary" href="{{ path('membre_edit', { 'id' : membre.id }) }}">Modifier le membre</a>
+                <a class="btn btn-danger" href="{{ path('membre_delete', { 'id' : membre.id }) }}">Supprimer le membre</a>
+            </td>
         </tr>
         {% endfor %}
     </tbody>

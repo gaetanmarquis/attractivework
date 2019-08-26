@@ -272,7 +272,7 @@ class Membre implements UserInterface
      */
     public function getRoles(): array
     {
-        $roles = explode(',', $this->role);
+        $roles = explode(',', $this->statut);
         // guarantee every user at least has ROLE_USER
         $roles[] = 'ROLE_USER';
 

@@ -60,9 +60,11 @@
         <input type="radio" id="recruteur" name="role" value="recruteur">
         <label for="recruteur">Recruteur</label>
 
+        <input type="hidden" name="type_submit" value="{{ value_btn }}">
+
         <div>
             {{ form_label(membre_form.submit) }}
-            {{ form_widget(membre_form.submit, {attr : {class : 'btn btn-primary m-2'}}) }}
+            {{ form_widget(membre_form.submit, {attr : {class : 'btn btn-primary m-2'} }) }}
         </div>
 
     {{ form_end(membre_form) }}

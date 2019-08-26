@@ -6,10 +6,10 @@ use App\Entity\Recruteur;
 use App\Form\RecruteurType;
 use App\Repository\MembreRepository;
 use App\Repository\RecruteurRepository;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class RecruteurController extends AbstractController
