@@ -66,8 +66,8 @@ class CandidatController extends AbstractController
     }
 
     /**
-    * @Route("/candidat/delete/{id}", name="candidat_delete")
-    */
+     *@Route("/candidat/delete/{id}", name="candidat_delete")
+     */
     public function delete(Candidat $candidat, ObjectManager $objectManager){
 
         if( $candidat !== null ){
@@ -75,6 +75,6 @@ class CandidatController extends AbstractController
             $objectManager->flush();
         }
         return $this->redirectToRoute('candidat');
-    }
 
+    }
 }
