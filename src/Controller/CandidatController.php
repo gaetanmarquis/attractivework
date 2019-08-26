@@ -39,30 +39,25 @@ class CandidatController extends AbstractController
             $candidat = new Candidat();
             $id_membre = $_GET['id_membre'];
             $membre = $membreRepository->find($id_membre);
-
-            if ($candidat === null) {
-                $candidat = new Candidat();
-                $id_membre = $_GET['id_membre'];
-                $membre = $membreRepository->find($id_membre);
-            }
-
-            $candidatForm = $this->createForm(CandidatType::class, $candidat);
-            $candidatForm->handleRequest($request);
-
-
-            if ($candidatForm->isSubmitted() && $candidatForm->isValid()) {
-                $candidat->setMembre($membre);
-
-                $objectManager->persist($candidat);
-                $objectManager->flush();
-
-                return $this->redirectToRoute('candidat');
-            }
-
-            return $this->render('candidat/add.html.twig', [
-                'candidat_form' => $candidatForm->createView(),
-            ]);
         }
+
+        $candidatForm = $this->createForm(CandidatType::class, $candidat);
+        $candidatForm->handleRequest($request);
+
+
+        if ($candidatForm->isSubmitted() && $candidatForm->isValid()) {
+            $candidat->setMembre($membre);
+
+            $objectManager->persist($candidat);
+            $objectManager->flush();
+
+            return $this->redirectToRoute('candidat');
+        }
+
+        return $this->render('candidat/add.html.twig', [
+            'candidat_form' => $candidatForm->createView(),
+        ]);
+        
     }
 
     /**
