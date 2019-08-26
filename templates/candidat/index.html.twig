@@ -3,6 +3,7 @@
 {% block title %}Candidats{% endblock %}
 
 {% block body %}
+<a href="{{ path('membre_add') }}"><button type="button" class="btn btn-success">Ajouter un candidat</button></a>
 <table class="table">
     <thead>
         <tr>
@@ -45,11 +46,6 @@
             <th>
                 Langue parlée
             </th>
-            <th>
-
-                Options
-
-            </th>
         </tr>
     </thead>
 
@@ -71,11 +67,13 @@
             <td>{{ candidat.langueParlee }}</td>
             <td><a class="btn btn-primary" href="{{ path('candidat_edit', { 'id' : candidat.id })  }}" role="button">Modifier ce candidat</a></td>
             <td><a class="btn btn-danger" href="{{ path('candidat_delete', { 'id' : candidat.id })  }}" role="button">Supprimer ce candidat</a></td>
-
+            <td>
+                    <a href="{{ path('candidat_edit', { 'id' : candidat.id }) }}"><i class="fas fa-pen"></i></a>
+                    <a href="{{ path('candidat_delete', { 'id' : candidat.id }) }}"><i class="fas fa-trash-alt"></i></a>
+                </td>
         </tr>
 
     {% endfor %}
     </tbody>
 </table>
-<a href="{{ path('candidat_add') }}"><button type="button" class="btn btn-info">Ajouter un candidat</button></a>
 {% endblock %}

@@ -1,14 +1,164 @@
 {% extends 'base.html.twig' %}
 
+{#{% block stylesheets %}
+
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{% endblock %}#}
+
 {% block title %}
 
-    {{ parent() }} | Accueil
+    | Accueil
 {% endblock %}
 
-{% block body %}
-    <h1>Bienvenue</h1>
 
-    {{ parent() }} | Accueil | Pour le moment rien à afficher, revenez plus tard.
-    
+{% block body %}
+
+{#<div class="container-fluid">
+    <div class="row">
+        <div class="col img-fluid">
+    <img class="img-responsive" src="{{asset('image/agreement-business-businessman-872957.jpg')}}"  width="2048" height="1479">
+        </div>
+    <header class="masthead mb-auto">
+        <div class="center-block">
+            <h1>Choose a better way to
+                represent your app</h1>
+            <p>Vestibulum ac diam sit amet quam vehicula elementum.</p>
+            <button type="button" class="btn btn-primary">Inscription</button>
+            <button type="button"  class="btn btn-primary">Connexion</button>
+        </div>
+    </header>
+        </div> #}{# row#}{#
+</div>#}
+
+   {# <header class="main_menu home_menu">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                   #}{# <img class="img-responsive" src="{{asset('image/agreement-business-businessman-872957.jpg')}}"  width="2048" height="1479">#}{#
+                </div>
+            </div>
+        </div>
+    </header>#}
+
+    <section class="banner_part">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 offset-lg-1">
+                    <div class="banner_text">
+                        <div class="banner_text_iner mx-auto mt-4 ">
+                            <h1>Trouvez le job qui vous correspond</h1>
+                            <h5> identifier les bons profils pour un poste ou une mission en un coup d’œil.</h5>
+                            <a href="{{ path('membre_add') }}"  class="btn btn-primary inscription" role="button">Inscription</a>
+                            <a href="{{ path('app_login') }}"  class="btn btn-primary connexion"  role="button">Connexion</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> {# div container#}
+    </section>
+
+<div class="row">
+<div class="col-lg-8 col-md-10 col-sm-12 ">
+<h2>Matchez avec votre vie professionnelle</h2>
+    <hr>
+    <p class="paraIntro">
+        Toutes les connaissances que les hommes avaient mises
+        sur Internet lui étaient accessibles. Les grandes bibliothèques du monde entier
+        n’avaient plus de secret pour lui. Il pouvait apprendre très vite,
+        beaucoup plus vite que n’importe quel humain.
+    </p>
+    <h3>Candidats</h3>
+    <div class="card-columns">
+        <div class="card">
+            <div class="card-body">
+                <img class="img-card-candi" src="{{asset('image/39.jpg')}}" alt="">
+                <h5>Luke Chavez</h5>
+                <span class="spanCard">Architecte, Lyon</span>
+                <!-- Card content -->
+                <p class="paraCard">
+                    Soudain, David eut une idée.
+                    Mais elle ne pouvait pas connaître
+                    les conséquences de ses actes.
+                </p>
+                <a href="#"><img class="iconPlus" src="{{ asset('image/icon_plus.png') }}" alt=""></a>
+            </div>
+        </div>
+        <div class="card">
+        <div class="card-body">
+                <img class="img-card-candi" src="{{asset('image/11.jpg')}}" alt="">
+                <h5>Miriam Patterson</h5>
+                <span class="spanCard">Conducteur de grue, Paris</span>
+                <!-- Card content -->
+                <p class="paraCard">
+                    Soudain, David eut une idée.
+                    Mais elle ne pouvait pas connaître
+                    les conséquences de ses actes.
+                </p>
+            <a href="#"><img class="iconPlus" src="{{ asset('image/icon_plus.png') }}" alt=""></a>
+        </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <img class="img-card-candi" src="{{asset('image/71.jpg')}}" alt="">
+                <h5>Todd Peters</h5>
+                <span class="spanCard">Chauffagiste, Rennes</span>
+                <!-- Card content -->
+                <p class="paraCard">
+                    Soudain, David eut une idée.
+                    Mais elle ne pouvait pas connaître
+                    les conséquences de ses actes.
+                </p>
+                <a href="#"><img class="iconPlus" src="{{ asset('image/icon_plus.png') }}" alt=""></a>
+            </div>
+        </div>
+    </div>
+    <h3 class="recruTitle">Recruteurs</h3>
+    <div class="card-columns">
+        <div class="card recruteurCard">
+            <div class="card-body">
+                <img class="img-card-recru" src="{{asset('image/39.jpg')}}" alt="">
+                <h5>Luke Chavez</h5>
+                <span class="spanCard">Architecte, Lyon</span>
+                <!-- Card content -->
+                <p class="paraCard">
+                    Soudain, David eut une idée.
+                    Mais elle ne pouvait pas connaître
+                    les conséquences de ses actes.
+                </p>
+                <a href="#"><img class="iconPlus" src="{{ asset('image/icon_plus-violet.png') }}" alt=""></a>
+            </div>
+        </div>
+        <div class="card recruteurCard">
+            <div class="card-body">
+                <img class="img-card-recru" src="{{asset('image/11.jpg')}}" alt="">
+                <h5>Miriam Patterson</h5>
+                <span class="spanCard">Conducteur de grue, Paris</span>
+                <!-- Card content -->
+                <p class="paraCard">
+                    Soudain, David eut une idée.
+                    Mais elle ne pouvait pas connaître
+                    les conséquences de ses actes.
+                </p>
+                <a href="#"><img class="iconPlus" src="{{ asset('image/icon_plus-violet.png') }}" alt=""></a>
+            </div>
+        </div>
+        <div class="card recruteurCard">
+            <div class="card-body">
+                <img class="img-card-recru" src="{{asset('image/71.jpg')}}" alt="">
+                <h5>Todd Peters</h5>
+                <span class="spanCard">Chauffagiste, Rennes</span>
+                <!-- Card content -->
+                <p class="paraCard">
+                    Soudain, David eut une idée.
+                    Mais elle ne pouvait pas connaître
+                    les conséquences de ses actes.
+                </p>
+                <a href="#"><img class="iconPlus" src="{{ asset('image/icon_plus-violet.png') }}" alt=""></a>
+            </div>
+        </div>
+    </div>
+</div>
+</div> {# row #}
 {% endblock %}
 

@@ -42,10 +42,17 @@ class MembreController extends AbstractController
 
     /**
      * @Route("/membre/add", name="membre_add")
+     * @Route("/membre/edit/{id}", name="membre_edit")
      */
-    public function add(Request $request, ObjectManager $objectManager)
+    public function add(Request $request, ObjectManager $objectManager, Membre $membre = null)
     {
-        $membre = new Membre();
+        $valueBtn = 'modifier';
+
+        if( $membre === null) {
+            $membre = new Membre();
+            $valueBtn = 'ajouter';
+        }
+        
         $membreForm = $this->createForm(MembreType::class, $membre);
         $membreForm->handleRequest($request);
 
@@ -68,18 +75,36 @@ class MembreController extends AbstractController
             $objectManager->persist($membre);
             $objectManager->flush();
 
-            if( $_POST['role'] === 'candidat' ){
-                //formulaire candidat
-                return $this->redirectToRoute('candidat_add', ['id_membre' => $membre->getId()]);
+            if( $valueBtn === 'ajouter' ){
+                if( $membre->getRoleEmploi() === 'candidat' ){
+                    //formulaire candidat
+                    return $this->redirectToRoute('candidat_add', ['id_membre' => $membre->getId()]);
+                }
+                elseif( $membre->getRoleEmploi() === 'recruteur' ){
+                    //formulaire recruteur
+                    return $this->redirectToRoute('recruteur_add', ['id_membre' => $membre->getId()]);
+                }
             }
-            elseif( $_POST['role'] === 'recruteur' ){
-                //formulaire recruteur
-                return $this->redirectToRoute('recruteur_add', ['id_membre' => $membre->getId()]);
+            else{
+                return $this->redirectToRoute('membre');
             }
         }
 
         return $this->render('membre/add.html.twig', [
             'membre_form' => $membreForm->createView(),
+            'value_btn' => $valueBtn,
         ]);
+    }
+
+    /**
+    * @Route("/membre/delete/{id}", name="membre_delete")
+    */
+    public function delete(Membre $membre, ObjectManager $objectManager){
+
+        if( $membre !== null ){
+            $objectManager->remove($membre);
+            $objectManager->flush();
+        }
+        return $this->redirectToRoute('membre');
     }
 }

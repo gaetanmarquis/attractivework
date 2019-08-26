@@ -6,10 +6,10 @@ use App\Entity\Recruteur;
 use App\Form\RecruteurType;
 use App\Repository\MembreRepository;
 use App\Repository\RecruteurRepository;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class RecruteurController extends AbstractController
@@ -36,11 +36,13 @@ class RecruteurController extends AbstractController
      */
     public function add(Request $request, ObjectManager $objectManager, MembreRepository $membreRepository, Recruteur $recruteur = null)
     {
-            if($recruteur === null){
-                $recruteur = new Recruteur();
-                $id_membre = $_GET['id_membre'];
-                $membre = $membreRepository->find($id_membre);
-            }
+        dump($recruteur);
+
+        if($recruteur === null){
+            $recruteur = new Recruteur();
+            $id_membre = $_GET['id_membre'];
+            $membre = $membreRepository->find($id_membre);
+        }
 
         $recruteurForm = $this->createForm(RecruteurType::class, $recruteur);
         $recruteurForm->handleRequest($request);

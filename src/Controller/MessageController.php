@@ -71,7 +71,7 @@ class MessageController extends AbstractController
         //A la soumission du formulaire
         if( $messageForm->isSubmitted() && $messageForm->isValid() ){
             //Pour les champs de type DateTime, utiliser le setter() avec comme argument new \DateTime
-            $message->setDateInscription( new \DateTime() );
+            $message->setDateMessage( new \DateTime() );
 
             //Injection en BDD
             $objectManager->persist($message);
@@ -87,7 +87,7 @@ class MessageController extends AbstractController
         ]);
     }
 
-    /*
+    /**
     * @Route("/message/delete/{id}", name="message_delete")
     */
     public function delete(Message $message, ObjectManager $objectManager){
@@ -97,42 +97,8 @@ class MessageController extends AbstractController
             $objectManager->flush();
         }
 
+        return $this->redirectToRoute('message');
+
 
     }
-
-
-    // ATTENTION A VERIFIER
-    /* public function searchActionCandidat()
-    {
-        $message = new  Message();
-        $form = $this->createFormBuilder( $message, array(
-        'action' => $this->generateUrl('homepage').'?term=',
-        'method' => 'GET',
-        ) )
-            ->add('candidat', null, ['label' => ' Barre de recherche'] )
-            ->getForm();
-        return $this->render(':default/add.html.twig', ['form' => $form->createView() ]);
-    }
-
-
-
-
-    // ATTENTION A VERIFIER
-    public function searchActionRecruteur()
-    {
-        $message = new  Message();
-        $form = $this->createFormBuilder( $message, array(
-        'action' => $this->generateUrl('homepage').'?term=',
-        'method' => 'GET',
-        ) )
-            ->add('recruteur', null, ['label' => ' Barre de recherche'] )
-            ->getForm();
-        return $this->render(':default/add.html.twig', ['form' => $form->createView() ]);
-        }
-    }
-    */
-
-    
-
-
 }

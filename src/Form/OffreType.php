@@ -4,13 +4,13 @@ namespace App\Form;
 
 use App\Entity\Offre;
 use App\Entity\Recruteur;
-//use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use PUGX\AutocompleterBundle\Form\Type\AutocompleteType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 
 class OffreType extends AbstractType
@@ -37,9 +37,9 @@ class OffreType extends AbstractType
                 'label' => 'Date de publication',
                 'format' => 'dd/MM/yyyy'
             ])
-            //correction de TextType en EntityTime
-            ->add('recruteur', TextType::class, [
-                'class' => Recruteur::class
+            ->add('recruteur', AutocompleteType::class, [
+                'class' => Recruteur::class,
+                'label' => "id recruteur"
             ])
 
             ->add('submit', SubmitType::class,[

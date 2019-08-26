@@ -93,6 +93,11 @@ class Membre implements UserInterface
      */
     private $description_photo;
 
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
+    private $role_emploi;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -272,7 +277,7 @@ class Membre implements UserInterface
      */
     public function getRoles(): array
     {
-        $roles = explode(',', $this->role);
+        $roles = explode(',', $this->statut);
         // guarantee every user at least has ROLE_USER
         $roles[] = 'ROLE_USER';
 
@@ -311,6 +316,18 @@ class Membre implements UserInterface
     public function setDescriptionPhoto(string $description_photo): self
     {
         $this->description_photo = $description_photo;
+
+        return $this;
+    }
+
+    public function getRoleEmploi(): ?string
+    {
+        return $this->role_emploi;
+    }
+
+    public function setRoleEmploi(string $role_emploi): self
+    {
+        $this->role_emploi = $role_emploi;
 
         return $this;
     }
