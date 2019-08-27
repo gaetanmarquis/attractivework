@@ -27,6 +27,8 @@ class ProfilPersoCandidatController extends AbstractController
     	->setParameter('id', $id)
     	->join('c.membre', 'm')
     	->addSelect('m')
+        ->join('m.personnalite', 'p')
+        ->addSelect('p')
     	->getQuery()
     	->getResult();
 
