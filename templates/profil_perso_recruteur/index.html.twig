@@ -1,0 +1,100 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProfilPersoCandidatController!{% endblock %}
+
+{% block body %}
+
+{% include 'navbar_recruteur/index.html.twig' %}
+
+<style>
+    
+	.divPhoto{
+
+	}
+
+	.photoProfil{
+		max-width: 300px;
+		max-height: 300px;
+		border-radius: 50%;
+		padding: 3px;
+		border: solid 3px #a2ddf7;
+	}
+
+	.colorTitle{
+		color: #a2ddf7;
+	}
+
+	hr{
+		color: #a2ddf7;
+	}
+
+	.iconColor{
+		color: #b3e0ff;
+	}
+
+	a{
+  		color: black;
+	}
+
+	.divCV{
+		border-left: 2px solid #a2ddf7;
+		
+	}
+
+</style>
+
+<div class="mx-5">
+
+	<div class="divPhoto text-center">
+		<img src="{{ candidat.membre.photoProfil }}" alt="{{ candidat.membre.descriptionPhoto }}" class="photoProfil img-fluid">
+	</div>
+
+	<div class="d-flex">
+		
+		<div class="text-center list-group list-group-flush col-3 mt-5 flex-fill">
+			<h4 class="colorTitle">Vos informations <a href="{{ path('profil_perso_infos_edit', { 'id' : candidat.id}) }}"><i class="fas fa-pencil-alt iconColor"></i></a></h4>
+			<ul class="p-0">
+				<li class="list-group-item">{{ candidat.membre.prenom }} {{ candidat.membre.nom }}</li>
+				<li class="list-group-item">{{ candidat.dateNaissance|date('d/m/Y') }}</li>
+				<li class="list-group-item">{{ candidat.membre.email }}</li>
+				<li class="list-group-item">{{ candidat.telephone }}</li>
+				<li class="list-group-item">{{ candidat.membre.ville }} {{ candidat.membre.pays }}</li>
+			</ul>
+
+			<hr class="my-5">
+			<h4 class="colorTitle">Vos informations professionnelles <a href="{{ path('profil_perso_cv_edit', { 'id' : candidat.id}) }}"><i class="fas fa-pencil-alt iconColor"></i></a></h4>
+			<ul class="p-0">
+				<li class="list-group-item">Vous êtes disponible à partir du: {{ candidat.dateDisponibilite|date('d/m/Y')  }}</li>
+				<li class="list-group-item">Vous cherchez: {{ candidat.typeContrat }}</li>
+				<li class="list-group-item">Votre prétention salariale: {{ candidat.salaire }}</li>
+				<li class="list-group-item">Vos années d'experiences: {{ candidat.anneeExperience }}</li>
+				<li class="list-group-item">Vous parlez: {{ candidat.langueParlee }}</li>
+				<li class="list-group-item">Votre site web: {{ candidat.siteWeb }}</li>
+
+				{% if candidat.cv != null %}
+				<li><a href="{{ candidat.cv }}" download="CV"></a></li>
+				{% endif %}
+				{% if candidat.autreFichier != null %}
+				<li><a href="{{ candidat.autreFichier }}" download="Autre fichier"></a></li>
+				{% endif %}
+
+			</ul>
+		</div>
+
+		<div class="col-8 mt-5 flex-fill divCV">
+
+			<h1 class="text-center mb-5">{{ candidat.metier }}</h1>
+
+			<h3 class="mb-5"><a href="{{ path('personnalite_details', { 'id' : candidat.membre.personnalite.id}) }}">{{ candidat.membre.personnalite.nom }}</a></h3> 
+			<h4>Atouts : {{ candidat.atout }}</h4>
+
+			<h3 class="my-5">Description</h3>
+			<p>{{ candidat.membre.description }}</p>
+			
+		</div>
+
+	</div>
+
+</div>
+{% endblock %}
+
