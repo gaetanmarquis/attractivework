@@ -3,7 +3,12 @@
 {% block title %}Hello PersonnaliteDetailsController!{% endblock %}
 
 {% block body %}
-	{% include 'navbar_candidat/index.html.twig' %}
+	{% if role == 'candidat' %}
+		{% include 'navbar_candidat/index.html.twig' %}
+	{% elseif role == 'recruteur' %}
+		{% include 'navbar_recruteur/index.html.twig' %}
+	{% endif %}
+	
 <style>
     
 </style>
