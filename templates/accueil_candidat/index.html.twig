@@ -9,6 +9,15 @@
 
 {% block body %}
 	{% include 'navbar_candidat/index.html.twig' %}
+	<style>
+        .bdPhotoC{
+            border: 2px solid #a2ddf7;
+        }
+
+        .bdPhotoR{
+            border: 2px solid #b13f9a;
+        }
+    </style>
 
 	<!--Début Candidat Card-->
 	<div class="row">
@@ -17,7 +26,7 @@
 				<div class="card-body">
 						<div class="card border-0 mx-auto" style="width: 18rem;">
 							<img src="{{ app.user.photoProfil }}"
-								 class="card-img-top img-responsive rounded-circle border border-primary mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
+								 class="card-img-top img-responsive rounded-circle bdPhotoC mt-2 pt-1 pb-1 pr-1 pl-1 mx-auto"
 								 alt="...">
 							<div class="card-body">
 								<h5 class="card-title text-center">{{ app.user.nom }} {{ app.user.prenom }}</h5>
@@ -75,8 +84,9 @@
 					{% for recruteur in recruteurs %}
 					<div class="card">
 						
-						<a href="{{ path('profil_details_recruteur', { 'id' : recruteur[0].id, 'role' : 'candidat'}) }}"><img src="{{ recruteur[0].membre.photoProfil }}"
-							 class="card-img-top img-responsive rounded-circle border border-danger mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
+
+						<a href="{{ path('profil_details_recruteur', { 'id' : recruteur[0].id}) }}" class="text-center"><img src="{{ recruteur[0].membre.photoProfil }}"
+							 class="card-img-top img-responsive rounded-circle bdPhotoR mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
 							 alt="..."></a>
 						<div class="card-body">
 							<h5 class="card-title text-center">{{recruteur[0].membre.nom }} {{ recruteur[0].membre.prenom }}</h5>

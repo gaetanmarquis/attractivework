@@ -8,7 +8,7 @@
 {% block title %}Hello RecruteurFrontController!{% endblock %}
 
 {% block body %}
-    {% include 'navbar_candidat/index.html.twig' %}
+    {% include 'navbar_recruteur/index.html.twig' %}
     <style>
         .bdPhotoC{
             border: 2px solid #a2ddf7;
@@ -82,9 +82,10 @@
                 <div class="card-deck">
                     {% for candidat in candidats %}
                         <div class="card">
-                            <img src="{{ app.user.photoProfil }}"
+
+                            <a href="{{ path('profil_details_candidat', { 'id' : candidat[0].id}) }}" class="text-center"><img src="{{ candidat[0].membre.photoProfil }}"
                                  class="card-img-top img-responsive rounded-circle bdPhotoC mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
-                                 alt="...">
+                                 alt="{{ candidat[0].membre.descriptionPhoto }}"></a>
                             <div class="card-body">
                                 <h5 class="card-title text-center">{{ candidat[0].membre.nom }} {{ candidat[0].membre.prenom }}</h5>
                                 <h6 class="card-title text-center font-weight-light text-black-50">{{ candidat[0].metier }}
