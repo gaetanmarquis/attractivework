@@ -9,12 +9,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class LikeFrontController extends AbstractController
 {
     /**
-     * @Route("/like/page", name="like_front")
+     * @Route("/likerecruteur/page/", name="like_recruteur_front")
      */
     public function index(LikeRepository $likeRepository)
     {
 
-        return $this->render('like_front/index.html.twig', [
+        return $this->render('like_recruteur_front/index.html.twig', [
 //            'likes' => $likes,
         ]);
     }
