@@ -48,6 +48,8 @@ class RecruteurFrontController extends AbstractController
         $likeRecruteur = $likeRepository->createQueryBuilder('l')
             ->where('l.recruteur = :recruteur')
             ->setParameter('recruteur', $recruteur)
+            ->andWhere('l.role_like = :roleLike')
+            ->setParameter('roleLike', $membre->getRoleEmploi())
             ->getQuery()
             ->getResult();
 
@@ -126,8 +128,7 @@ class RecruteurFrontController extends AbstractController
      */
     public function selectCandidat(
         CandidatRepository $candidatRepository,
-        RecruteurRepository $recruteurRepository, 
-        Request $request, 
+        RecruteurRepository $recruteurRepository,
         ObjectManager $objectManager,
         int $id)
     {
@@ -148,6 +149,7 @@ class RecruteurFrontController extends AbstractController
 
         $like->setCandidat( $candidat )
             ->setRecruteur( $recruteur[0] )
+            ->setRoleLike( $membre->getRoleEmploi() )
             ->setDateLike( new \DateTime() );
 
         $objectManager->persist($like);

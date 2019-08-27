@@ -34,6 +34,11 @@ class Like
      */
     private $date_like;
 
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
+    private $role_like;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -71,6 +76,18 @@ class Like
     public function setDateLike(\DateTimeInterface $date_like): self
     {
         $this->date_like = $date_like;
+
+        return $this;
+    }
+
+    public function getRoleLike(): ?string
+    {
+        return $this->role_like;
+    }
+
+    public function setRoleLike(string $role_like): self
+    {
+        $this->role_like = $role_like;
 
         return $this;
     }

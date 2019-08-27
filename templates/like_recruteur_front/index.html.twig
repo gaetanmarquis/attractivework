@@ -1,0 +1,275 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('css/likerecruteurfrontpage.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Hello LikeFrontController!{% endblock %}
+
+{% block body %}
+    {% include 'navbar_candidat/index.html.twig' %}
+
+<h1 class="text-center text-like font-weight-bolder pb-4"><img
+            src="{{ asset('image/icon_Recru.png') }}" alt="iconerecruteur">&#8226; Likes</h1>
+
+    {# Début Zone des Matchs#}
+<div class="border-bottom-0 border-top-0 border-right-0 match-border-color rounded" style="background-color: #f9f9f9;">
+    <div class="card-header font-weight-bolder zonetitle">
+        <img src="{{ asset('image/puzzle_match_icon.png') }}" alt="" class="iconmatch"> Vos Matchs
+    </div>
+
+    <!-- Début cards section -->
+
+    <div class="card-deck pl-2">
+        {#                {% for candidat in candidats %}#}
+        <div class="card mt-2 mb-2">
+            <img src="{{ asset('image/eren.png') }}"
+                 class="card-img-top img-responsive rounded-circle border border-primary mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
+                 alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-center">{#  {{ candidat.membre.nom }} {{ candidat.membre.prenom }}</h5>#}
+                    JAEGER Eren
+                    <h6 class="card-title text-center font-weight-light text-black-50">{#  {{ candidat.metier }}#}
+                        responsable qualité sécurité environnement </h6>
+                    <h6 class="card-title text-center font-weight-light text-black-50">{#                                , {{ candidat.membre.ville }}#} Mur Maria
+                    {#                                ,{{ candidat.membre.pays }}#} L'Ile du Paradis</h6>
+                    <p class="card-text text-center">This is a longer card with supporting text below as a
+                        natural
+                        lead-in to
+                        additional content. This content is a little bit longer.</p>
+                    <p><a href="#" role="button"><i class="fas fa-plus-square fa-2x"></i></a></p>
+            </div>
+        </div>
+        {#                {% endfor %}#}
+
+        {#                Partie à supprimer quand l'affichage sera dynamique #}
+        {#                {% for candidat in candidats %}#}
+        <div class="card mt-2 mb-2">
+            <img src="{{ asset('image/eren.png') }}"
+                 class="card-img-top img-responsive rounded-circle border border-primary mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
+                 alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-center">{#  {{ candidat.membre.nom }} {{ candidat.membre.prenom }}</h5>#}
+                    JAEGER Eren
+                    <h6 class="card-title text-center font-weight-light text-black-50">{#  {{ candidat.metier }}#}
+                        responsable qualité sécurité environnement</h6>
+                    <h6 class="card-title text-center font-weight-light text-black-50">   {#                                , {{ candidat.membre.ville }}#} Mur Maria
+                        {#                                ,{{ candidat.membre.pays }}#} L'Ile du Paradis</h6>
+                    <p class="card-text text-center">This is a longer card with supporting text below as a
+                        natural
+                        lead-in to
+                        additional content. This content is a little bit longer.</p>
+                    <p><a href="#" role="button"><i class="fas fa-plus-square fa-2x"></i></a></p>
+            </div>
+        </div>
+        {#                {% endfor %}#}
+        {#                {% for candidat in candidats %}#}
+        <div class="card mt-2 mb-2">
+            <img src="{{ asset('image/eren.png') }}"
+                 class="card-img-top img-responsive rounded-circle border border-primary mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
+                 alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-center">{#  {{ candidat.membre.nom }} {{ candidat.membre.prenom }}</h5>#}
+                    JAEGER Eren
+                    <h6 class="card-title text-center font-weight-light text-black-50">{#  {{ candidat.metier }}#}
+                        responsable qualité sécurité environnement</h6>
+                    <h6 class="card-title text-center font-weight-light text-black-50">{#                                , {{ candidat.membre.ville }}#} Mur Maria
+                        {#                                ,{{ candidat.membre.pays }}#} L'Ile du Paradis</h6>
+                    <p class="card-text text-center">This is a longer card with supporting text below as a
+                        natural
+                        lead-in to
+                        additional content. This content is a little bit longer.</p>
+                    <p><a href="#" role="button"><i class="fas fa-plus-square fa-2x"></i></a></p>
+            </div>
+        </div>
+        {#                {% endfor %}#}
+        {#                Fin de la partie à supprimer quand l'affichage sera dynamique #}
+
+
+    </div> <!-- Fin container cards -->
+
+    <!-- Fin cards section-->
+
+
+</div>
+{# Fin Cards des candidats Matchés#}
+    {# Fin Zone des Matchs#}
+
+    {# Début Zone Ils vous ont liké#}
+<div class="mt-3 border-bottom-0 border-top-0 border-right-0 match-border-color rounded"
+     style="background-color: #f9f9f9;">
+    <div class="card-header font-weight-bolder zonetitle">
+        <img src="{{ asset('image/match_icon.png') }}" alt="" class="iconmatch"> Ils vous ont liké
+    </div>
+    <div>
+        <!-- Début cards section -->
+
+        <div class="card-deck pl-2">
+            {#                {% for candidat in candidats %}#}
+            <div class="card mt-2 mb-2">
+                <img src="{{ asset('image/lisa.png') }}"
+                     class="card-img-top img-responsive rounded-circle border border-primary mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
+                     alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-center">{#  {{ candidat.membre.nom }} {{ candidat.membre.prenom }}</h5>#}
+                        SIMPSON, Lisa
+                        <h6 class="card-title text-center font-weight-light text-black-50">{#  {{ candidat.metier }}#}
+                            Juriste en collectivité territoriale</h6>
+                        <h6 class="card-title text-center font-weight-light text-black-50">{#                                , {{ candidat.membre.ville }}#} Springfield
+                            {#                                ,{{ candidat.membre.pays }}#} USA</h6>
+                        <p class="card-text text-center">This is a longer card with supporting text below as a
+                            natural
+                            lead-in to
+                            additional content. This content is a little bit longer.</p>
+                        <p><a href="#" role="button"><i class="fas fa-plus-square fa-2x"></i></a></p>
+                </div>
+            </div>
+            {#                {% endfor %}#}
+
+            {#Partie à supprimer quand l'affichage sera dynamique #}
+
+            {#                {% for candidat in candidats %}#}
+            <div class="card mt-2 mb-2">
+                <img src="{{ asset('image/lisa.png') }}"
+                     class="card-img-top img-responsive rounded-circle border border-primary mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
+                     alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-center">{#  {{ candidat.membre.nom }} {{ candidat.membre.prenom }}</h5>#}
+                        SIMPSON, Lisa
+                        <h6 class="card-title text-center font-weight-light text-black-50">{#  {{ candidat.metier }}#}
+                            Juriste en collectivité territoriale </h6>
+                        <h6 class="card-title text-center font-weight-light text-black-50">    {#                                , {{ candidat.membre.ville }}#} Springfield
+                            {#                                ,{{ candidat.membre.pays }}#} USA</h6>
+                        <p class="card-text text-center">This is a longer card with supporting text below as a
+                            natural
+                            lead-in to
+                            additional content. This content is a little bit longer.</p>
+                        <p><a href="#" role="button"><i class="fas fa-plus-square fa-2x"></i></a></p>
+                </div>
+            </div>
+            {#                {% endfor %}#}
+            {#                {% for candidat in candidats %}#}
+            <div class="card mt-2 mb-2">
+                <img src="{{ asset('image/lisa.png') }}"
+                     class="card-img-top img-responsive rounded-circle border border-primary mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
+                     alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-center">{#  {{ candidat.membre.nom }} {{ candidat.membre.prenom }}</h5>#}
+                        SIMPSON, Lisa
+                        <h6 class="card-title text-center font-weight-light text-black-50">{#  {{ candidat.metier }}#}
+                            Juriste en collectivité territoriale</h6>
+                        <h6 class="card-title text-center font-weight-light text-black-50">{#                                , {{ candidat.membre.ville }}#} Springfield
+                            {#                                ,{{ candidat.membre.pays }}#} USA</h6>
+                        <p class="card-text text-center">This is a longer card with supporting text below as a
+                            natural
+                            lead-in to
+                            additional content. This content is a little bit longer.</p>
+                        <p><a href="#" role="button"><i class="fas fa-plus-square fa-2x"></i></a></p>
+                </div>
+            </div>
+            {#                {% endfor %}#}
+            {# Fin de la Partie à supprimer quand l'affichage sera dynamique #}
+
+            <!-- Fin cards section-->
+        </div>
+
+    </div>
+    </div>
+    {# Fin Cards Ils vous ont liké#}
+    {# Fin Zone Ils vous ont liké#}
+
+    {# Début Zone Vos Likes#}
+    <div class="mt-3 border-bottom-0 border-top-0 border-right-0 match-border-color rounded" style="background-color: #f9f9f9;">
+        <div class="card-header font-weight-bolder zonetitle">
+            <img src="{{ asset('image/like_thumb_up.png') }}" alt="" class="iconmatch"> Vos Likes
+        </div>
+        <div>
+            <!-- Début cards section -->
+
+                <div class="card-deck pl-2">
+                    {#                {% for candidat in candidats %}#}
+                    <div class="card mt-2 mb-2">
+                        <img src="{{ asset('image/homer.jpg') }}"
+                             class="card-img-top img-responsive rounded-circle border border-primary mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
+                             alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">{#  {{ candidat.membre.nom }} {{ candidat.membre.prenom }}</h5>#}
+                                SIMPSON, Homer
+                                <h6 class="card-title text-center font-weight-light text-black-50">{#  {{ candidat.metier }}#}
+                                    Ingénieur Nucléaire</h6>
+                                    <h6 class="card-title text-center font-weight-light text-black-50">{#                                , {{ candidat.membre.ville }}#} Springfield,
+                                    {#                                ,{{ candidat.membre.pays }}#} USA </h6>
+                                <p class="card-text text-center">This is a longer card with supporting text below as a
+                                    natural
+                                    lead-in to
+                                    additional content. This content is a little bit longer.</p>
+                                <p><a href="#" role="button"><i class="fas fa-plus-square fa-2x"></i></a></p>
+                        </div>
+                    </div>
+                    {#                {% endfor %}#}
+
+{#Début de la partie à supprimer quand l'affichage sera dynamique #}
+                    {#                {% for candidat in candidats %}#}
+                    <div class="card mt-2 mb-2">
+                        <img src="{{ asset('image/homer.jpg') }}"
+                             class="card-img-top img-responsive rounded-circle border border-primary mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
+                             alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">{#  {{ candidat.membre.nom }} {{ candidat.membre.prenom }}</h5>#}
+                                SIMPSON, Homer
+                                <h6 class="card-title text-center font-weight-light text-black-50">{#  {{ candidat.metier }}#}
+                                    Ingénieur Nucléaire</h6>
+                                <h6 class="card-title text-center font-weight-light text-black-50">{#                                , {{ candidat.membre.ville }}#} Springfield,
+                                    {#                                ,{{ candidat.membre.pays }}#} USA </h6>
+                                <p class="card-text text-center">This is a longer card with supporting text below as a
+                                    natural
+                                    lead-in to
+                                    additional content. This content is a little bit longer.</p>
+                                <p><a href="#" role="button"><i class="fas fa-plus-square fa-2x"></i></a></p>
+                        </div>
+                    </div>
+                    {#                {% endfor %}#}
+                    {#                {% for candidat in candidats %}#}
+                    <div class="card mt-2 mb-2">
+                        <img src="{{ asset('image/homer.jpg') }}"
+                             class="card-img-top img-responsive rounded-circle border border-primary mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
+                             alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">{#  {{ candidat.membre.nom }} {{ candidat.membre.prenom }}</h5>#}
+                                SIMPSON, Homer
+                                <h6 class="card-title text-center font-weight-light text-black-50">{#  {{ candidat.metier }}#}
+                                    Ingénieur Nucléaire</h6>
+                                <h6 class="card-title text-center font-weight-light text-black-50">{#                                , {{ candidat.membre.ville }}#} Springfield,
+                                    {#                                ,{{ candidat.membre.pays }}#} USA </h6>
+                                <p class="card-text text-center">This is a longer card with supporting text below as a
+                                    natural
+                                    lead-in to
+                                    additional content. This content is a little bit longer.</p>
+                                <p><a href="#" role="button"><i class="fas fa-plus-square fa-2x"></i></a></p>
+                        </div>
+                    </div>
+                    {#                {% endfor %}#}
+
+
+{#Fin de la partie à supprimer quand l'affichage sera dynamique#}
+
+                </div> <!-- Fin container cards -->
+
+            <!-- Fin cards section-->
+        </div>
+
+
+    </div>
+    {# Fin Cards Vos Likes#}
+    {# Fin Zone Vos Likes#}
+
+
+
+
+
+
+
+
+
+    {% endblock %}

@@ -72,16 +72,17 @@
         <div class="container">
 
             <!--  Section Candidat  Heading -->
-            <h2 class="page-section-heading text-center display-3 font-weight-bolder mb-0 text-recruteur pb-2"><img
-                        src="{{ asset('image/icon_card.png') }}" alt="iconerecruteur"> &#8226; Candidats </h2>
+            <h2 class="page-section-heading text-center display-3 font-weight-bolder mb-0 text-candidat pb-2"><img
+                        src="{{ asset('image/icon_card.png') }}" alt="iconecandidat"> &#8226; Candidats </h2>
 
             <hr>
-
+            <!--  Fin de Section Candidat Heading -->
             <!-- Début cards section -->
-            <div class="container pt-2" style="background-color: #f9f9f9;">
+            <div class="container pt-2" style="background-color: #f9f9f9;"> <!-- Début container cards -->
                 <div class="card-deck">
                     {% for candidat in candidats %}
                         <div class="card">
+
                             <a href="{{ path('profil_details_candidat', { 'id' : candidat[0].id}) }}" class="text-center"><img src="{{ candidat[0].membre.photoProfil }}"
                                  class="card-img-top img-responsive rounded-circle bdPhotoC mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
                                  alt="{{ candidat[0].membre.descriptionPhoto }}"></a>
@@ -98,17 +99,20 @@
                             </div>
                         </div>
                     {% endfor %}
-                    <!-- Fin cards section-->
 
-                    <hr>
 
-                </div> <!-- /container -->
+
+
+                </div> <!-- Fin container cards -->
             </div>
+            <!-- Fin cards section-->
+
         </div> <!-- /container -->
     </section>
 
 
 
     <!-- Footer -->
-
+{#    {% include '.../index.html.twig' %}#}
+    <!-- Fin du Footer -->
 {% endblock %}

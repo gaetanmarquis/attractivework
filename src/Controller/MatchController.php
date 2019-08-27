@@ -4,9 +4,12 @@ namespace App\Controller;
 
 use App\Entity\Match;
 use App\Form\MatchType;
+use App\Repository\LikeRepository;
 use App\Repository\MatchRepository;
-use Doctrine\Common\Persistence\ObjectManager;
+use App\Repository\CandidatRepository;
+use App\Repository\RecruteurRepository;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -44,10 +47,7 @@ class MatchController extends AbstractController
             'matchs' => $matchs,
         ]);
     }
-    /*
-       Adapter l'URL et le nom de la route selon la table en BDD
-       Penser à faire tous les use
-   */
+
 
     /**
      * @Route("/match/add", name="match_add")
@@ -92,5 +92,75 @@ class MatchController extends AbstractController
             $objectManager->flush();
         }
         return $this->redirectToRoute('match');
+    }
+
+
+    /**
+     * @Route("/match/result/{id}", name="match_result")
+     */
+    public function match(
+        ObjectManager $objectManager,
+        CandidatRepository $candidatRepository, 
+        RecruteurRepository $recruteurRepository, 
+        LikeRepository $likeRepository, 
+        int $id)
+    { 
+        $membre = $this->getUser();
+
+        if( $membre->getRoleEmploi() === 'candidat' ){
+            $candidat = $candidatRepository->createQueryBuilder('c')
+                ->join('c.membre', 'm')
+                ->addSelect('m')
+                ->where('c.membre = :membre')
+                ->setParameter('membre', $membre)
+                ->getQuery()
+                ->getResult();
+
+            $recruteur = $recruteurRepository->find($id);
+        }
+        elseif( $membre->getRoleEmploi() === 'recruteur' ){
+            $recruteur = $recruteurRepository->createQueryBuilder('r')
+                ->join('r.membre', 'm')
+                ->addSelect('m')
+                ->where('r.membre = :membre')
+                ->setParameter('membre', $membre)
+                ->getQuery()
+                ->getResult();
+
+            $candidat = $candidatRepository->find($id);
+        }
+
+        $like = $likeRepository->createQueryBuilder('l')
+            ->where('l.candidat = :candidat')
+            ->setParameter('candidat', $candidat)
+            ->andwhere('l.recruteur = :recruteur')
+            ->setParameter('recruteur', $recruteur)
+            ->getQuery()
+            ->getResult();
+
+        // dump($like);
+        // dump($candidat[0]);
+        // dump($recruteur);
+
+        if( count($like) >= 2 ){
+            $match = new Match();
+
+            $match->setCandidat( $candidat[0] )
+                ->setRecruteur( $recruteur )
+                ->setDateMatch( new \DateTime() );
+
+            $objectManager->persist($match);
+            $objectManager->flush();
+        }
+
+        if( $membre->getRoleEmploi() === 'candidat' ){
+            return $this->redirectToRoute('accueil_candidat');
+        }
+        elseif( $membre->getRoleEmploi() === 'recruteur' ){
+            return $this->redirectToRoute('recruteur_front');
+        }
+        else{
+            return $this->redirectToRoute('home');
+        }
     }
 }
