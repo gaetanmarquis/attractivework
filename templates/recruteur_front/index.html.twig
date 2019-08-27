@@ -17,7 +17,7 @@
             <div class="card mt-5 recruteur-top">
                 <div class="card-body">
                     <div class="card border-0 mx-auto" style="width: 18rem;">
-                        <img src="{{ asset('image/robin.jpg') }}"
+                        <img src="{{ app.user.photoProfil }}"
                              class="card-img-top img-responsive rounded-circle border border-danger mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
                              alt="...">
                         <div class="card-body">
@@ -77,15 +77,15 @@
                                  class="card-img-top img-responsive rounded-circle border border-primary mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
                                  alt="...">
                             <div class="card-body">
-                                <h5 class="card-title text-center">{{ candidat.membre.nom }} {{ candidat.membre.prenom }}</h5>
-                                <h6 class="card-title text-center font-weight-light text-black-50">{{ candidat.metier }}
-                                    , {{ candidat.membre.ville }}
-                                    ,{{ candidat.membre.pays }}</h6>
+                                <h5 class="card-title text-center">{{ candidat[0].membre.nom }} {{ candidat[0].membre.prenom }}</h5>
+                                <h6 class="card-title text-center font-weight-light text-black-50">{{ candidat[0].metier }}
+                                    , {{ candidat[0].membre.ville }}
+                                    ,{{ candidat[0].membre.pays }}</h6>
                                 <p class="card-text text-center">This is a longer card with supporting text below as a
                                     natural
                                     lead-in to
                                     additional content. This content is a little bit longer.</p>
-                                <p><a href="#" role="button"><i class="fas fa-plus-square fa-2x"></i></a></p>
+                                <p><a href="{{ path('select_candidat', {id: candidat[0].id}) }}" role="button"><i class="fas fa-plus-square fa-2x"></i></a></p>
                             </div>
                         </div>
                     {% endfor %}

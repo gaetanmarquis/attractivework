@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Like;
-use App\Entity\Recruteur;
 use App\Repository\LikeRepository;
 use App\Repository\CandidatRepository;
 use App\Repository\RecruteurRepository;
@@ -16,7 +15,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class AccueilCandidatController extends AbstractController
 {
     public $limite_affichage = 50;
-    public $tab_val_interdite = array();
 
     /**
      * @IsGranted("IS_AUTHENTICATED_FULLY")
@@ -29,16 +27,22 @@ class AccueilCandidatController extends AbstractController
     {
 
         $recruteurs = array();
+        $tabL = array();
+        $tabR = array();
 
         // membre connecté
         $membre = $this->getUser();
 
         // info candidat du membre
         $candidat = $candidatRepository->createQueryBuilder('c')
+            ->join('c.membre', 'm')
+            ->addSelect('m')
             ->where('c.membre = :membre')
             ->setParameter('membre', $membre)
             ->getQuery()
             ->getResult();
+
+            // dump($candidat);
 
         // like du candidat
         $likeCandidat = $likeRepository->createQueryBuilder('l')
@@ -56,7 +60,7 @@ class AccueilCandidatController extends AbstractController
         // tous les recruteurs
         $recruteursAll = $recruteurRepository->findAll();
 
-        // id de tous ls recruteurs
+        // id de tous les recruteurs
         for( $r = 0; $r < count($recruteursAll); $r++ ){
             $tabR[] = $recruteursAll[$r]->getId();
         }
@@ -72,7 +76,7 @@ class AccueilCandidatController extends AbstractController
 
                     // si le recruteur est liké
                     if( $tabR[$iBcl1] === $tabL[$iBcl2] ){
-                        // supprimé de la liste de recruteurs à afficher
+                        // supprimer de la liste de recruteurs à afficher
                         unset($tabR[$iBcl1]);
                         $iBcl1++;
                     }
@@ -81,8 +85,8 @@ class AccueilCandidatController extends AbstractController
         }
 
         // nbr d'affichages
-        if( count($tabR) > 50 ){
-            $nbr_affichage = 50;
+        if( count($tabR) > $this->limite_affichage ){
+            $nbr_affichage = $this->limite_affichage;
         }
         else{
             $nbr_affichage = count($tabR);
@@ -97,16 +101,14 @@ class AccueilCandidatController extends AbstractController
             $index = array_rand($tabR);
             $id = $tabR[$index];
             
-            // sélection du recruteur
-            //$recruteurs[] = $recruteurRepository->find($id);
-            
+            // sélection des recruteurs
             $recruteurs[] = $recruteurRepository->createQueryBuilder('r')
-            ->join('r.membre', 'm')
-            ->addSelect('m')
-            ->where('r.id = :id')
-            ->setParameter('id', $id)
-            ->getQuery()
-            ->getResult();        
+                ->join('r.membre', 'm')
+                ->addSelect('m')
+                ->where('r.id = :id')
+                ->setParameter('id', $id)
+                ->getQuery()
+                ->getResult();        
             
             // suppression dans la liste des recruteurs à afficher
             unset($tabR[$index]);
