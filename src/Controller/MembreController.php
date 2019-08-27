@@ -59,7 +59,6 @@ class MembreController extends AbstractController
         if( $membreForm->isSubmitted() && $membreForm->isValid() ){
             
             $membre->setDateInscription( new \DateTime() );
-            $membre->setStatut( 'ROLE_USER' );
             $membre->setDescriptionPhoto( 'Photo de profil de ' . $membre->getNom() . ' ' . $membre->getPrenom() );
 
             /**@var UploadedFile $imageFile */
@@ -75,12 +74,13 @@ class MembreController extends AbstractController
             $objectManager->persist($membre);
             $objectManager->flush();
 
+            
             if( $valueBtn === 'ajouter' ){
-                if( $_POST['role'] === 'candidat' ){
+                if( $membre->getRoleEmploi() === 'candidat' ){
                     //formulaire candidat
                     return $this->redirectToRoute('candidat_add', ['id_membre' => $membre->getId()]);
                 }
-                elseif( $_POST['role'] === 'recruteur' ){
+                elseif( $membre->getRoleEmploi() === 'recruteur' ){
                     //formulaire recruteur
                     return $this->redirectToRoute('recruteur_add', ['id_membre' => $membre->getId()]);
                 }

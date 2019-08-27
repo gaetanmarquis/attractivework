@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PersonnaliteDetailsController!{% endblock %}
+
+{% block body %}
+	{% if role == 'candidat' %}
+		{% include 'navbar_candidat/index.html.twig' %}
+	{% elseif role == 'recruteur' %}
+		{% include 'navbar_recruteur/index.html.twig' %}
+	{% endif %}
+	
+<style>
+    
+</style>
+
+<div class="container text-center">
+
+	<h2>{{ personnalite.categorie }}</h2>
+	<h1>{{ personnalite.nom }}</h1>
+	<h2 class="mb-5">{{ personnalite.reference }}</h2>
+
+	<p>{{ personnalite.description }}</p>
+
+</div>
+{% endblock %}

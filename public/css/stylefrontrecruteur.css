@@ -1,0 +1,48 @@
+.btn-lg{
+    background-color: #b13f9a;
+}
+
+.badge{
+    background-color: #b13f9a;
+}
+
+.headcard{
+    color: #15445b;
+}
+
+.card, .masthead {
+    border-top:  #a2ddf7 solid 9px;
+}
+
+.recruteur-top{
+    border-top:  #b13f9a solid 9px;
+}
+
+img{
+    min-width: auto;
+    max-width: 30%;
+    border-color: #a2ddf7;
+}
+
+.btn-outline{
+    background-color: #a2ddf7;
+}
+
+h2, h1{
+    color: #15445b ;
+}
+
+.text-recruteur{
+    color:#a2ddf7;
+}
+
+.fas{
+    color: #a2ddf7;
+    width: 30px;
+    height: 30px;
+    bottom: 0%;
+    right: 0%;
+    position: absolute;
+
+   }
+

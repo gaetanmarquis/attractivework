@@ -59,7 +59,7 @@ class LikeController extends AbstractController
         //Adapter les 3 lignes ci-dessous selon la table en BDD
         //Il s'agit de la création du formulaire
         if( $like === null ){
-        $like = new Like();
+            $like = new Like();
         }
         $likeForm = $this->createForm(LikeType::class, $like);
         $likeForm->handleRequest($request);

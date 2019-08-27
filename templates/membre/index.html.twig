@@ -2,14 +2,22 @@
 
 {% block title %}Hello MembreController!{% endblock %}
 
-{% block body %}
+{% block stylesheets %}
+{{ parent() }}
 <style>
     img{
         width: 100px;
         height: 100px;
     }
 </style>
+{% endblock %}
 
+{% block body %}
+{% include 'backoffice/navbar.html.twig' %}
+
+<a class="btn btn-success" href="{{ path('membre_add') }}">Ajouter un membre</a>
+<a class="btn btn-info" href="{{ path('candidat') }}">Afficher les candidats</a>
+<a class="btn btn-info" href="{{ path('recruteur') }}">Afficher les recruteurs</a>
 <table class="table">
     <thead>
         <tr>
@@ -24,6 +32,7 @@
             <th>description</th>
             <th>statut</th>
             <th>date inscription</th>
+            <th>role</th>
             <th>option</th>
         </tr>
     </thead>
@@ -42,6 +51,7 @@
             <td><img src="{{ membre.photoProfil }}" alt="{{ membre.descriptionPhoto }}"></td>
             <td>{{ membre.description }}</td>
             <td>{{ membre.statut }}</td>
+            <td>{{ membre.roleEmploi }}</td>
             <td>{{ membre.dateInscription|date('j/m/Y') }}</td>
             <td>
                 <a class="btn btn-primary" href="{{ path('membre_edit', { 'id' : membre.id }) }}">Modifier le membre</a>

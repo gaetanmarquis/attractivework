@@ -1,0 +1,53 @@
+.navbar{
+    background-color: #b13f9a;
+}
+
+.btn-lg{
+    background-color: #a2ddf7;
+
+}
+
+.badge{
+    background-color: #a2ddf7;
+}
+
+.headcard{
+    color: #15445b;
+}
+
+.card, .masthead {
+    border-top:  #b13f9a solid 9px;
+}
+
+.recruteur-top{
+    border-top:  #a2ddf7 solid 9px;
+}
+
+img{
+    min-width: auto;
+    max-width: 30%;
+    border-color: #b13f9a;
+}
+
+.btn-outline{
+    background-color: #b13f9a;
+}
+
+h2, h1{
+    color: #15445b ;
+}
+
+.text-candidat{
+    color:#b13f9a;
+}
+
+.fas{
+    color: #b13f9a;
+    width: 30px;
+    height: 30px;
+    bottom: 0%;
+    right: 0%;
+    position: absolute;
+
+}
+

@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\RadioType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -56,6 +57,20 @@ class MembreType extends AbstractType
                 'label' => 'Personnalite',
                 'class' => Personnalite::class,
                 'choice_label' => 'nom',
+            ])
+            ->add('role_emploi', ChoiceType::class, [
+                'label' => 'Role',
+                'choices' => [
+                    'Candidat' => 'candidat',
+                    'Recruteur' => 'recruteur'
+                ]
+            ])
+            ->add('statut', ChoiceType::class, [
+                'label' => 'Statut',
+                'choices' => [
+                    'Membre' => 'ROLE_USER',
+                    'Admin' => 'ROLE_USER,ROLE_ADMIN'
+                ] 
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Enregistrer'

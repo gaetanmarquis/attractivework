@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProfilPersoCandidatController!{% endblock %}
+
+{% block body %}
+
+{% include 'navbar_recruteur/index.html.twig' %}
+
+<style>
+    
+	.divPhoto{
+
+	}
+
+	.photoProfil{
+		max-width: 300px;
+		max-height: 300px;
+		border-radius: 50%;
+		padding: 3px;
+		border: solid 3px #b13f9a;
+	}
+
+	.colorTitle{
+		color: #b13f9a;
+	}
+
+	hr{
+		color: #b13f9a;
+	}
+
+	.iconColor{
+		color: #b13f9a;
+	}
+
+	a{
+  		color: black;
+	}
+
+	.divCV{
+		border-left: 2px solid #b13f9a;
+		
+	}
+
+	.desc{
+		color: #b13f9a;
+	}
+
+</style>
+
+<div class="mx-5">
+
+	<div class="divPhoto text-center">
+		<img src="{{ recruteur.membre.photoProfil }}" alt="{{ recruteur.membre.descriptionPhoto }}" class="photoProfil img-fluid">
+	</div>
+
+	<div class="d-flex">
+		
+		<div class="text-center list-group list-group-flush col-3 mt-5 flex-fill">
+			<h4 class="colorTitle">Vos informations <a href="{{ path('profil_perso_infos_edit', { 'id' : recruteur.id}) }}"><i class="fas fa-pencil-alt iconColor"></i></a></h4>
+			<ul class="p-0">
+				<li class="list-group-item">{{ recruteur.membre.prenom }} {{ recruteur.membre.nom }}</li>
+				<li class="list-group-item">{{ recruteur.membre.email }}</li>
+				<li class="list-group-item">{{ recruteur.membre.ville }} {{ recruteur.membre.pays }}</li>
+			</ul>
+
+			<hr class="my-5">
+			<h4 class="colorTitle">Vos informations professionnelles <a href="{{ path('profil_perso_cv_edit', { 'id' : recruteur.id}) }}"><i class="fas fa-pencil-alt iconColor"></i></a></h4>
+			<ul class="p-0">
+				<li class="list-group-item">Votre secteur d'activité: {{ recruteur.secteurActivite }}</li>
+				<li class="list-group-item">Votre entreprise: {{ recruteur.nomEntreprise }}</li>
+
+			</ul>
+		</div>
+
+		<div class="col-8 mt-5 flex-fill divCV">
+
+			<h1 class="text-center mb-5">{{ recruteur.membre.prenom }} {{ recruteur.membre.nom }}</h1>
+
+			<h3 class="mb-5"><a href="{{ path('personnalite_details', { 'id' : recruteur.membre.personnalite.id, 'role' : 'recruteur'}) }}">{{ recruteur.membre.personnalite.nom }}</a></h3> 
+
+			<h3 class="my-5 desc">Description</h3>
+			<p>{{ recruteur.membre.description }}</p>
+			
+		</div>
+
+	</div>
+
+</div>
+{% endblock %}
+
