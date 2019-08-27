@@ -1,0 +1,47 @@
+.text-like{
+    color:#a2ddf7;
+}
+
+.zonetitle{
+    color: #15445b;
+}
+
+.match-border-color{
+    border:  #a2ddf7 solid 30px;
+
+}
+
+.iconmatch{
+    min-width: auto;
+    max-width: 3%;
+
+}
+
+.card{
+    border-top:  #b13f9a solid 9px;
+}
+
+/*.recruteur-top{*/
+/*    border-top:  #b13f9a solid 9px;*/
+/*}*/
+
+/*.candidat-top{*/
+/*    border-top:  #a2ddf7 solid 9px;*/
+/*}*/
+
+img{
+    min-width: auto;
+    max-width: 30%;
+    border-color: #b13f9a;
+}
+
+.fas{
+    color: #b13f9a;
+    width: 30px;
+    height: 30px;
+    bottom: 0%;
+    right: 0%;
+    position: absolute;
+
+}
+
