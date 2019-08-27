@@ -1,5 +1,6 @@
 .navbar{
-    background-color: #a2ddf7;
+    background-color: #b13f9a;
+    color: white;
 }
 
 .btn-lg{
@@ -15,7 +16,7 @@
 }
 
 .card, .masthead {
-    border-top:  #a2ddf7 solid 9px;
+        border-top:  #a2ddf7 solid 9px;
 }
 
 .recruteur-top{
@@ -36,7 +37,7 @@ h2, h1{
     color: #15445b ;
 }
 
-.text-recruteur{
+.text-candidat{
     color:#a2ddf7;
 }
 

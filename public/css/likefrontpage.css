@@ -1,0 +1,42 @@
+.text-like{
+    color:#b13f9a;
+}
+
+.zonetitle{
+    color: #15445b;
+}
+
+.match-border-color{
+    border:  #b13f9a solid 30px;
+
+}
+
+.iconmatch{
+    min-width: auto;
+    max-width: 3%;
+
+}
+/*.recruteur-top{*/
+/*    border-top:  #b13f9a solid 9px;*/
+/*}*/
+
+/*.candidat-top{*/
+/*    border-top:  #a2ddf7 solid 9px;*/
+/*}*/
+
+img{
+    min-width: auto;
+    max-width: 30%;
+    border-color: #a2ddf7;
+}
+
+.fas{
+    color: #a2ddf7;
+    width: 30px;
+    height: 30px;
+    bottom: 0%;
+    right: 0%;
+    position: absolute;
+
+}
+
