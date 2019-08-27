@@ -74,10 +74,10 @@
 				<div class="card-deck">
 					{% for recruteur in recruteurs %}
 					<div class="card">
-						{#
+						
 						<a href="{{ path('profil_details_recruteur', { 'id' : recruteur[0].id, 'role' : 'candidat'}) }}"><img src="{{ recruteur[0].membre.photoProfil }}"
 							 class="card-img-top img-responsive rounded-circle border border-danger mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
-							 alt="..."></a>#}
+							 alt="..."></a>
 						<div class="card-body">
 							<h5 class="card-title text-center">{{recruteur[0].membre.nom }} {{ recruteur[0].membre.prenom }}</h5>
 							<h6 class="card-title text-center font-weight-light text-black-50">{{ recruteur[0].membre.ville }}
