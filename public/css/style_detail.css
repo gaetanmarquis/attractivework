@@ -1,0 +1,159 @@
+body{
+    font-family: Arial, sans-serif;
+}
+
+/* =========== HEADER =========== */
+h1{
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #073b53;
+    margin-bottom: 0;
+
+}
+h2{
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+}
+hr{
+    width: 40%;
+    border: #073b53 1px solid;
+}
+.paraIntro{
+    text-align: center;
+}
+.logoCard{
+    margin-top: 20px;
+    width: 50px;
+    height: 50px;
+}
+.banner_text{
+    text-align: center;
+
+}.banner_text:before{
+     content : "";
+     position: absolute;
+     left    : 30%;
+     bottom  : 0;
+     height  : 1px;
+     width   : 37%;
+    border-bottom: #b13f9a 1px solid ;
+
+}
+#buttonPostuler{
+    border-radius: 30px;
+    background-color: #b13f9a;
+    border: #b13f9a 1px solid;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+/* =========== MAIN =========== */
+
+.col-lg-6{
+    margin: auto;
+}
+.card{
+    margin: auto;
+    margin-top: 50px;
+    width: 95%;
+    border-left: #b13f9a 15px solid;
+    position: relative;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-top: 1px solid transparent;
+
+
+}
+
+.contentCard{
+    margin: auto;
+    width: 90%;
+    padding-top: 90px;
+    padding-bottom: 60px;
+}
+.contentCard p{
+    margin-top: 10px;
+    color: #929292;
+}
+blockquote{
+    display: inline-block;
+    margin-left: 10px;
+    font-style: italic;
+    margin-bottom: 0;
+    color: #929292;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    padding-right: 20px;
+    padding-bottom: 10px;
+}
+span{
+    display: block;
+    color: #929292;
+    text-align: center;
+}
+.backgCard{
+    background-color: #f9f9f9;
+    margin: auto;
+    padding-bottom: 50px;
+}
+#buttonCDI {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 30px;
+    margin-right: 30px;
+    border-radius: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: #b13f9a;
+    border: #b13f9a 1px solid;
+}
+#buttonCDI:hover{
+    background-color: #95347e;
+    border: #b13f9a 1px solid;
+}
+.linkCard{
+    color: #073b53;
+}
+b{
+    color: #073b53;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ======= Couleurs =========
+
+Bleu candidats : #a2ddf7
+Violet recruteur : #b13f9a
+Bleu foncé titre : #073b53
+gris texte paragraphe : #929292
+
+*/

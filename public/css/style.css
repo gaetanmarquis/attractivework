@@ -16,7 +16,6 @@ body{
 }
 .banner_text_iner {
     align-items: center;
-    border: blue 2px solid;
     text-align: center;
     color: white;
     margin: auto;
@@ -29,7 +28,7 @@ h1{
 }
 h2{
     font-weight: bold;
-    margin-top: 20px;
+    margin-top: 50px;
     text-align: center;
 }
 hr{
@@ -50,7 +49,6 @@ hr{
     padding-left: 30px;
     padding-right: 30px;
     margin-top: 20px;
-
 }
 .connexion {
     border-radius: 30px;
@@ -66,6 +64,7 @@ hr{
 
 .card{
     border-top: #a2ddf7 9px solid;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.03);
 }
 .recruteurCard{
     border-top: #b13f9a 9px solid;
@@ -73,6 +72,8 @@ hr{
 
 .card-columns{
     position: relative;
+    margin-bottom: 50px;
+    margin-top: 50px;
 }
 .img-card-candi{
     border-radius: 50%;
@@ -101,19 +102,10 @@ h5{
 }
 h3{
     text-align: center;
-    margin-top: 20px;
+    margin-top: 50px;
     font-weight: bold;
     color: #a2ddf7;
 }
-/*h3:before{
-    content: "";
-    display: block;
-    width: 80px;
-    height: 80px;
-    background: url("../image/icon_card.png") no-repeat;
-    float: left;
-
-}*/
 .col-lg-6{
     text-align: center;
 }
@@ -140,3 +132,122 @@ h3{
 .recruTitle{
    color: #b13f9a;
 }
+
+/* ====== FOOTER ======== */
+
+.footerHR{
+    margin-top: 50px;
+}
+.footer{
+    margin-top: 50px;
+    background-color: #233148;
+    height: 200px;
+}
+.logoFooter{
+    flex-wrap: wrap;
+    display: inline-block;
+    width: 200px;
+    margin-top: 20px;
+    border-right: #ffffff 1px solid;
+    margin-left: 20px;
+
+}
+.linkCard {
+    color: #073b53;
+
+}
+.linkCard:hover{
+    color: #073b53;
+}
+.imageFooter1 {
+    width: 177px;
+    height: 111px;
+}
+.imageFooter{
+    padding-left: 20px;
+}
+.reseauxS{
+    margin-top: 20px;
+    padding-left: 45px;
+
+}
+ul{
+    padding-right: 30px;
+    color: white;
+    display: inline-block;
+}
+ul a{
+    color: white;
+}
+li a:hover{
+    color: #ffb81d;
+}
+li{
+    padding-bottom: 15px;
+    border-right: #ffffff 1px solid;
+    padding-right: 40px;
+    list-style: none;
+
+}
+.lastLi li {
+    border-right: none;
+}
+
+/* ====== MEDIA QUERIES ======== */
+
+
+@media screen and (max-width: 1066px) {
+footer{
+   display: flex;
+    background-color: #233148;
+    border: #2F611C 2px solid;
+    height: 440px;
+
+}
+.logoFooter{
+    flex-wrap: wrap;
+    margin-top: 5px;
+    display: block;
+}
+.footerHR{
+    display: none;
+
+}
+li{
+    border-right: none;
+}
+
+.logoFooter{
+    border-right: none;
+    margin-bottom: 20px;
+}
+}
+@media screen and (max-width: 866px) {
+footer{
+    height: 450px;
+    }
+}
+
+@media screen and (max-width: 866px) {
+    footer{
+        height: 650px;
+    }
+
+}
+
+@media screen and (max-width: 492px) {
+    footer{
+        height: 880px;
+    }
+    .logoHeader{
+        max-width: 80%;
+    }
+}
+
+/* ======= Couleurs =========
+
+Bleu candidats : #a2ddf7
+Violet recruteur : #b13f9a
+Bleu foncé titre : #073b53
+
+*/

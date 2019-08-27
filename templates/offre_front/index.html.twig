@@ -1,0 +1,105 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block title %}Hello OffreFrontController!{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{asset('css/style_front.css')}}">
+{% endblock %}
+
+{% block body %}
+
+
+    {#  ====== HEADER ========  #}
+    <header class="banner_part">
+        <div class="container-fluid">
+            <div class="blockImg">
+            <img class="imgBlockTop" src="{{ asset('image/job-cover.jpg') }}" alt="">
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 offset-lg-1">
+                    <div class="banner_text">
+                        <h1 class="recruTitle"><img src="{{ asset('image/icon_Recru.png') }}" alt="">  &#8226;  Offres</h1>
+                        <h2>Vous cherchez un emploi ?</h2>
+                        <hr>
+                        <p class="paraIntro">
+                            Attractiv work vous envoie chaque jour toutes les offres d'emploi
+                            qui correspondent à votre profil.
+                        </p>
+
+                </div>
+            </div>
+
+                <div class="backgCard">
+
+                    {# ========= Début card 1 ============ #}
+                    <a href="{{ path('offre_detail') }}" class="linkCard" style="text-decoration: none;"><div class="card" >
+                    <img class="logoCard" src="{{ asset('image/logo_mcdo.png') }}" alt="">
+                    <div class="contentCard">
+                    <h3>Employé de Restauration (H/F)</h3>
+                        <blockquote>Publié aujourd'hui </blockquote>
+                        <span>Mcdonald's France / 75 - PARIS 12</span>
+                    <p class="paraOffre">
+                        Pas besoin d'un long CV pour postuler chez McDonald's, nous en avons pour tous les goûts.
+                        De l'accueil à la cuisine en passant par le management, la team McDonald's
+                        est une équipe soudée et synchronisée à la façon d'un orchestre symphonique.
+                    </p>
+                </div>
+                    <a href="{{ path('offre_detail') }}"><img class="iconPlus" src="{{ asset('image/icon_plus-violet.png') }}" alt=""></a>
+                    <a href="#" class="btn btn-primary connexion" role="button">CDI</a>
+                </div>
+                    </a>
+                    {# ========= Fin card 1 ============ #}
+
+                    {# ========= Début card 2 ============ #}
+                    <a href="#" class="linkCard" style="text-decoration: none;"><div class="card" >
+                            <img class="logoCard" src="{{ asset('image/logo_pizza_pino.png') }}" alt="">
+                            <div class="contentCard">
+                                <h3>Serveur / Serveuse en restauration</h3>
+                                <blockquote>Publié il y a 3 jours</blockquote>
+                                <span>PIZZA PINO  - 75 - PARIS 02</span>
+                                <p class="paraOffre">
+                                    Spécialiste de la restauration italienne, le Groupe Pizza Pino se compose
+                                    de 7 restaurants avec des emplacements d'exception : 4 à Paris, 1 en région parisienne,
+                                    un à Lyon et un à Toulouse. Votre...
+                                </p>
+                            </div>
+                            <a href="#"><img class="iconPlus" src="{{ asset('image/icon_plus-violet.png') }}" alt=""></a>
+                            <a href="#" class="btn btn-primary connexion" role="button">CDI</a>
+                        </div>
+                    </a>
+                    {# ========= Fin card 2 ============ #}
+
+                    {# ========= Début card 3 ============ #}
+                    <a href="#" class="linkCard" style="text-decoration: none;"><div class="card" >
+                            <img class="logoCard" src="{{ asset('image/logo_starbucks.jpg') }}" alt="">
+                            <div class="contentCard">
+                                <h3>BARISTA TEMPS COMPLET H/F</h3>
+                                <blockquote>Publié il y a 6 jours</blockquote>
+                                <span>Starbucks  - 75 - Paris (Dept.)</span>
+                                <p class="paraOffre">
+                                    Vous êtes dynamique, enthousiaste, passionné(e) par le service et le conseil à la clientèle ? Le métier de barista est pour vous !
+                                    Intégré(e) à une équipe énergique, vous veillerez à apporter aux clients une expérience inoubliable de nos salons de café.
+                                </p>
+                            </div>
+                            <a href="#"><img class="iconPlus" src="{{ asset('image/icon_plus-violet.png') }}" alt=""></a>
+                            <a href="#" class="btn btn-primary connexion" role="button">CDI</a>
+                        </div>
+                    </a>
+                    {# ========= Fin card 3 ============ #}
+
+                </div> {# class backgCard #}
+            </div> {# row #}
+        </div> {# div container#}
+
+    </header>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/0137267f01.js"></script>
+{% endblock %}

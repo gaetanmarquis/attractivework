@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block title %}Hello OffreFrontController!{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{asset('css/style_detail.css')}}">
+{% endblock %}
+
+{% block body %}
+
+    {#  ====== HEADER ========  #}
+
+    <header class="banner_part">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-6 offset-lg-1">
+                    <div class="banner_text">
+                            <img class="logoCard" src="{{ asset('image/logo_mcdo.png') }}" alt="">
+                        <h1 class="recruTitle">Employé de Restauration (H/F)</h1>
+                        <span>Mcdonald's France / 75 - PARIS 12</span>
+                        <button type="submit" id="buttonPostuler" class="btn btn-primary" >POSTULER</button>
+
+
+                    </div>
+                </div>
+                <div class="backgCard">
+
+                    {# ========= Début card 1 ============ #}
+                    <div class="card" >
+                            <div class="contentCard">
+                                <blockquote>Publié aujourd'hui </blockquote>
+
+                                <b>Qui sommes-nous ?</b>
+                                <p>
+
+                                    Nous recherchons dès à présent, pour le restaurant de Rue du Commerce, situé à Paris, des Employés de restauration H/F,
+                                    à temps partiel, en CDI. Dans notre grande famille McDonald's, il n'existe pas qu'un seul métier en restaurant !
+                                    De l'accueil à la cuisine en passant par le management, la team McDonald's est une équipe soudée et synchronisée à la façon
+                                    d'un orchestre symphonique. Notre objectif est simple : satisfaire le client tout en passant un moment agréable.
+                                    C'est une expérience de vie positive à la portée de tous ! Pas besoin d'un long CV pour postuler chez McDonald's,
+                                    nous en avons pour tous les goûts. Plus qu'un diplôme, c'est votre personnalité et votre motivation qui comptent.
+                                </p>
+                                <b>Ce que j'apprends</b>
+                                <p>Je deviens autonome et gagne en réactivité
+                                Je sais gérer la pression et prendre sur moi
+                                J’arrive à canaliser mes émotions
+                                Je gagne en maturité, et ça se voit
+                                Je pense « équipe »
+
+                                Ce qui me caractérise
+                                J’ai un excellent relationnel
+                                Avec souplesse, je sais m’adapter à toutes les situations
+                                J’aime m’investir dans les missions qu’on me confie
+                                Je suis d’un naturel dynamique dans tout ce que j’entreprends
+                                </p>
+                                <b>Ce qui m'attend</b>
+                                <p>En salle, au comptoir ou à la cuisine, je sais tout faire
+                                    Je rejoins des coéquipiers qui sont prêts à s’investir les uns pour les autres
+                                    Je peux adapter mon emploi du temps à mes disponibilités
+                                    Je découvre le pic d’adrénaline pendant les périodes de rushs !
+                                    J’exerce un métier dans lequel je n’ai pas le temps de m’ennuyer
+                                </p>
+                            </div>
+                            <a href="#" id="buttonCDI" class="btn btn-primary" role="button">CDI</a>
+                        </div>
+                    {# ========= Fin card 1 ============ #}
+                </div> {# class backgCard #}
+            </div> {# row #}
+        </div> {# div container#}
+
+    </header>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/0137267f01.js"></script>
+{% endblock %}
