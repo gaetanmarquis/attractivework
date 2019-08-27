@@ -82,7 +82,7 @@
                 <div class="card-deck">
                     {% for candidat in candidats %}
                         <div class="card">
-                            <a href="{{ path('profil_details_candidat', { id: candidat[0].id}) }}" class="text-center"><img src="{{ candidat[0].membre.photoProfil }}"
+                            <a href="{{ path('profil_details_candidat', { 'id' : candidat[0].id}) }}" class="text-center"><img src="{{ candidat[0].membre.photoProfil }}"
                                  class="card-img-top img-responsive rounded-circle bdPhotoC mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
                                  alt="{{ candidat[0].membre.descriptionPhoto }}"></a>
                             <div class="card-body">
