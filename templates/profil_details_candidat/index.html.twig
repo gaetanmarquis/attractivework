@@ -5,17 +5,80 @@
 {% block body %}
 	{% include 'navbar_recruteur/index.html.twig' %}
 <style>
+
+	.photoProfil{
+		max-width: 300px;
+		max-height: 300px;
+		border-radius: 50%;
+		padding: 4px;
+		border: solid 3px #a2ddf7;
+	}
+
+	.colorTitle{
+		color: #a2ddf7;
+	}
+
+	hr{
+		color: #a2ddf7;
+	}
+
+	.iconColor{
+		color: #b3e0ff;
+	}
+
+	a{
+  		color: black;
+	}
+
+	.divCV{
+		border-left: 2px solid #a2ddf7;
+		
+	}
    
 </style>
 
 <div class="mx-5">
 
-	<div class="divPhoto text-center">
+	<div class="text-center">
 		<img src="{{ candidat.membre.photoProfil }}" alt="{{ candidat.membre.descriptionPhoto }}" class="photoProfil img-fluid">
 		<h2>{{ candidat.membre.prenom }} {{ candidat.membre.nom }}</h2>
 	</div>
 
-	<div class="col-8 mt-5 flex-fill divCV">
+	<div class="d-flex">
+
+		<div class="text-center list-group list-group-flush col-3 mt-5 flex-fill">
+
+			<h4 class="colorTitle">Informations générales</h4>
+			<ul class="p-0">
+				<li class="list-group-item">Date de naissance: {{ candidat.dateNaissance|date('d/m/Y') }}</li>
+				<li class="list-group-item">Email: {{ candidat.membre.email }}</li>
+				<li class="list-group-item">Telephone: {{ candidat.telephone }}</li>
+				<li class="list-group-item">{{ candidat.membre.ville }} {{ candidat.membre.pays }}</li>
+			</ul>
+
+			<hr class="my-5">
+
+			<h4 class="colorTitle">Informations professionnelles</h4>
+			<ul class="p-0">
+				<li class="list-group-item">Disponible à partir du: {{ candidat.dateDisponibilite|date('d/m/Y')  }}</li>
+				<li class="list-group-item">Cherche: {{ candidat.typeContrat }}</li>
+				<li class="list-group-item">Prétention salariale: {{ candidat.salaire }}</li>
+				<li class="list-group-item">Années d'experiences: {{ candidat.anneeExperience }}</li>
+				<li class="list-group-item">Langues parlées: {{ candidat.langueParlee }}</li>
+				<li class="list-group-item">Site web: {{ candidat.siteWeb }}</li>
+
+				{% if candidat.cv != null %}
+				<li><a href="{{ candidat.cv }}" download="CV"></a></li>
+				{% endif %}
+				{% if candidat.autreFichier != null %}
+				<li><a href="{{ candidat.autreFichier }}" download="Autre fichier"></a></li>
+				{% endif %}
+
+			</ul>
+
+		</div>	
+
+		<div class="col-8 mt-5 flex-fill divCV">
 
 			<h1 class="text-center mb-5">{{ candidat.metier }}</h1>
 
@@ -26,5 +89,7 @@
 			<p>{{ candidat.membre.description }}</p>
 			
 		</div>
+
+	</div>	
 </div>
 {% endblock %}
