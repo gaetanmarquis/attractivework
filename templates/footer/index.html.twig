@@ -1,32 +1,37 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Hello FooterController!{% endblock %}
-
-{% block body %}
 <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+
+	.divFooter{
+		background-image: rgba(0,0,0,0.7), url("../../public/image/Attractiv_work_logo.jpg");
+	}
+
+	.divTitreFooter{
+		color: #a8a8a8;
+	}
+    
 </style>
 
-<footer class="container">
+<div class="divFooter">
 	
-	<div class="container">
-	<ul>
-		<li>Contact</li>
-		<li><i class="fab fa-facebook-square"></i></li>
-		<li><i class="fab fa-twitter-square"></i></li>
-		<li>Copyright</li>
-		<li>Privacy Policy</li>
-	</ul>
+	<div class="divTitreFooter">
+		<p>Work at first sight.</p>
+		<ul>
+			<li class="nav-item nav-link"><i class="fab fa-twitter-square fa-2x"></i></li>
+			<li class="nav-item nav-link"><i class="fab fa-facebook-square fa-2x"></i></li>
+			<li class="nav-item nav-link"><i class="fab fa-google-plus-square fa-2x"></i></li>
+			<li class="nav-item nav-link"><i class="fas fa-share-alt-square fa-2x"></i></li>
+		</ul>
 	</div>
 
-	<div class="container">
-
+	<div>
+		<ul>
+			<li><a href="#">Contact</a></li>
+			<li><a href="#">Copyright</a></li>
+			<li><a href="#">Privacy Policy</a></li>
+		</ul>
 	</div>
 
-	<div class="container">
+</div>
 
-	</div>
+{#rgb(1, 60, 82)#}
 
-</footer>
-{% endblock %}
+
