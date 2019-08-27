@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProfilDetailsCandidatController!{% endblock %}
+
+{% block body %}
+	{% include 'navbar_recruteur/index.html.twig' %}
+<style>
+   
+</style>
+
+<div class="mx-5">
+
+	<div class="divPhoto text-center">
+		<img src="{{ candidat.membre.photoProfil }}" alt="{{ candidat.membre.descriptionPhoto }}" class="photoProfil img-fluid">
+		<h2>{{ candidat.membre.prenom }} {{ candidat.membre.nom }}</h2>
+	</div>
+
+	<div class="col-8 mt-5 flex-fill divCV">
+
+			<h1 class="text-center mb-5">{{ candidat.metier }}</h1>
+
+			<h3 class="mb-5"><a href="{{ path('personnalite_details', { 'id' : candidat.membre.personnalite.id, 'role' : 'recruteur'}) }}">{{ candidat.membre.personnalite.nom }}</a></h3> 
+			<h4>Atouts : {{ candidat.atout }}</h4>
+
+			<h3 class="my-5">Description</h3>
+			<p>{{ candidat.membre.description }}</p>
+			
+		</div>
+</div>
+{% endblock %}

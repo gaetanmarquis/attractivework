@@ -2,10 +2,9 @@
 
 namespace App\Controller;
 
-
-use App\Entity\Candidat;
-use App\Repository\CandidatRepository;
-use App\Form\CandidatType;
+use App\Entity\Recruteur;
+use App\Repository\RecruteurRepository;
+use App\Form\RecruteurType;
 use App\Entity\Membre;
 use App\Repository\MembreRepository;
 use App\Form\MembreType;
@@ -14,62 +13,69 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class ProfilPersoCandidatController extends AbstractController
+class ProfilPersoRecruteurController extends AbstractController
 {
     /**
-     * @Route("/profil/perso/candidat/{id}", name="profil_perso_candidat")
+     * @Route("/profil/perso/recruteur/{id}", name="profil_perso_recruteur")
      */
-    public function index( CandidatRepository $candidatRepository, int $id )
+    public function index( RecruteurRepository $recruteurRepository, int $id )
     {
 
-    	$candidat = $candidatRepository->createQueryBuilder('c')
-    	->where('c.id = :id')
+    	$recruteur = $recruteurRepository->createQueryBuilder('r')
+    	->where('r.id = :id')
     	->setParameter('id', $id)
-    	->join('c.membre', 'm')
+    	->join('r.membre', 'm')
     	->addSelect('m')
         ->join('m.personnalite', 'p')
         ->addSelect('p')
     	->getQuery()
     	->getResult();
 
-    	// dump($candidat);
-
-        return $this->render('profil_perso_candidat/index.html.twig', [
-            'candidat' => $candidat[0],
+        return $this->render('profil_perso_recruteur/index.html.twig', [
+            'recruteur' => $recruteur[0],
         ]);
     }
 
-
     /**
-     * @Route("/profil/perso/candidat/{id}/edit/cv", name="profil_perso_cv_edit")
+     * @Route("/profil/perso/recruteur/{id}/edit/cv", name="profil_perso_cv_edit")
      */
-    public function edit_cv(Request $request, ObjectManager $objectManager, Candidat $candidat = null)
+    public function edit_cv(Request $request, ObjectManager $objectManager, Recruteur $recruteur = null)
     {
 
-        $candidatForm = $this->createForm(CandidatType::class, $candidat);
-        $candidatForm->handleRequest($request);
+        $recruteurForm = $this->createForm(RecruteurType::class, $recruteur);
+        $recruteurForm->handleRequest($request);
 
-        if( $candidatForm->isSubmitted() && $candidatForm->isValid() ){
-            $candidat->setMembre( $this->getUser() );
+        if( $recruteurForm->isSubmitted() && $recruteurForm->isValid() ){
+            $recruteur->setMembre( $this->getUser() );
 
-            $objectManager->persist($candidat);
+            $objectManager->persist($recruteur);
             $objectManager->flush();
 
-            return $this->render('profil_perso_candidat/index.html.twig', [
-            'candidat' => $candidat[0],
+            return $this->render('profil_perso_recruteur/index.html.twig', [
+            'recruteur' => $recruteur[0],
         ]);
         }
 
-        return $this->render('candidat/add.html.twig', [
-            'candidat_form' => $candidatForm->createView(),
+        return $this->render('recruteur/add.html.twig', [
+            'recruteur_form' => $recruteurForm->createView(),
         ]);
     }
 
     /**
-     * @Route("/profil/perso/candidat/{id}/edit/infos", name="profil_perso_infos_edit")
+     * @Route("/profil/perso/recruteur/{id}/edit/infos", name="profil_perso_infos_edit")
      */
-    public function edit_infos(Request $request, ObjectManager $objectManager, Membre $membre = null)
+    public function edit_infos(Request $request, ObjectManager $objectManager, RecruteurRepository $recruteurRepository, int $id)
     {
+
+    	$recruteur = $recruteurRepository->createQueryBuilder('r')
+    	->where('r.id = :id')
+    	->setParameter('id', $id)
+    	->join('r.membre', 'm')
+    	->addSelect('m')
+    	->getQuery()
+    	->getResult();
+
+    	$membre = $recruteur[0]->getMembre();
 
         $membreForm = $this->createForm(MembreType::class, $membre);
         $membreForm->handleRequest($request);

@@ -85,7 +85,7 @@
 
 			<h1 class="text-center mb-5">{{ candidat.metier }}</h1>
 
-			<h3 class="mb-5"><a href="#">{{ candidat.membre.personnalite.nom }}</a></h3> 
+			<h3 class="mb-5"><a href="{{ path('personnalite_details', { 'id' : candidat.membre.personnalite.id, 'role' : 'candidat'}) }}">{{ candidat.membre.personnalite.nom }}</a></h3> 
 			<h4>Atouts : {{ candidat.atout }}</h4>
 
 			<h3 class="my-5">Description</h3>
