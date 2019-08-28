@@ -1,7 +1,10 @@
 <style>
 
 	.divFooter{
-		background-image: rgba(0,0,0,0.7), url("../../public/image/Attractiv_work_logo.jpg");
+		background-image: linear-gradient(rgba(51,51,51,0.8), rgba(51,51,51,0.8)) ,url("{{asset('image/attractiv_work_logo.jpg')}}");
+		background-repeat:no-repeat;
+		background-position:center center;
+		background-size: contain;
 	}
 
 	.divTitreFooter{
@@ -19,26 +22,39 @@
 	.mtDiv{
 		margin-top: 100px;
 	}
+
+	.mtDiv2{
+		margin-top: 70px;
+	}
+
+	.textDeco{
+		text-decoration: underline;
+	}
+
+	a:link{
+		color: #a8a8a8;
+	}
     
 </style>
 
-<div class="divFooter mtDiv">
+<div class="divFooter mtDiv rounded">
 	
-	<div class="divTitreFooter text-center">
-		<p class="citation">Work at first sight</p>
-		<ul class="p-0">
-			<li class="nav-item nav-link listSocial"><i class="fab fa-twitter-square fa-2x"></i></li>
-			<li class="nav-item nav-link listSocial"><i class="fab fa-facebook-square fa-2x"></i></li>
-			<li class="nav-item nav-link listSocial"><i class="fab fa-google-plus-square fa-2x"></i></li>
-			<li class="nav-item nav-link listSocial"><i class="fas fa-share-alt-square fa-2x"></i></li>
+	<div class="divTitreFooter text-center pt-5">
+		<p class="citation mb-0">Work at first sight</p>
+		<span class="mt-0">Live Intentionally - Live Authentically</span>
+		<ul class="pl-0 mt-5">
+			<li class="nav-item nav-link listSocial"><a href="#"><i class="fab fa-twitter-square fa-2x"></i></a></li>
+			<li class="nav-item nav-link listSocial"><a href="#"><i class="fab fa-facebook-square fa-2x"></i></a></li>
+			<li class="nav-item nav-link listSocial"><a href="#"><i class="fab fa-google-plus-square fa-2x"></i></a></li>
+			<li class="nav-item nav-link listSocial"><a href="#"><i class="fas fa-share-alt-square fa-2x"></i></a></li>
 		</ul>
 	</div>
 
-	<div>
-		<ul class="d-flex justify-content-around mtDiv">
-			<li class="nav-item nav-link listSocial"><a href="#">Contact</a></li>
-			<li class="nav-item nav-link listSocial"><a href="#">Copyright</a></li>
-			<li class="nav-item nav-link listSocial"><a href="#">Privacy Policy</a></li>
+	<div class="mtDiv2">
+		<ul class="d-flex justify-content-center pb-3 pl-0">
+			<li class="nav-item nav-link listSocial textDeco"><a href="#">Contact</a></li>
+			<li class="nav-item nav-link listSocial textDeco"><a href="#">Copyright</a></li>
+			<li class="nav-item nav-link listSocial textDeco"><a href="#">Privacy Policy</a></li>
 		</ul>
 
 		
