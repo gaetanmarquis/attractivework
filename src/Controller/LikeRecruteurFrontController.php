@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\LikeRepository;
+use App\Repository\MatchRepository;
 use App\Repository\RecruteurRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,7 +17,7 @@ class LikeRecruteurFrontController extends AbstractController
      * @Route("/recruteur/like/page", name="like_recruteur_front")
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function index(LikeRepository $likeRepository, RecruteurRepository $recruteurRepository)
+    public function index(LikeRepository $likeRepository, RecruteurRepository $recruteurRepository, MatchRepository $matchRepository)
     {
         $membre = $this->getUser();
 
@@ -33,12 +34,16 @@ class LikeRecruteurFrontController extends AbstractController
         // join candidat.likes
         // join candidat.likes.recruteur
         // where candidat.likes.recruteur = recruteur
-        $match = $likeRepository->createQueryBuilder('l')
-            ->join('l.candidat', 'c')
-            ->join('c.likes', 'l2')
+        $matchs = $matchRepository->createQueryBuilder('ma')
+            ->join('ma.candidat', 'c')
             ->addSelect('c')
-            ->where('l.recruteur = :recruteur AND l2.recruteur = :recruteur')
-            ->setParameter('recruteur', $recruteur);
+            ->join('c.membre', 'm')
+            ->addSelect('m')
+            ->where('ma.recruteur = :recruteur')
+            ->setParameter('recruteur', $recruteur)
+            ->getQuery()
+            ->getResult();
+
         $likes = $likeRepository->createQueryBuilder('l')
             ->join('l.candidat', 'c')
             ->addSelect('c')
@@ -48,12 +53,11 @@ class LikeRecruteurFrontController extends AbstractController
             ->setParameter('recruteur', $recruteur)
             ->getQuery()
             ->getResult();
-
-        //like.candidat.membre.nom
+        
 
         return $this->render('like_recruteur_front/index.html.twig', [
             'likes' => $likes,
-            'matchs' => $match,
+            'matchs' => $matchs,
             'recruteur' => $recruteur,
         ]);
     }
