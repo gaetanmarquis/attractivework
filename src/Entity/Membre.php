@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\MembreRepository")
@@ -22,16 +23,22 @@ class Membre implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank()
+     * @Assert\Length(max=50)
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank()
+     * @Assert\Length(max=50)
      */
     private $prenom;
 
     /**
      * @ORM\Column(type="string", length=100, unique=true)
+     * @Assert\NotBlank()
+     * @Assert\Length(max=100)
      */
     private $email;
 
@@ -39,6 +46,8 @@ class Membre implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(max=255)
      */
     private $mdp;
 
@@ -49,17 +58,22 @@ class Membre implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank()
+     * @Assert\Length(max=100)
      */
     private $ville;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank()
+     * @Assert\Length(max=50)
      */
     private $pays;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Personnalite")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank()
      */
     private $personnalite;
 
@@ -80,6 +94,8 @@ class Membre implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(max=255)
      */
     private $statut;
 
@@ -95,6 +111,8 @@ class Membre implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=10)
+     * @Assert\NotBlank()
+     * @Assert\Length(max=10)
      */
     private $role_emploi;
 
