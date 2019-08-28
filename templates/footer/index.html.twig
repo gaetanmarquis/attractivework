@@ -1,32 +1,71 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Hello FooterController!{% endblock %}
-
-{% block body %}
 <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+
+	.divFooter{
+		background-image: linear-gradient(rgba(51,51,51,0.8), rgba(51,51,51,0.8)) ,url("{{asset('image/attractiv_work_logo.jpg')}}");
+		background-repeat:no-repeat;
+		background-position:center center;
+		background-size: contain;
+	}
+
+	.divTitreFooter{
+		color: #a8a8a8!important;
+	}
+
+	.listSocial{
+		display: inline-block;
+	}
+
+	.citation{
+		font-size: 2rem;
+	}
+
+	.mtDiv{
+		margin-top: 100px;
+	}
+
+	.mtDiv2{
+		margin-top: 70px;
+	}
+
+	.textDeco{
+		text-decoration: underline;
+	}
+
+	a{
+		color: #a8a8a8;
+	}
+
+	a:hover{
+		color: #a8a8a8;
+	}
+    
 </style>
 
-<footer class="container">
+<div class="divFooter mtDiv rounded">
 	
-	<div class="container">
-	<ul>
-		<li>Contact</li>
-		<li><i class="fab fa-facebook-square"></i></li>
-		<li><i class="fab fa-twitter-square"></i></li>
-		<li>Copyright</li>
-		<li>Privacy Policy</li>
-	</ul>
+	<div class="divTitreFooter text-center pt-5">
+		<p class="citation mb-0">Work at first sight</p>
+		<span class="mt-0">Live Intentionally - Live Authentically</span><br>
+		<ul class="pl-0 mt-5 pr-0">
+			<li class="nav-item nav-link listSocial"><a href="#"><i class="fab fa-twitter-square fa-2x"></i></a></li>
+			<li class="nav-item nav-link listSocial"><a href="#"><i class="fab fa-facebook-square fa-2x"></i></a></li>
+			<li class="nav-item nav-link listSocial"><a href="#"><i class="fab fa-google-plus-square fa-2x"></i></a></li>
+			<li class="nav-item nav-link listSocial"><a href="#"><i class="fas fa-share-alt-square fa-2x"></i></a></li>
+		</ul>
 	</div>
 
-	<div class="container">
+	<div class="mtDiv2">
+		<ul class="d-flex justify-content-center pb-3 pl-0 pr-0">
+			<li class="nav-item nav-link listSocial textDeco"><a href="#">Contact</a></li>
+			<li class="nav-item nav-link listSocial textDeco"><a href="#">Copyright</a></li>
+			<li class="nav-item nav-link listSocial textDeco"><a href="#">Privacy Policy</a></li>
+		</ul>
 
+		
 	</div>
 
-	<div class="container">
+</div>
 
-	</div>
+{#rgb(1, 60, 82)#}
 
-</footer>
-{% endblock %}
+

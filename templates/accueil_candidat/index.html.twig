@@ -2,7 +2,7 @@
 
 {% block stylesheets %}
 	{{ parent() }}
-	<link href="{{ asset('css/stylefrontcandidat.css') }}" rel="stylesheet">"
+	<link href="{{ asset('css/stylefrontcandidat.css') }}" rel="stylesheet">
 {% endblock %}
 
 {% block title %}Hello AccueilCandidatController!{% endblock %}
@@ -22,7 +22,7 @@
 	<!--Début Candidat Card-->
 	<div class="row">
 		<div class="col-lg-12">
-			<div class="card mt-5 recruteur-top">
+			<div class="card mt-5 candidat-top">
 				<div class="card-body">
 						<div class="card border-0 mx-auto" style="width: 18rem;">
 							<img src="{{ app.user.photoProfil }}"
@@ -107,7 +107,7 @@
 
 				<!-- Fin cards section-->
 
-				<hr>
+
 
 				</div> <!-- /container -->
 			</div>
@@ -116,6 +116,6 @@
 
 
 	<!-- Footer -->
-
+{% include 'footer/index.html.twig' %}
 {% endblock %}
 

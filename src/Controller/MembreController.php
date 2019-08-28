@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class MembreController extends AbstractController
 {
@@ -44,7 +45,7 @@ class MembreController extends AbstractController
      * @Route("/membre/add", name="membre_add")
      * @Route("/membre/edit/{id}", name="membre_edit")
      */
-    public function add(Request $request, ObjectManager $objectManager, Membre $membre = null)
+    public function add(Request $request, ObjectManager $objectManager, Membre $membre = null, UserPasswordEncoderInterface $encoder)
     {
         $valueBtn = 'modifier';
 
@@ -57,6 +58,9 @@ class MembreController extends AbstractController
         $membreForm->handleRequest($request);
 
         if( $membreForm->isSubmitted() && $membreForm->isValid() ){
+
+            $encodedPassword = $encoder->encodePassword($membre, $membre->getMdp());
+            $membre->setMdp($encodedPassword);
             
             $membre->setDateInscription( new \DateTime() );
             $membre->setDescriptionPhoto( 'Photo de profil de ' . $membre->getNom() . ' ' . $membre->getPrenom() );
