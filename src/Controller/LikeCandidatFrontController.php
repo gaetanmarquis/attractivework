@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class LikeCandidatFrontController extends AbstractController
 {
     /**
-     * @Route("/likecandidat/page", name="like_candidat_front")
+     * @Route("/candidat/like/page", name="like_candidat_front")
      */
     public function index(LikeRepository $likeRepository, CandidatRepository $candidatRepository)
     {
@@ -34,10 +34,14 @@ class LikeCandidatFrontController extends AbstractController
             ->getQuery()
             ->getResult();
 
+        // dump($candidat[0]);
+        // dump($likes);
+
         //like.recruteur.membre.nom
 
         return $this->render('like_candidat_front/index.html.twig', [
             'likes' => $likes,
+            'candidat' => $candidat[0],
         ]);
     }
 }
