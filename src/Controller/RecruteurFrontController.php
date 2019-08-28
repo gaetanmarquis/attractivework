@@ -12,7 +12,7 @@ class RecruteurFrontController extends AbstractController
 {
     /**
      * @IsGranted("IS_AUTHENTICATED_FULLY")
-     * @Route("/recruteur/profil", name="recruteur_front")
+     * @Route("/recruteur/profil", name="accueil_recruteur")
      */
     public function index(CandidatRepository $candidatRepository)
     {
@@ -21,7 +21,7 @@ class RecruteurFrontController extends AbstractController
             ->addSelect('m')
             ->getQuery()
             ->getResult();
-        return $this->render('recruteur_front/index.html.twig', [
+        return $this->render('accueil_recruteur/index.html.twig', [
             'candidats' => $candidats,
         ]);
     }
