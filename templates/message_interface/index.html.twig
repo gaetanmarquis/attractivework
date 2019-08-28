@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MessageInterfaceController!{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <style>
+    .bg-recruteur{
+        background-color: #b13f9a;
+    }
+
+    .bg-candidat{
+        background-color: #a2ddf7;
+    }
+    </style>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(function(){
+            console.log('Jquery chargé !');
+
+            ajaxMessage();
+            
+            $('#submit').click( function(){
+                console.log('bouton cliqué');
+
+                ajaxMessage( $('#newMessage').val() );
+                
+            } );
+
+
+
+
+            function ajaxMessage( messageSent = null ){
+                $.post("{{ path('ajax_message') }}", {message : messageSent, candidat : $('#candidat').val(), recruteur : $('#recruteur').val() }, function(reponse){
+                    // console.log(reponse);
+                    $('#chat').children().remove();
+                    $('#newMessage').val('');
+
+                    reponse.forEach(element => {
+                        var pMessage = document.createElement('p');
+                        var spanMessage = document.createElement('span');
+                        spanMessage.innerHTML = element.message;
+
+                        if( element.auteur === $('#membreRole').val() ){
+                            pMessage.setAttribute('class', 'text-right');
+                        }
+                        else{
+                            pMessage.setAttribute('class', 'text-left');
+                        }
+
+                        if( element.auteur === 'candidat' ){
+                            spanMessage.setAttribute('class', 'bg-candidat p-2 rounded');
+                        }
+                        else if( element.auteur === 'recruteur' ){
+                            spanMessage.setAttribute('class', 'bg-recruteur p-2 rounded text-light');
+                        }
+                        pMessage.appendChild(spanMessage);
+                        $('#chat').append(pMessage);
+                    });
+                }, 'json');
+            }
+        })
+    </script>
+{% endblock %}
+
+{% block body %}
+    <h1>Message</h1>
+    <div id="chat" class="container border mb-3 rounded border-dark p-5"></div>
+    <div class="form-group container">
+        <input type="hidden" id="membreRole" name="membreRole" value="{{ membre.roleEmploi }}">
+        <input type="hidden" id="recruteur" name="recruteur" value="{{ recruteur.id }}">
+        <input type="hidden" id="candidat" name="candidat" value="{{ candidat.id }}">
+        <input type="text" id="newMessage" name="newMessage" class="form-control d-inline-flex col-9">
+        <button id="submit" class="btn btn-primary d-inlin-flex ml-5" role="btn" type="submit">Envoi</button>
+    </div>
+{% endblock %}
