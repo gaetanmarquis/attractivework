@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Validator\Mdp;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -48,6 +49,7 @@ class Membre implements UserInterface
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank()
      * @Assert\Length(max=255)
+     * @Mdp()
      */
     private $mdp;
 
