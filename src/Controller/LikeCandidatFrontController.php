@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Repository\CandidatRepository;
 use App\Repository\LikeRepository;
+use App\Repository\MatchRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,7 +16,7 @@ class LikeCandidatFrontController extends AbstractController
      * @Route("/candidat/like/page", name="like_candidat_front")
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function index(LikeRepository $likeRepository, CandidatRepository $candidatRepository)
+    public function index(LikeRepository $likeRepository, CandidatRepository $candidatRepository, MatchRepository $matchRepository)
     {
         $membre = $this->getUser();
 
@@ -40,12 +41,15 @@ class LikeCandidatFrontController extends AbstractController
         // join recruteur.likes
         // join recruteur.likes.candidat
         // where recruteur.likes.candidat = candidat
-        $match = $likeRepository->createQueryBuilder('l')
-            ->join('l.recruteur', 'r')
-            ->join('r.likes', 'l2')
+        $match = $matchRepository->createQueryBuilder('ma')
+            ->join('ma.recruteur', 'r')
             ->addSelect('r')
-            ->where('l.candidat = :candidat AND l2.candidat = :candidat')
-            ->setParameter('candidat', $candidat);
+            ->join('r.membre', 'm')
+            ->addSelect('m')
+            ->where('ma.candidat = :candidat')
+            ->setParameter('candidat', $candidat)
+            ->getQuery()
+            ->getResult();
 
         $likes = $likeRepository->createQueryBuilder('l')
             ->join('l.candidat', 'c')

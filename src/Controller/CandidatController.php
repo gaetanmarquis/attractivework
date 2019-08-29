@@ -43,6 +43,9 @@ class CandidatController extends AbstractController
             $id_membre = $_GET['id_membre'];
             $membre = $membreRepository->find($id_membre);
         }
+        else{
+            $membre_candidat = $candidat->getMembre();
+        }
 
         // dump($membre);
 
@@ -52,14 +55,17 @@ class CandidatController extends AbstractController
 
         if ($candidatForm->isSubmitted() && $candidatForm->isValid()) {
             //si la condition est excate, c'est qu'un nouvel utilisateur est créé, sinon c'est une modification (setMembre n'a pas à être appelée)
-            if ($id_membre === $_GET['id_membre']) {
+            if ( isset($_GET['id_membre']) ) {
                 $candidat->setMembre($membre);
+            }
+            else{
+                $candidat->setMembre($membre_candidat);
             }
 
             $objectManager->persist($candidat);
             $objectManager->flush();
 
-            return $this->redirectToRoute('candidat');
+            return $this->redirectToRoute('home');
         }
 
         return $this->render('candidat/add.html.twig', [

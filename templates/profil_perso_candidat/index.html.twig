@@ -49,7 +49,7 @@
 		
 		<div class="text-center list-group list-group-flush col-3 mt-5 flex-fill">
 			<h4 class="colorTitle">Vos informations <a href="{{ path('profil_perso_infos_edit', { 'id' : candidat.id}) }}"><i class="fas fa-pencil-alt iconColor"></i></a></h4>
-			<ul class="p-0">
+			<ul class="p-0 text-dark">
 				<li class="list-group-item">{{ candidat.membre.prenom }} {{ candidat.membre.nom }}</li>
 				<li class="list-group-item">{{ candidat.dateNaissance|date('d/m/Y') }}</li>
 				<li class="list-group-item">{{ candidat.membre.email }}</li>
@@ -59,7 +59,7 @@
 
 			<hr class="my-5">
 			<h4 class="colorTitle">Vos informations professionnelles <a href="{{ path('profil_perso_cv_edit', { 'id' : candidat.id}) }}"><i class="fas fa-pencil-alt iconColor"></i></a></h4>
-			<ul class="p-0">
+			<ul class="p-0 text-dark">
 				<li class="list-group-item">Vous êtes disponible à partir du: {{ candidat.dateDisponibilite|date('d/m/Y')  }}</li>
 				<li class="list-group-item">Vous cherchez: {{ candidat.typeContrat }}</li>
 				<li class="list-group-item">Votre prétention salariale: {{ candidat.salaire }}</li>

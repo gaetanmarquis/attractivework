@@ -10,10 +10,17 @@
     		{{ form_row(membre_form.prenom, {attr : {required:true, maxlength:50} }) }}
 
     		{{ form_row(membre_form.email, {attr : {required:true, pattern:"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 3}$", maxlength:100} }) }}
-    	
-    		{{ form_row(membre_form.mdp.first, {attr : {required:true, pattern:"(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"} }) }}
 
-    		{{ form_row(membre_form.mdp.second, {attr : {required:true, pattern:"(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"} }) }}
+        {#
+            {{ form_row(membre_form.mdp.first) }}
+
+            {{ form_row(membre_form.mdp.second) }}
+           #}
+
+    		{{ form_row(membre_form.mdp.first, {attr : {required:true, pattern:"(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,})"} }) }}
+
+    		{{ form_row(membre_form.mdp.second, {attr : {required:true, pattern:"(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,})"} }) }}
+
     	
     		{{ form_row(membre_form.ville, {attr : {required:true, maxlength:100} }) }}
     
