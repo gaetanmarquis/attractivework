@@ -6,7 +6,7 @@
 
 {% block stylesheets %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{asset('css/style_detail.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style_offre_detail.css')}}">
 {% endblock %}
 
 {% block body %}
@@ -19,8 +19,8 @@
                 <div class="col-lg-6 offset-lg-1">
                     <div class="banner_text">
                             <img class="logoCard" src="{{ asset('image/logo_mcdo.png') }}" alt="">
-                        <h1 class="recruTitle">Employé de Restauration (H/F)</h1>
-                        <span>Mcdonald's France / 75 - PARIS 12</span>
+                        <h1 class="recruTitle">{{ offresDetail.titre }}</h1>
+                        <span>{{ offresDetail.recruteur.nomEntreprise }} / {{ offresDetail.villePoste }}</span>
                         <button type="submit" id="buttonPostuler" class="btn btn-primary" >POSTULER</button>
 
 
@@ -31,7 +31,7 @@
                     {# ========= Début card 1 ============ #}
                     <div class="card" >
                             <div class="contentCard">
-                                <blockquote>Publié aujourd'hui </blockquote>
+                                <blockquote>{{ offresDetail.datePublication|date("m/d/Y") }}</blockquote>
 
                                 <b>Qui sommes-nous ?</b>
                                 <p>
@@ -72,6 +72,7 @@
         </div> {# div container#}
 
     </header>
+    {% include 'footer/index.html.twig' %}
 {% endblock %}
 
 {% block javascripts %}

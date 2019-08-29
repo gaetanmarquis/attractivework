@@ -1,0 +1,26 @@
+.container-fluid{
+    border: #0000F0 2px solid;
+
+}
+
+.background{
+/*    background: #7eea12;*/
+    border: #AA3333 2px solid;
+
+
+}
+.row{
+
+}
+h1{
+    text-align: center;
+    color: red;
+}
+.col-lg-12{
+    margin: auto;
+    display: flex;
+}
+.card{
+    margin-right: 10px;
+}
+
