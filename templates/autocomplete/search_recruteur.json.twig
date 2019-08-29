@@ -1,5 +1,5 @@
 [{% for recruteur in results %}
-    {{ {label: recruteur.prenom ~ ' ' ~recruteur.nom, value: recruteur.id}|json_encode|raw }}
+    {{ {label: recruteur.membre.prenom ~ ' ' ~recruteur.membre.nom, value: recruteur.id}|json_encode|raw }}
     {# use "value" instead of "id" key, if you use jquery-ui #}
     {% if not loop.last %},{% endif %}
     {% endfor %}]

@@ -34,7 +34,6 @@ class Like
 
     /**
      * @ORM\Column(type="datetime")
-     * @Assert\NotBlank()
      */
     private $date_like;
 

@@ -2,7 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Candidat;
+use App\Entity\Recruteur;
+use App\Repository\CandidatRepository;
 use App\Repository\MembreRepository;
+use App\Repository\RecruteurRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,10 +17,12 @@ class AutocompleteController extends AbstractController
     /**
      * @Route("/search/candidat", name="search_candidat")
      */
-    public function searchCandidat(Request $request, MembreRepository $membreRepository): Response
+    public function searchCandidat(Request $request, CandidatRepository $candidatRepository): Response
     {
         $q = $request->query->get('term'); // use "term" instead of "q" for jquery-ui
-        $results = $membreRepository->createQueryBuilder('m')
+        $results = $candidatRepository->createQueryBuilder('c')
+            ->join('c.membre', 'm')
+            ->addSelect('m')
             ->where('m.nom LIKE :nom')
             ->orWhere('m.prenom LIKE :prenom')
             ->setParameter('nom', "$q%")
@@ -42,10 +48,12 @@ class AutocompleteController extends AbstractController
     /**
      * @Route("/search/recruteur", name="search_recruteur")
      */
-    public function searchRecruteur(Request $request, MembreRepository $membreRepository): Response
+    public function searchRecruteur(Request $request, RecruteurRepository $recruteurRepository): Response
     {
         $q = $request->query->get('term'); // use "term" instead of "q" for jquery-ui
-        $results = $membreRepository->createQueryBuilder('m')
+        $results = $recruteurRepository->createQueryBuilder('r')
+            ->join('r.membre', 'm')
+            ->addSelect('m')
             ->where('m.nom LIKE :nom')
             ->orWhere('m.prenom LIKE :prenom')
             ->setParameter('nom', "$q%")
