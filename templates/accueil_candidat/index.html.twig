@@ -26,6 +26,8 @@
 				<div class="card-body">
 						<div class="card border-0 mx-auto" style="width: 18rem;">
 							<img src="{{ app.user.photoProfil }}"
+								 class="card-img-top img-responsive rounded-circle border border-primary mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
+							<img src="{{ app.user.photoProfil }}"
 								 class="card-img-top img-responsive rounded-circle bdPhotoC mt-2 pt-1 pb-1 pr-1 pl-1 mx-auto"
 								 alt="...">
 							<div class="card-body">
@@ -83,7 +85,10 @@
 				<div class="card-deck">
 					{% for recruteur in recruteurs %}
 					<div class="card">
-						
+						<img src="{{ recruteur.membre.photoProfil }}"
+							 class="card-img-top img-responsive rounded-circle border border-danger mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
+							 alt="...">
+
 
 						<a href="{{ path('profil_details_recruteur', { 'id' : recruteur[0].id}) }}" class="text-center"><img src="{{ recruteur[0].membre.photoProfil }}"
 							 class="card-img-top img-responsive rounded-circle bdPhotoR mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"

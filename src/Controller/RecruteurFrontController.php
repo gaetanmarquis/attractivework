@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Controller;
-
 use App\Entity\Like;
 use App\Repository\LikeRepository;
 use App\Repository\CandidatRepository;
@@ -11,11 +9,9 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
 class RecruteurFrontController extends AbstractController
 {
     public $limite_affichage = 50;
-
     /**
      * @IsGranted("IS_AUTHENTICATED_FULLY")
      * @Route("/recruteur/profil", name="recruteur_front")
@@ -25,14 +21,11 @@ class RecruteurFrontController extends AbstractController
         RecruteurRepository $recruteurRepository,
         LikeRepository $likeRepository)
     {
-
         $candidats = array();
         $tabL = array();
         $tabC = array();
-
         // membre connecté
         $membre = $this->getUser();
-
         // info recruteur du membre
         $recruteur = $recruteurRepository->createQueryBuilder('r')
             ->join('r.membre', 'm')
@@ -41,9 +34,7 @@ class RecruteurFrontController extends AbstractController
             ->setParameter('membre', $membre)
             ->getQuery()
             ->getResult();
-
-            // dump($recruteur)
-
+        // dump($recruteur)
         // like du recruteur
         $likeRecruteur = $likeRepository->createQueryBuilder('l')
             ->where('l.recruteur = :recruteur')
@@ -52,29 +43,21 @@ class RecruteurFrontController extends AbstractController
             ->setParameter('roleLike', $membre->getRoleEmploi())
             ->getQuery()
             ->getResult();
-
-
         // id des candidats likés
         for( $l = 0; $l < count($likeRecruteur); $l++ ){
             $tabL[] = $likeRecruteur[$l]->getCandidat()->getId();
         }
-
         // tous les candidats
         $candidatsAll = $candidatRepository->findAll();
-
         // id de tous les candidats
         for( $c = 0; $c < count($candidatsAll); $c++ ){
             $tabC[] = $candidatsAll[$c]->getId();
         }
-
         // pour chaque candidat
         for( $iBcl1 = 0; $iBcl1 < count($tabC); $iBcl1++ ){
-
             // pour chaque candidat likés
             for( $iBcl2 = 0; $iBcl2 < count($tabL); $iBcl2++ ){
-
                 if(array_key_exists($iBcl1, $tabC)){
-
                     // si le candidat est liké
                     if( $tabC[$iBcl1] === $tabL[$iBcl2] ){
                         // supprimer de la liste des candidats à afficher
@@ -85,7 +68,6 @@ class RecruteurFrontController extends AbstractController
             }
         }
 
-        
         // nbr d'affichages
         if( count($tabC) > $this->limite_affichage ){
             $nbr_affichage = $this->limite_affichage;
@@ -93,35 +75,28 @@ class RecruteurFrontController extends AbstractController
         else{
             $nbr_affichage = count($tabC);
         }
-
         // pour chaque candidat à afficher
         for($i = 0; $i < $nbr_affichage; $i++ ){
-
-             $index = 0;
-
+            $index = 0;
             // sélection aléatoire
             $index = array_rand($tabC);
             $id = $tabC[$index];
-
-             // sélection des candidats
-             $candidats[] = $candidatRepository->createQueryBuilder('c')
+            // sélection des candidats
+            $candidats[] = $candidatRepository->createQueryBuilder('c')
                 ->join('c.membre', 'm')
                 ->addSelect('m')
                 ->where('c.id = :id')
                 ->setParameter('id', $id)
                 ->getQuery()
                 ->getResult();
-
             // suppression dans la liste des candidats à afficher
             unset($tabC[$index]);
-             
-        }
 
+        }
         return $this->render('recruteur_front/index.html.twig', [
             'candidats' => $candidats,
         ]);
     }
-
     /**
      * @IsGranted("IS_AUTHENTICATED_FULLY")
      * @Route("/recruteur/profil/{id}", name="select_candidat")
@@ -133,29 +108,21 @@ class RecruteurFrontController extends AbstractController
         int $id)
     {
         $like = new Like();
-
         $membre = $this->getUser();
-
         $recruteur = $recruteurRepository->createQueryBuilder('r')
             ->where('r.membre = :membre')
             ->setParameter('membre', $membre)
             ->getQuery()
             ->getResult();
-
         $candidat = $candidatRepository->find($id);
-
         // dump($candidat);
         // dump($recruteur);
-
         $like->setCandidat( $candidat )
             ->setRecruteur( $recruteur[0] )
             ->setRoleLike( $membre->getRoleEmploi() )
             ->setDateLike( new \DateTime() );
-
         $objectManager->persist($like);
         $objectManager->flush();
-
         return $this->redirectToRoute('recruteur_front');
     }
 }
-
