@@ -8,86 +8,303 @@
 {% endblock %}
 
 {% block body %}
+<div class="row">
+    <div class="col-lg-9 col-md-12 col-sm-12 ">
+        <h1>Types de personnalités</h1>
+        <hr>
+        <div class="cardColorBg">
+            <h2>  &#8226;  Les analystes  &#8226;  </h2>
 
-    <header class="container-fluid">
-        <h1>Types de personnalité</h1>
-        <div class="row align-items-center">
+            <div class="card-columns">
+            {# ========= Début card 1 - Architecte ============ #}
+            <div class="card">
+                <a href="#" class="linkCard" style="text-decoration: none">
+                    <div class="card-body">
+                        <img class="img-card-perso" src="{{ asset('https://storage.googleapis.com/neris/public/images/types/avatars/intj-architect.svg') }}" alt="image candidat">
+                        <h5>Architecte</h5>
+                        <span class="spanCard">Les analystes</span>
+                        <!-- Card content -->
+                        <p class="paraCard">
+                            Penseurs imaginatifs et stratèges, avec un plan pour tout.
+                        </p>
 
-
-            <div class="col-lg-12 offset-lg-3">
-
-
-
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row no-gutters">
-                            <div class="col-md-4">
-                                <img src="..." class="card-img" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row no-gutters">
-                            <div class="col-md-4">
-                                <img src="..." class="card-img" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row no-gutters">
-                            <div class="col-md-4">
-                                <img src="..." class="card-img" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                <div class="card mb-3" style="max-width: 540px;">
-                    <div class="row no-gutters">
-                        <div class="col-md-4">
-                            <img src="..." class="card-img" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-
-                </div>
-
+                </a>
             </div>
-            </header>
+            {# ========= Fin card 1 - Candidat ============ #}
 
-{% endblock %}
+
+    {# ========= Début card 1 - Candidat ============ #}
+            <div class="card">
+                <a href="#" class="linkCard" style="text-decoration: none">
+                    <div class="card-body">
+                        <img class="img-card-perso" src="{{ asset('https://storage.googleapis.com/neris/public/images/types/avatars/intp-logician.svg') }}" alt="image candidat">
+                        <h5> Logicien</h5>
+                        <span class="spanCard">Les analystes</span>
+                        <!-- Card content -->
+                        <p class="paraCard">
+                            Inventeurs innovateurs dotés d’une soif inextinguible de connaissances.
+                        </p>
+                    </div>
+                </a>
+            </div>
+            {# ========= Fin card 1 - Candidat ============ #}
+
+            {# ========= Début card 1 - Candidat ============ #}
+            <div class="card">
+                <a href="#" class="linkCard" style="text-decoration: none">
+                    <div class="card-body">
+                        <img class="img-card-perso" src="{{ asset('https://storage.googleapis.com/neris/public/images/types/avatars/entj-commander.svg') }}" alt="image candidat">
+                        <h5>Commandant</h5>
+                        <span class="spanCard">Les analystes</span>
+                        <!-- Card content -->
+                        <p class="paraCard">
+                            Leaders hardis, imaginatifs et dotés d’un fort caractère, qui trouvent toujours un moyen d’arriver à leurs fins, ou le créent.
+                        </p>
+                    </div>
+                </a>
+            </div>
+            {# ========= Fin card 1 - Candidat ============ #}
+
+            {# ========= Début card 1 - Candidat ============ #}
+            <div class="card">
+                <a href="#" class="linkCard" style="text-decoration: none">
+                    <div class="card-body">
+                        <img class="img-card-perso" src="{{ asset('https://storage.googleapis.com/neris/public/images/types/avatars/entp-debater.svg') }}" alt="image candidat">
+                        <h5>Innovateur</h5>
+                        <span class="spanCard">Architecte, Lyon</span>
+                        <!-- Card content -->
+                        <p class="paraCard">
+                            Penseurs astucieux et curieux incapables de résister à un défi intellectuel.
+                        </p>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+        </div> {# cardColorBg #}
+
+            <div class="cardColorBg2">
+                <h2 class="h2Diplomate">  &#8226;  Les diplomates  &#8226;  </h2>
+                <div class="card-columns">
+
+                    {# ========= Début card 1 - Les diplomates ============ #}
+                    <div class="card">
+                        <a href="#" class="linkCard" style="text-decoration: none">
+                            <div class="card-body">
+                                <img class="img-card-perso" src="{{ asset('https://storage.googleapis.com/neris/public/images/types/avatars/infj-advocate.svg') }}" alt="image Avocat">
+                                <h5 class="h5Diplomate">Avocat</h5>
+                                <span class="spanCard">Les diplomates</span>
+                                <!-- Card content -->
+                                <p class="paraCard">
+                                    Idéalistes calmes et mystiques et pourtant très inspirants et infatigables.
+                                </p>
+
+                            </div>
+                        </a>
+                    </div>
+                    {# ========= Fin card 1 - Les diplomates ============ #}
+
+
+                    {# ========= Début card 1 - Les diplomates ============ #}
+                    <div class="card">
+                        <a href="#" class="linkCard" style="text-decoration: none">
+                            <div class="card-body">
+                                <img class="img-card-perso" src="{{ asset('https://storage.googleapis.com/neris/public/images/types/avatars/infp-mediator.svg') }}" alt="image Médiateur">
+                                <h5 class="h5Diplomate">Médiateur</h5>
+                                <span class="spanCard">Les diplomates</span>
+                                <!-- Card content -->
+                                <p class="paraCard">
+                                    Personnes poétiques, gentilles et altruistes qui sont toujours prêtes à soutenir une bonne cause.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    {# ========= Fin card 1 - Les diplomates ============ #}
+
+                    {# ========= Début card 1 - Les diplomates ============ #}
+                    <div class="card">
+                        <a href="#" class="linkCard" style="text-decoration: none">
+                            <div class="card-body">
+                                <img class="img-card-perso" src="{{ asset('https://storage.googleapis.com/neris/public/images/types/avatars/enfj-protagonist.svg') }}" alt="image Protagoniste">
+                                <h5 class="h5Diplomate">Protagoniste</h5>
+                                <span class="spanCard">Les diplomates</span>
+                                <!-- Card content -->
+                                <p class="paraCard">
+                                    Leaders charismatiques et inspirants, capables de fasciner leur public.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    {# ========= Fin card 1 - Les diplomates ============ #}
+
+                    {# ========= Début card 1 - Les diplomates ============ #}
+                    <div class="card">
+                        <a href="#" class="linkCard" style="text-decoration: none">
+                            <div class="card-body">
+                                <img class="img-card-perso" src="{{ asset('https://storage.googleapis.com/neris/public/images/types/avatars/enfp-campaigner.svg') }}" alt="image candidat">
+                                <h5 class="h5Diplomate">Inspirateur</h5>
+                                <span class="spanCard">Les diplomates</span>
+                                <!-- Card content -->
+                                <p class="paraCard">
+                                    Esprits libres enthousiastes, créatifs et sociables, qui arrivent toujours à trouver une raison de sourire.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+        </div> {# cardColorBg #}
+
+        <div class="cardColorBg3">
+            <h2 class="h2Sentinelles">  &#8226;  Les sentinelles  &#8226;  </h2>
+            <div class="card-columns">
+
+
+
+
+                {# ========= Début card 1 - Les sentinelles ============ #}
+                <div class="card">
+                    <a href="#" class="linkCard" style="text-decoration: none">
+                        <div class="card-body">
+                            <img class="img-card-perso" src="{{ asset('https://storage.googleapis.com/neris/public/images/types/avatars/istj-logistician.svg') }}" alt="image candidat">
+                            <h5 class="h5Sentinelles">Logisticien</h5>
+                            <span class="spanCard">Les sentinelles</span>
+                            <!-- Card content -->
+                            <p class="paraCard">
+                                Individus pragmatiques et intéressés par les faits, dont le sérieux ne saurait être mis en cause.
+                            </p>
+
+                        </div>
+                    </a>
+                </div>
+                {# ========= Fin card 1 - Les sentinelles ============ #}
+
+
+                {# ========= Début card 1 - Les sentinelles ============ #}
+                <div class="card">
+                    <a href="#" class="linkCard" style="text-decoration: none">
+                        <div class="card-body">
+                            <img class="img-card-perso" src="{{ asset('https://storage.googleapis.com/neris/public/images/types/avatars/isfj-defender.svg') }}" alt="image candidat">
+                            <h5 class="h5Sentinelles">Défenseur</h5>
+                            <span class="spanCard">Les sentinelles</span>
+                            <!-- Card content -->
+                            <p class="paraCard">
+                                Protecteurs très dévoués et très chaleureux, toujours prêts à défendre ceux qu’ils aiment.
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                {# ========= Fin card 1 - Les sentinelles ============ #}
+
+                {# ========= Début card 1 - Les sentinelles ============ #}
+                <div class="card">
+                    <a href="#" class="linkCard" style="text-decoration: none">
+                        <div class="card-body">
+                            <img class="img-card-perso" src="{{ asset('https://storage.googleapis.com/neris/public/images/types/avatars/estj-executive.svg') }}" alt="image candidat">
+                            <h5 class="h5Sentinelles">Directeur</h5>
+                            <span class="spanCard">Les sentinelles</span>
+                            <!-- Card content -->
+                            <p class="paraCard">
+                                Excellents gestionnaires, d’une efficacité inégalée quand il s’agit de gérer les choses, ou les gens.
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                {# ========= Fin card 1 - Les sentinelles ============ #}
+
+                {# ========= Début card 1 - Les sentinelles ============ #}
+                <div class="card">
+                    <a href="#" class="linkCard" style="text-decoration: none">
+                        <div class="card-body">
+                            <img class="img-card-perso" src="{{ asset('https://storage.googleapis.com/neris/public/images/types/avatars/esfj-consul.svg') }}" alt="image candidat">
+                            <h5 class="h5Sentinelles">Inspirateur</h5>
+                            <span class="spanCard">Les sentinelles</span>
+                            <!-- Card content -->
+                            <p class="paraCard">
+                                Personnes extraordinairement attentionnées, sociables et populaires, toujours prêtes à aider les autres.
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div> {# cardColorBg #}
+
+
+        <div class="cardColorBg4">
+            <h2 class="h2Explorateurs">  &#8226;  Les sentinelles  &#8226;  </h2>
+            <div class="card-columns">
+
+
+
+
+                {# ========= Début card 1 - Les explorateurs ============ #}
+                <div class="card">
+                    <a href="#" class="linkCard" style="text-decoration: none">
+                        <div class="card-body">
+                            <img class="img-card-perso" src="{{ asset('https://storage.googleapis.com/neris/public/images/types/avatars/istp-virtuoso.svg') }}" alt="image candidat">
+                            <h5 class="h5Explorateurs">Virtuose</h5>
+                            <span class="spanCard">Les explorateurs</span>
+                            <!-- Card content -->
+                            <p class="paraCard">
+                                Expérimentateurs hardis et pragmatiques, maîtres de toutes sortes d’outils.
+                            </p>
+
+                        </div>
+                    </a>
+                </div>
+                {# ========= Fin card 1 - Les explorateurs ============ #}
+
+
+                {# ========= Début card 1 - Les explorateurs ============ #}
+                <div class="card">
+                    <a href="#" class="linkCard" style="text-decoration: none">
+                        <div class="card-body">
+                            <img class="img-card-perso" src="{{ asset('https://storage.googleapis.com/neris/public/images/types/avatars/isfp-adventurer.svg') }}" alt="image candidat">
+                            <h5 class="h5Explorateurs">Aventurier</h5>
+                            <span class="spanCard">Les explorateurs</span>
+                            <!-- Card content -->
+                            <p class="paraCard">
+                                Artistes flexibles et charmants, toujours prêts à explorer et à essayer quelque chose de nouveau.
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                {# ========= Fin card 1 - Les explorateurs ============ #}
+
+                {# ========= Début card 1 - Les explorateurs ============ #}
+                <div class="card">
+                    <a href="#" class="linkCard" style="text-decoration: none">
+                        <div class="card-body">
+                            <img class="img-card-perso" src="{{ asset('https://storage.googleapis.com/neris/public/images/types/avatars/estp-entrepreneur.svg') }}" alt="image candidat">
+                            <h5 class="h5Explorateurs">Entrepreneur</h5>
+                            <span class="spanCard">Les explorateurs</span>
+                            <!-- Card content -->
+                            <p class="paraCard">
+                                Personnes astucieuses, énergiques et très perspicaces, qui aiment vraiment vivre à la pointe du progrès.
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                {# ========= Fin card 1 - Les explorateurs ============ #}
+
+                {# ========= Début card 1 - Les explorateurs ============ #}
+                <div class="card">
+                    <a href="#" class="linkCard" style="text-decoration: none">
+                        <div class="card-body">
+                            <img class="img-card-perso" src="{{ asset('https://storage.googleapis.com/neris/public/images/types/avatars/esfp-entertainer.svg') }}" alt="image candidat">
+                            <h5 class="h5Explorateurs">Amuseur</h5>
+                            <span class="spanCard">Les explorateurs</span>
+                            <!-- Card content -->
+                            <p class="paraCard">
+                                Amuseurs spontanés, énergiques et enthousiastes; avec eux, on ne s’ennuie jamais.
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div> {# cardColorBg #}
+    </div> {# col-lg-9 #}
+
+</div>
+            {# ========= Fin card 1 - Candidat ============ #}
+            {% endblock %}

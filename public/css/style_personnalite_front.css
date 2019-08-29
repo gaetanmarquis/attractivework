@@ -1,26 +1,233 @@
-.container-fluid{
-    border: #0000F0 2px solid;
-
+body{
+    font-family: Arial, sans-serif;
 }
 
-.background{
-/*    background: #7eea12;*/
-    border: #AA3333 2px solid;
+/* ====== HEADER ======== */
 
-
-}
-.row{
-
-}
 h1{
+    font-weight: bold;
+    margin-top: 20px;
+    color: #073b53;
     text-align: center;
-    color: red;
+    text-transform: uppercase;
 }
-.col-lg-12{
-    margin: auto;
-    display: flex;
+h2 {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 50px;
+    color: #785d88;
+    text-transform: uppercase;
 }
+.h2Diplomate{
+    color: #436124;
+}
+.h2Sentinelles{
+    color: #29778c;
+}
+.h2Explorateurs{
+    color: #bf8f00;
+}
+h3{
+    text-align: center;
+    margin-top: 50px;
+    font-weight: bold;
+    color: #a2ddf7;
+}
+h5{
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+.h5Diplomate{
+    color: #436124;
+}
+.h5Sentinelles{
+    color: #5fbfd8;
+}
+.h5Explorateurs{
+    color: #bf8f00;
+}
+hr{
+    width: 40%;
+    border: #073b53 1px solid;
+}
+/* ====== MAIN ======== */
+
 .card{
-    margin-right: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    margin-top: 50px;
+
 }
 
+.recruteurCard{
+    border-top: #b13f9a 9px solid;
+}
+.cardColorBg{
+    background: linear-gradient(rgb(238, 232, 255), rgb(255, 245, 255));
+    padding: 20px;
+    position: relative;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.03);
+
+}
+.cardColorBg2{
+    margin-top: 50px;
+    background: linear-gradient(#dbeee6, #c9eec5);
+    padding: 20px;
+    position: relative;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.03);
+
+}
+.cardColorBg3{
+    margin-top: 50px;
+    background: linear-gradient(#5fbfd8, #a6c5d8);
+    padding: 20px;
+    position: relative;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.03);
+
+}
+.cardColorBg4{
+    margin-top: 50px;
+    background: linear-gradient(#f4d75c, #e5c82e);
+    padding: 20px;
+    position: relative;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.03);
+
+}
+.cardColorBg:before, .cardColorBg:after,
+.cardColorBg2:before, .cardColorBg2:after,
+.cardColorBg3:before, .cardColorBg3:after,
+.cardColorBg4:before, .cardColorBg4:after{
+    z-index: -1;
+    position: absolute;
+    content: "";
+    bottom: 15px;
+    left: 10px;
+    width: 50%;
+    top: 80%;
+    max-width:300px;
+    background: #777;
+    -webkit-box-shadow: 0 15px 10px #777;
+    -moz-box-shadow: 0 15px 10px #777;
+    box-shadow: 0 15px 10px rgba(119, 119, 119, 0.63);
+    -webkit-transform: rotate(-3deg);
+    -moz-transform: rotate(-3deg);
+    -o-transform: rotate(-3deg);
+    -ms-transform: rotate(-3deg);
+    transform: rotate(-3deg);
+}
+.cardColorBg:after,
+.cardColorBg2:after,
+.cardColorBg3:after,
+.cardColorBg4:after{
+-webkit-transform: rotate(3deg);
+-moz-transform: rotate(3deg);
+-o-transform: rotate(3deg);
+-ms-transform: rotate(3deg);
+transform: rotate(3deg);
+right: 10px;
+left: auto;
+}
+
+.card-columns{
+    position: relative;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    display: flex;
+
+}
+.img-card-perso{
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+    width: 100%;
+}
+/*.img-card-recru{
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+    padding: 3px;
+    border: 2px #b13f9a solid;
+}*/
+.row{
+    justify-content: center;
+}
+.col-lg-8{
+    text-align: center;
+
+}
+.linkCard{
+    color: #785d88;
+}
+.spanCard{
+    font-size: 0.8rem;
+    display: block;
+    margin-bottom: 10px;
+    color: #929292;
+    text-align: center;
+}
+.paraCard{
+    color: #785d88;
+}
+.iconC{
+    display: inline-block;
+}
+.recruTitle{
+    color: #b13f9a;
+}
+/* ====== MEDIA QUERIES ======== */
+
+
+@media screen and (max-width: 1066px) {
+    footer{
+        display: flex;
+        background-color: #233148;
+        border: #2F611C 2px solid;
+        height: 440px;
+
+    }
+    .logoFooter{
+        flex-wrap: wrap;
+        margin-top: 5px;
+        display: block;
+    }
+    .footerHR{
+        display: none;
+
+    }
+    li{
+        border-right: none;
+    }
+
+    .logoFooter{
+        border-right: none;
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 866px) {
+    footer{
+        height: 650px;
+    }
+    .card-columns{
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 492px) {
+
+    .logoHeader{
+        max-width: 80%;
+    }
+}
+
+/* ======= Couleurs =========
+
+Color les analystes : #e8d8e0
+Violet recruteur : #b13f9a
+Bleu foncé titre : #073b53
+
+*/
