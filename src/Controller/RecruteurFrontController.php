@@ -14,7 +14,7 @@ class RecruteurFrontController extends AbstractController
     public $limite_affichage = 50;
     /**
      * @IsGranted("IS_AUTHENTICATED_FULLY")
-     * @Route("/recruteur/profil", name="recruteur_front")
+     * @Route("/accueil/recruteur", name="recruteur_front")
      */
     public function index(
         CandidatRepository $candidatRepository,
@@ -93,7 +93,7 @@ class RecruteurFrontController extends AbstractController
             unset($tabC[$index]);
 
         }
-        return $this->render('recruteur_front/index.html.twig', [
+        return $this->render('accueil_recruteur/index.html.twig', [
             'candidats' => $candidats,
         ]);
     }
@@ -123,6 +123,7 @@ class RecruteurFrontController extends AbstractController
             ->setDateLike( new \DateTime() );
         $objectManager->persist($like);
         $objectManager->flush();
-        return $this->redirectToRoute('recruteur_front');
+
+        return $this->redirectToRoute('match_result', [ 'id' => $id ]);
     }
 }

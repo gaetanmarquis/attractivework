@@ -45,18 +45,33 @@ class LikeRecruteurFrontController extends AbstractController
             ->getResult();
 
         $likes = $likeRepository->createQueryBuilder('l')
-            ->join('l.candidat', 'c')
-            ->addSelect('c')
-            ->join('c.membre', 'm')
+            ->join('l.recruteur', 'r')
+            ->addSelect('r')
+            ->join('r.membre', 'm')
             ->addSelect('m')
             ->where('l.recruteur = :recruteur')
             ->setParameter('recruteur', $recruteur)
+            ->andwhere('l.role_like = :role')
+            ->setParameter('role', 'recruteur')
+            ->getQuery()
+            ->getResult();
+
+        $likesCandidat = $likeRepository->createQueryBuilder('l')
+            ->join('l.recruteur', 'r')
+            ->addSelect('r')
+            ->join('r.membre', 'm')
+            ->addSelect('m')
+            ->where('l.recruteur = :recruteur')
+            ->setParameter('recruteur', $recruteur)
+            ->andwhere('l.role_like = :role')
+            ->setParameter('role', 'candidat')
             ->getQuery()
             ->getResult();
 
 
         return $this->render('like_recruteur_front/index.html.twig', [
             'likes' => $likes,
+            'likesCandidat' => $likesCandidat,
             'matchs' => $matchs,
             'recruteur' => $recruteur,
         ]);

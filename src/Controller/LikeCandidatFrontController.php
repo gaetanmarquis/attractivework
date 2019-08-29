@@ -41,12 +41,26 @@ class LikeCandidatFrontController extends AbstractController
             ->setParameter('candidat', $candidat);
 
         $likes = $likeRepository->createQueryBuilder('l')
-            ->join('l.candidat', 'r')
-            ->addSelect('r')
-            ->join('r.membre', 'm')
+            ->join('l.candidat', 'c')
+            ->addSelect('c')
+            ->join('c.membre', 'm')
             ->addSelect('m')
             ->where('l.candidat = :candidat')
             ->setParameter('candidat', $candidat)
+            ->andwhere('l.role_like = :role')
+            ->setParameter('role', 'candidat')
+            ->getQuery()
+            ->getResult();
+
+        $likesRecruteur = $likeRepository->createQueryBuilder('l')
+            ->join('l.candidat', 'c')
+            ->addSelect('c')
+            ->join('c.membre', 'm')
+            ->addSelect('m')
+            ->where('l.candidat = :candidat')
+            ->setParameter('candidat', $candidat)
+            ->andwhere('l.role_like = :role')
+            ->setParameter('role', 'recruteur')
             ->getQuery()
             ->getResult();
 
@@ -57,6 +71,7 @@ class LikeCandidatFrontController extends AbstractController
 
         return $this->render('like_candidat_front/index.html.twig', [
             'likes' => $likes,
+            'likesRecruteur' => $likesRecruteur,
             'matchs' => $match,
             'candidat' => $candidat,
         ]);
