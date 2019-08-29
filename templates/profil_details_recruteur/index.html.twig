@@ -42,6 +42,10 @@
 		border-left: 2px solid #b13f9a;
 		
 	}
+
+	.textColor{
+		color: black;
+	}
     
 </style>
 
@@ -57,7 +61,7 @@
 		<div class="text-center list-group list-group-flush col-3 mt-5 flex-fill">
 
 			<h4 class="colorTitle">Informations générales</h4>
-			<ul class="p-0">
+			<ul class="p-0 textColor">
 				<li class="list-group-item">Email: {{ recruteur.membre.email }}</li>
 				<li class="list-group-item">{{ recruteur.membre.ville }} {{ recruteur.membre.pays }}</li>
 			</ul>
@@ -65,7 +69,7 @@
 			<hr class="my-5">
 
 			<h4 class="colorTitle">Informations professionnelles</h4>
-			<ul class="p-0">
+			<ul class="p-0 textColor">
 				<img src="{{ recruteur.logoEntreprise }}" alt="{{ recruteur.descriptionLogo }}" class="photoEnt img-fluid mb-2">
 				<li class="list-group-item">{{ recruteur.nomEntreprise }}</li>
 				<li class="list-group-item">Secteur d'activité: {{ recruteur.secteurActivite }}</li>
