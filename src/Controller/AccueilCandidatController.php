@@ -119,6 +119,7 @@ class AccueilCandidatController extends AbstractController
 
         return $this->render('accueil_candidat/index.html.twig', [
             'recruteurs' => $recruteurs,
+            'id' => $candidat[0]->getId(),
         ]);
     }
 

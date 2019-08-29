@@ -22,14 +22,14 @@ class ProfilPersoRecruteurController extends AbstractController
     {
 
     	$recruteur = $recruteurRepository->createQueryBuilder('r')
-    	->where('r.id = :id')
-    	->setParameter('id', $id)
-    	->join('r.membre', 'm')
-    	->addSelect('m')
-        ->join('m.personnalite', 'p')
-        ->addSelect('p')
-    	->getQuery()
-    	->getResult();
+            ->where('r.id = :id')
+            ->setParameter('id', $id)
+            ->join('r.membre', 'm')
+            ->addSelect('m')
+            ->join('m.personnalite', 'p')
+            ->addSelect('p')
+            ->getQuery()
+            ->getResult();
 
         return $this->render('profil_perso_recruteur/index.html.twig', [
             'recruteur' => $recruteur[0],

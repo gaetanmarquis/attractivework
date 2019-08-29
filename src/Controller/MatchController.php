@@ -116,7 +116,7 @@ class MatchController extends AbstractController
                 ->getQuery()
                 ->getResult();
 
-            $recruteur = $recruteurRepository->find($id);
+            $recruteur[0] = $recruteurRepository->find($id);
         }
         elseif( $membre->getRoleEmploi() === 'recruteur' ){
             $recruteur = $recruteurRepository->createQueryBuilder('r')
@@ -127,7 +127,7 @@ class MatchController extends AbstractController
                 ->getQuery()
                 ->getResult();
 
-            $candidat = $candidatRepository->find($id);
+            $candidat[0] = $candidatRepository->find($id);
         }
 
         $like = $likeRepository->createQueryBuilder('l')
@@ -146,7 +146,7 @@ class MatchController extends AbstractController
             $match = new Match();
 
             $match->setCandidat( $candidat[0] )
-                ->setRecruteur( $recruteur )
+                ->setRecruteur( $recruteur[0] )
                 ->setDateMatch( new \DateTime() );
 
             $objectManager->persist($match);

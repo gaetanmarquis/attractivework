@@ -4,7 +4,7 @@
 
 {% block body %}
 
-{% include 'navbar_candidat/index.html.twig' %}
+{% include 'navbar_candidat/index.html.twig' with { 'id' : candidat.id } %}
 
 <style>
 
@@ -42,7 +42,7 @@
 <div class="mx-5">
 
 	<div class="text-center">
-		<img src="{{ candidat.membre.photoProfil }}" alt="{{ candidat.membre.descriptionPhoto }}" class="photoProfil img-fluid">
+		<img src="{{ asset(candidat.membre.photoProfil) }}" alt="{{ candidat.membre.descriptionPhoto }}" class="photoProfil img-fluid">
 	</div>
 
 	<div class="d-flex">

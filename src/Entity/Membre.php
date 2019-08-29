@@ -48,7 +48,7 @@ class Membre implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank()
-     * @Assert\Length(max=255)
+     * @Assert\Length(min=8, max=255)
      * @Mdp()
      */
     private $mdp;
