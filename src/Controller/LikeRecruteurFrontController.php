@@ -53,7 +53,7 @@ class LikeRecruteurFrontController extends AbstractController
             ->setParameter('recruteur', $recruteur)
             ->getQuery()
             ->getResult();
-        
+
 
         return $this->render('like_recruteur_front/index.html.twig', [
             'likes' => $likes,
