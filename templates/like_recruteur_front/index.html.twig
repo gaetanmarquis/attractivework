@@ -8,7 +8,7 @@
 {% block title %}Hello LikeFrontController!{% endblock %}
 
 {% block body %}
-    {% include 'navbar_candidat/index.html.twig' %}
+    {% include 'navbar_recruteur/index.html.twig' with { 'id' : recruteur[0].id } %}
 
     <h1 class="text-center text-like font-weight-bolder pb-4"><img
                 src="{{ asset('image/icon_Recru.png') }}" alt="iconerecruteur">&#8226; Likes</h1>

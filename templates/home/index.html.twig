@@ -12,6 +12,11 @@
 
 
 {% block body %}
+    {% if role == 'candidat' %}
+		{% include 'navbar_candidat/index.html.twig' with { 'id' : id } %}
+	{% elseif role == 'recruteur' %}
+		{% include 'navbar_recruteur/index.html.twig' with { 'id' : id } %}
+	{% endif %}
 
     {#  ====== HEADER ========  #}
     <header class="banner_part">

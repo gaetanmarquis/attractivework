@@ -8,7 +8,7 @@
 {% block title %}Hello AccueilCandidatController!{% endblock %}
 
 {% block body %}
-	{% include 'navbar_candidat/index.html.twig' %}
+	{% include 'navbar_candidat/index.html.twig' with { 'id' : id } %}
 	<style>
         .bdPhotoC{
             border: 2px solid #a2ddf7;
@@ -25,9 +25,7 @@
 			<div class="card mt-5 candidat-top">
 				<div class="card-body">
 						<div class="card border-0 mx-auto" style="width: 18rem;">
-							<img src="{{ app.user.photoProfil }}"
-								 class="card-img-top img-responsive rounded-circle border border-primary mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
-							<img src="{{ app.user.photoProfil }}"
+							<img src="{{ asset(app.user.photoProfil) }}"
 								 class="card-img-top img-responsive rounded-circle bdPhotoC mt-2 pt-1 pb-1 pr-1 pl-1 mx-auto"
 								 alt="...">
 							<div class="card-body">
@@ -85,7 +83,7 @@
 				<div class="card-deck">
 					{% for recruteur in recruteurs %}
 					<div class="card">
-						<a href="{{ path('profil_details_recruteur', { 'id' : recruteur[0].id}) }}" class="text-center"><img src="{{ recruteur[0].membre.photoProfil }}"
+						<a href="{{ path('profil_details_recruteur', { 'id' : recruteur[0].id}) }}" class="text-center"><img src="{{ asset(recruteur[0].membre.photoProfil) }}"
 							 class="card-img-top img-responsive rounded-circle bdPhotoR mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
 							 alt="..."></a>
 						<div class="card-body">

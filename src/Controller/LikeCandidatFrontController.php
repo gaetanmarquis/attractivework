@@ -25,7 +25,14 @@ class LikeCandidatFrontController extends AbstractController
             ->where('c.membre = :membre')
             ->setParameter('membre', $membre)
             ->getQuery()
-            ->getOneOrNullResult();
+            ->getResult();
+
+        if($candidat !== []){
+            $id = $candidat[0]->getId();
+        }
+        else{
+            $id = $membre->getId();
+        }
 
         // like du candidat dont le recruteur a liké le candidat
         //Where l.candidat = candidat

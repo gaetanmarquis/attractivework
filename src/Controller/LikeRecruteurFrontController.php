@@ -19,15 +19,21 @@ class LikeRecruteurFrontController extends AbstractController
      */
     public function index(LikeRepository $likeRepository, RecruteurRepository $recruteurRepository, MatchRepository $matchRepository)
     {
-        $membre = $this->getUser();
-
         $recruteur = $recruteurRepository->createQueryBuilder('r')
             ->join('r.membre', 'm')
             ->addSelect('m')
             ->where('r.membre = :membre')
-            ->setParameter('membre', $membre)
+            ->setParameter('membre', $this->getUser())
             ->getQuery()
-            ->getOneOrNullResult();
+            ->getResult();
+
+        if($recruteur !== []){
+            $id = $recruteur[0]->getId();
+        }
+        else{
+            $id = $membre->getId();
+        }
+
 // like du recruteur dont le candidat a liké le recruteur
         //Where l.recruteur = recruteur
         // Join candidat

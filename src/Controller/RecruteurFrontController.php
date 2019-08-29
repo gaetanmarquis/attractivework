@@ -93,10 +93,14 @@ class RecruteurFrontController extends AbstractController
             unset($tabC[$index]);
 
         }
+
         return $this->render('accueil_recruteur/index.html.twig', [
             'candidats' => $candidats,
+            'id' => $recruteur[0]->getId(),
         ]);
     }
+
+    
     /**
      * @IsGranted("IS_AUTHENTICATED_FULLY")
      * @Route("/recruteur/profil/{id}", name="select_candidat")
