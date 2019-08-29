@@ -25,18 +25,18 @@
         <div class="card-deck pl-2 w-50">
             {% for match in matchs %}
                 <div class="card mt-2 mb-2">
-                    <img src="{{ match.recruteur.photoProfil }}"
-                         class="card-img-top img-responsive rounded-circle border border-danger mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
+                    <img src="{{ asset(match.recruteur.membre.photoProfil) }}"
+                         class="card-img-top img-responsive rounded-circle mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
                          alt="...">
                     <div class="card-body">
-                        <h5 class="card-title text-center">{{ match.recruteur.nom }} {{ match.recruteur.prenom }}</h5>
+                        <h5 class="card-title text-center">{{ match.recruteur.membre.nom }} {{ match.recruteur.membre.prenom }}</h5>
 
-                        <h6 class="card-title text-center font-weight-light text-black-50">{{ matche.recruteur.secteurActivite }}</h6>
-                        <h6 class="card-title text-center font-weight-light text-black-50">{{ match.recruteur.ville }}
-                            ,{{ match.recruteur.pays }}</h6>
+                        <h6 class="card-title text-center font-weight-light text-black-50">{{ match.recruteur.secteurActivite }}</h6>
+                        <h6 class="card-title text-center font-weight-light text-black-50">{{ match.recruteur.membre.ville }}
+                            ,{{ match.recruteur.membre.pays }}</h6>
                         <p class="card-text text-center">This is a longer card with supporting text below as a
                             natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p><a href="{{ path('message_interface', {id: match.id}) }}" role="button"><i class="fas fa-comments fa-2x"></i></a></p>
+                        <p><a href="{{ path('message_interface', {id: match.recruteur.id}) }}" role="button"><i class="fas fa-comments fa-2x"></i></a></p>
                     </div>
                 </div>
             {% endfor %}
@@ -62,8 +62,8 @@
             <div class="card-deck pl-2 w-25">
                 {% for likeRecruteur in likesRecruteur %}
                     <div class="card mt-2 mb-2">
-                        <img src="{{ likeRecruteur.membre.photoProfil }}"
-                             class="card-img-top img-responsive rounded-circle border border-danger mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
+                        <img src="{{ asset(likeRecruteur.recruteur.membre.photoProfil) }}"
+                             class="card-img-top img-responsive rounded-circle mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
                              alt="...">
                         <div class="card-body">
                             <h5 class="card-title text-center">{{ likeRecruteur.recruteur.membre.nom }} {{ likeRecruteur.recruteur.membre.prenom }}</h5>
@@ -98,8 +98,8 @@
             <div class="card-deck pl-2 w-50">
                 {% for like in likes %}
                     <div class="card mt-2 mb-2">
-                        <img src="{{ like.recruteur.membre.photoProfil }}"
-                             class="card-img-top img-responsive rounded-circle border border-danger mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
+                        <img src="{{ asset(like.recruteur.membre.photoProfil) }}"
+                             class="card-img-top img-responsive rounded-circle mt-2  pt-1 pb-1 pr-1 pl-1 mx-auto"
                              alt="...">
                         <div class="card-body">
                             <h5 class="card-title text-center">{{ like.recruteur.membre.nom }} {{ like.recruteur.membre.prenom }}</h5>
@@ -109,7 +109,7 @@
                                 ,{{ like.recruteur.membre.pays }}</h6>
                             <p class="card-text text-center">This is a longer card with supporting text below as a
                                 natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p><a href="{#{{ path('message_interface') }}#}" role="button"><i class="fas fa-comments fa-2x"></i></a></p>
+                            <p><a href="{#{{ path('message_interface') }}#}" role="button"><i class="fas fa-plus-square fa-2x"></i></a></p>
                         </div>
                     </div>
                 {% endfor %}

@@ -19,11 +19,13 @@ class LikeRecruteurFrontController extends AbstractController
      */
     public function index(LikeRepository $likeRepository, RecruteurRepository $recruteurRepository, MatchRepository $matchRepository)
     {
+        $membre = $this->getUser();
+
         $recruteur = $recruteurRepository->createQueryBuilder('r')
             ->join('r.membre', 'm')
             ->addSelect('m')
             ->where('r.membre = :membre')
-            ->setParameter('membre', $this->getUser())
+            ->setParameter('membre', $membre)
             ->getQuery()
             ->getResult();
 
@@ -48,7 +50,7 @@ class LikeRecruteurFrontController extends AbstractController
             ->where('ma.recruteur = :recruteur')
             ->setParameter('recruteur', $recruteur)
             ->getQuery()
-            ->getResult();
+        ->getResult();
 
         $likes = $likeRepository->createQueryBuilder('l')
             ->join('l.recruteur', 'r')

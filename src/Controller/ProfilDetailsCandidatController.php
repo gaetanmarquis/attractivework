@@ -31,6 +31,7 @@ class ProfilDetailsCandidatController extends AbstractController
     	
         return $this->render('profil_details_candidat/index.html.twig', [
             'candidat' => $candidat[0],
+            'id' => $this->getUser()->getId(),
         ]);
     }
 }

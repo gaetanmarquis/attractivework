@@ -3,7 +3,7 @@
 {% block title %}Hello ProfilDetailsCandidatController!{% endblock %}
 
 {% block body %}
-	{% include 'navbar_recruteur/index.html.twig' %}
+	{% include 'navbar_recruteur/index.html.twig' with { 'id' : id } %}
 <style>
 
 	.photoProfil{
@@ -40,7 +40,7 @@
 <div class="mx-5">
 
 	<div class="text-center">
-		<img src="{{ candidat.membre.photoProfil }}" alt="{{ candidat.membre.descriptionPhoto }}" class="photoProfil img-fluid">
+		<img src="{{ asset(candidat.membre.photoProfil) }}" alt="{{ candidat.membre.descriptionPhoto }}" class="photoProfil img-fluid">
 		<h2>{{ candidat.membre.prenom }} {{ candidat.membre.nom }}</h2>
 	</div>
 
@@ -49,7 +49,7 @@
 		<div class="text-center list-group list-group-flush col-3 mt-5 flex-fill">
 
 			<h4 class="colorTitle">Informations générales</h4>
-			<ul class="p-0">
+			<ul class="p-0 text-dark">
 				<li class="list-group-item">Date de naissance: {{ candidat.dateNaissance|date('d/m/Y') }}</li>
 				<li class="list-group-item">Email: {{ candidat.membre.email }}</li>
 				<li class="list-group-item">Telephone: {{ candidat.telephone }}</li>
@@ -59,7 +59,7 @@
 			<hr class="my-5">
 
 			<h4 class="colorTitle">Informations professionnelles</h4>
-			<ul class="p-0">
+			<ul class="p-0 text-dark">
 				<li class="list-group-item">Disponible à partir du: {{ candidat.dateDisponibilite|date('d/m/Y')  }}</li>
 				<li class="list-group-item">Cherche: {{ candidat.typeContrat }}</li>
 				<li class="list-group-item">Prétention salariale: {{ candidat.salaire }}</li>

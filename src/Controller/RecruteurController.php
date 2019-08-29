@@ -43,12 +43,20 @@ class RecruteurController extends AbstractController
             $id_membre = $_GET['id_membre'];
             $membre = $membreRepository->find($id_membre);
         }
+        else{
+            $membre_recruteur = $recruteur->getMembre();
+        }
 
         $recruteurForm = $this->createForm(RecruteurType::class, $recruteur);
         $recruteurForm->handleRequest($request);
 
         if( $recruteurForm->isSubmitted() && $recruteurForm->isValid() ){
-            $recruteur->setMembre( $membre );
+            if ( isset($_GET['id_membre']) ) {
+                $recruteur->setMembre( $membre );
+            }
+            else{
+                $recruteur->setMembre($membre_recruteur);
+                }
             $recruteur->setDescriptionLogo( 'Logo de ' . $recruteur->getNomEntreprise() );
 
             /**@var UploadedFile $imageFile */
@@ -65,7 +73,7 @@ class RecruteurController extends AbstractController
             $objectManager->persist($recruteur);
             $objectManager->flush();
 
-            return $this->redirectToRoute('recruteur');
+            return $this->redirectToRoute('home');
         }
 
         return $this->render('recruteur/add.html.twig', [

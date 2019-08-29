@@ -24,6 +24,7 @@ class RecruteurType extends AbstractType
             ])
             ->add('logo_entreprise', FileType::class, [
                 'label' => 'Logo entreprise',
+                'data_class' => null,
             ])
             ->add('nbr_employe', IntegerType::class, [
                 'label' => 'Nombre d\'employés',

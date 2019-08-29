@@ -3,7 +3,7 @@
 {% block title %}Hello ProfilDetailsRecruteurController!{% endblock %}
 
 {% block body %}
-	{% include 'navbar_candidat/index.html.twig' %}
+	{% include 'navbar_candidat/index.html.twig' with { 'id' : id } %}
 <style>
 
 	.photoProfil{
@@ -42,17 +42,13 @@
 		border-left: 2px solid #b13f9a;
 		
 	}
-
-	.textColor{
-		color: black;
-	}
     
 </style>
 
 <div class="mx-5">
 
 	<div class="text-center">
-		<img src="{{ recruteur.membre.photoProfil }}" alt="{{ recruteur.membre.descriptionPhoto }}" class="photoProfil img-fluid">
+		<img src="{{ asset(recruteur.membre.photoProfil) }}" alt="{{ recruteur.membre.descriptionPhoto }}" class="photoProfil img-fluid">
 		<h1>{{ recruteur.membre.prenom }} {{ recruteur.membre.nom }}</h1>
 	</div>
 
@@ -61,7 +57,7 @@
 		<div class="text-center list-group list-group-flush col-3 mt-5 flex-fill">
 
 			<h4 class="colorTitle">Informations générales</h4>
-			<ul class="p-0 textColor">
+			<ul class="p-0 text-dark">
 				<li class="list-group-item">Email: {{ recruteur.membre.email }}</li>
 				<li class="list-group-item">{{ recruteur.membre.ville }} {{ recruteur.membre.pays }}</li>
 			</ul>
@@ -69,7 +65,7 @@
 			<hr class="my-5">
 
 			<h4 class="colorTitle">Informations professionnelles</h4>
-			<ul class="p-0 textColor">
+			<ul class="p-0 text-dark">
 				<img src="{{ recruteur.logoEntreprise }}" alt="{{ recruteur.descriptionLogo }}" class="photoEnt img-fluid mb-2">
 				<li class="list-group-item">{{ recruteur.nomEntreprise }}</li>
 				<li class="list-group-item">Secteur d'activité: {{ recruteur.secteurActivite }}</li>

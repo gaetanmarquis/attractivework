@@ -35,6 +35,8 @@ class MessageInterfaceController extends AbstractController
                 ->getResult();
 
             $recruteur[0] = $recruteurRepository->find($id);
+
+            $idUser = $candidat[0]->getId();
         }
         elseif( $membre->getRoleEmploi() === 'recruteur' ){
             $recruteur = $recruteurRepository->createQueryBuilder('r')
@@ -46,6 +48,8 @@ class MessageInterfaceController extends AbstractController
                 ->getResult();
 
             $candidat[0] = $candidatRepository->find($id);
+
+            $idUser = $recruteur[0]->getId();
         }
 
         
@@ -54,6 +58,8 @@ class MessageInterfaceController extends AbstractController
             'membre' => $membre,
             'candidat' => $candidat[0],
             'recruteur' => $recruteur[0],
+            'idUser' => $idUser,
+            'role' => $membre->getRoleEmploi(),
         ]);
         
     }

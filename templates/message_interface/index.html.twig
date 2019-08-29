@@ -68,6 +68,12 @@
 {% endblock %}
 
 {% block body %}
+    {% if role == 'candidat' %}
+        {% include 'navbar_candidat/index.html.twig' with { 'id' : idUser } %}
+    {% elseif role == 'recruteur' %}
+        {% include 'navbar_recruteur/index.html.twig' with { 'id' : idUser } %}
+    {% endif %}
+
     <h1>Message</h1>
     <div id="chat" class="container border mb-3 rounded border-dark p-5"></div>
     <div class="form-group container">
