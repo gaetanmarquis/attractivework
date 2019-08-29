@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\LikeRepository")
@@ -20,22 +21,27 @@ class Like
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Candidat")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank()
      */
     private $candidat;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Recruteur")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank()
      */
     private $recruteur;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\NotBlank()
      */
     private $date_like;
 
     /**
      * @ORM\Column(type="string", length=10)
+     * @Assert\NotBlank()
+     * @Assert\Length(max=10)
      */
     private $role_like;
 

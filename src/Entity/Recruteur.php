@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\RecruteurRepository")
@@ -30,11 +31,14 @@ class Recruteur
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank()
+     * @Assert\Length(max=100)
      */
     private $secteur_activite;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank()
      */
     private $logo_entreprise;
 
@@ -45,11 +49,15 @@ class Recruteur
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank()
+     * @Assert\Length(max=100)
      */
     private $nom_entreprise;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(max=255)
      */
     private $description_logo;
 

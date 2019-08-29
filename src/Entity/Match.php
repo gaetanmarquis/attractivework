@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\MatchRepository")
@@ -20,17 +21,20 @@ class Match
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Candidat")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank()
      */
     private $candidat;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Recruteur")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank()
      */
     private $recruteur;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\NotBlank()
      */
     private $date_match;
 

@@ -25,8 +25,8 @@
         {% for match in matchs %}
         <tr>
             <th>{{ match.id }}</th>
-            <td>{{ match.candidat.membre.nom }} {{ match.candidat.membre.prenom }}</td>
-            <td>{{ match.recruteur.membre.nom }} {{ match.recruteur.membre.prenom }}</td>
+            <td>{{ match.candidat.id }} - {{ match.candidat.membre.nom }} {{ match.candidat.membre.prenom }}</td>
+            <td>{{ match.recruteur.id }} - {{ match.recruteur.membre.nom }} {{ match.recruteur.membre.prenom }}</td>
             <td>{{ match.dateMatch|date('j/m/Y h:m:s') }}</td>
             <td><a class="btn btn-primary" href="{{ path('match_edit', { 'id' : match.id })  }}" role="button">Modifier ce match</a></td>
             <td><a class="btn btn-danger" href="{{ path('match_delete', { 'id' : match.id })  }}" role="button">Supprimer ce match</a></td>
@@ -34,4 +34,5 @@
         {% endfor %}
     </tbody>
 </table>
+{% include 'footer/index.html.twig' %}
 {% endblock %}
