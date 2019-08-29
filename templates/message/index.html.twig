@@ -13,6 +13,7 @@
                 <th>#</th>
                 <th>candidat</th>
                 <th>recruteur</th>
+                <th>auteur</th>
                 <th>message</th>
                 <th>date message</th>
                 <th>Options</th>
@@ -24,8 +25,9 @@
             {% for message in messages %}
             <tr>
                 <th>{{ message.id }}</th>
-                <td>{{ message.candidat.membre.nom }} {{ message.candidat.membre.prenom }}</td>
-                <td>{{ message.recruteur.membre.nom }} {{ message.recruteur.membre.prenom }}</td>
+                <td>{{ message.candidat.id }} - {{ message.candidat.membre.nom }} {{ message.candidat.membre.prenom }}</td>
+                <td>{{ message.recruteur.id }} - {{ message.recruteur.membre.nom }} {{ message.recruteur.membre.prenom }}</td>
+                <td>{{ message.auteur }}</td>
                 <td>{{ message.message }}</td>
                 <td>{{ message.dateMessage|date('j/m/Y') }}</td>
                 <td>

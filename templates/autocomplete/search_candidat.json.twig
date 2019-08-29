@@ -1,0 +1,5 @@
+[{% for candidat in results %}
+    {{ {label: candidat.prenom ~ ' ' ~candidat.nom, value: candidat.id}|json_encode|raw }}
+    {# use "value" instead of "id" key, if you use jquery-ui #}
+    {% if not loop.last %},{% endif %}
+    {% endfor %}]

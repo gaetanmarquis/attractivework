@@ -19,11 +19,11 @@ class LikeType extends AbstractType
         $builder
             ->add('candidat', AutocompleteType::class, [
                 'class' => Candidat::class,
-                'label' => "id candidat"
+                'label' => "candidat"
             ])
             ->add('recruteur', AutocompleteType::class, [
                 'class' => Recruteur::class,
-                'label' => "id recruteur"
+                'label' => "recruteur"
             ])
             ->add('role_like', ChoiceType::class, [
                 'label' => 'Role',

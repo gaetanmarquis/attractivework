@@ -142,6 +142,7 @@ h3{
     margin-top: 50px;
     background-color: #233148;
     height: 200px;
+    text-align: center;
 }
 .logoFooter{
     flex-wrap: wrap;

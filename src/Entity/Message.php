@@ -43,6 +43,11 @@ class Message
      */
     private $date_message;
 
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
+    private $auteur;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -92,6 +97,18 @@ class Message
     public function setDateMessage(\DateTimeInterface $date_message): self
     {
         $this->date_message = $date_message;
+
+        return $this;
+    }
+
+    public function getAuteur(): ?string
+    {
+        return $this->auteur;
+    }
+
+    public function setAuteur(string $auteur): self
+    {
+        $this->auteur = $auteur;
 
         return $this;
     }
