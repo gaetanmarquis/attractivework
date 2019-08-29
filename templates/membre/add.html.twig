@@ -4,6 +4,33 @@
 
 {% block body %}
     <div class="container">
-    {{ form(membre_form) }}
+    	{{ form_start(membre_form) }}
+    		{{ form_row(membre_form.nom, {attr : {required:true, maxlength:50} }) }}
+    	
+    		{{ form_row(membre_form.prenom, {attr : {required:true, maxlength:50} }) }}
+
+    		{{ form_row(membre_form.email, {attr : {required:true, pattern:"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 3}$", maxlength:100} }) }}
+    	
+    		{{ form_row(membre_form.mdp.first, {attr : {required:true, pattern:"(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"} }) }}
+
+    		{{ form_row(membre_form.mdp.second, {attr : {required:true, pattern:"(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"} }) }}
+    	
+    		{{ form_row(membre_form.ville, {attr : {required:true, maxlength:100} }) }}
+    
+    		{{ form_row(membre_form.pays, {attr : {required:true, maxlength:50} }) }}
+
+    		{{ form_row(membre_form.imageFile, {attr : {required:true} }) }}
+
+    		{{ form_row(membre_form.description, {attr : {required:true} }) }}
+
+    		{{ form_row(membre_form.personnalite, {attr : {required:true} }) }}
+
+    		{{ form_row(membre_form.role_emploi, {attr : {required:true} }) }}
+    	
+    		{{ form_row(membre_form.statut, {attr : {required:true} }) }}
+    	
+    	{{ form_end(membre_form) }}
+    
     </div>
 {% endblock %}
+
