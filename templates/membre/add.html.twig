@@ -33,8 +33,10 @@
     		{{ form_row(membre_form.personnalite, {attr : {required:true} }) }}
 
     		{{ form_row(membre_form.role_emploi, {attr : {required:true} }) }}
-    	
-    		{{ form_row(membre_form.statut, {attr : {required:true} }) }}
+		
+			{% if is_granted('ROLE_ADMIN') %}
+				{{ form_row(membre_form.statut, {attr : {required:true} }) }}
+			{% endif %}
     	
     	{{ form_end(membre_form) }}
     

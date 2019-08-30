@@ -30,8 +30,12 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link textBlack" href="{{ path('recruteur_front') }}">Accueil <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link textBlack" href="{{ path('types-de-personnalite') }}">Liste des personnalités</a>
       <a class="nav-item nav-link textBlack" href="{{ path('like_recruteur_front') }}">Likes et Matches</a>
       <a class="nav-item nav-link textBlack" href="{{ path('profil_perso_recruteur', {'id' : id }) }}">Profil</a>
+      {% if is_granted('ROLE_ADMIN') %}
+      <a class="nav-item nav-link textBlack" href="{{ path('backoffice') }}">Backoffice</a>
+      {% endif %}
     </div>
     <a class="nav-item nav-link textBlack pDeco" href="{{ path('app_logout') }}">Déconnexion</a>
   </div>

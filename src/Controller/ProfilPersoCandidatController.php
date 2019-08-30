@@ -41,7 +41,7 @@ class ProfilPersoCandidatController extends AbstractController
 
 
     /**
-     * @Route("/profil/perso/candidat/{id}/edit/cv", name="profil_perso_cv_edit")
+     * @Route("/profil/perso/candidat/{id}/edit/cv", name="profil_perso_cv_edit_c")
      */
     public function edit_cv(Request $request, ObjectManager $objectManager, Candidat $candidat = null)
     {
@@ -66,10 +66,19 @@ class ProfilPersoCandidatController extends AbstractController
     }
 
     /**
-     * @Route("/profil/perso/candidat/{id}/edit/infos", name="profil_perso_infos_edit")
+     * @Route("/profil/perso/candidat/{id}/edit/infos", name="profil_perso_infos_edit_c")
      */
-    public function edit_infos(Request $request, ObjectManager $objectManager, Membre $membre = null)
+    public function edit_infos(Request $request, ObjectManager $objectManager, CandidatRepository $candidatRepository, Membre $membre = null)
     {
+        $candidat = $candidatRepository->createQueryBuilder('c')
+            ->join('c.membre', 'm')
+            ->addSelect('m')
+            ->where('c.membre = :membre')
+            ->setParameter('membre', $this->getUser())
+            ->getQuery()
+            ->getResult();
+        
+        $membre = $candidat[0]->getMembre();
 
         $membreForm = $this->createForm(MembreType::class, $membre);
         $membreForm->handleRequest($request);

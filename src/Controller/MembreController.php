@@ -45,8 +45,13 @@ class MembreController extends AbstractController
      * @Route("/membre/add", name="membre_add")
      * @Route("/membre/edit/{id}", name="membre_edit")
      */
-    public function add(Request $request, ObjectManager $objectManager, Membre $membre = null, UserPasswordEncoderInterface $encoder)
+    public function add(Request $request, ObjectManager $objectManager, UserPasswordEncoderInterface $encoder, Membre $membre = null)
     {
+        if($this->isGranted('IS_AUTHENTICATED_FULLY') && ! $this->isGranted('ROLE_ADMIN') && ($membre === null || $membre != $this->getUser())) {
+            return $this->redirectToRoute('membre_edit', ['id' => $this->getUser()->getId()]);
+        } else if( ! $this->isGranted('IS_AUTHENTICATED_FULLY') && $membre) {
+            throw $this->createAccessDeniedException();
+        } 
         $valueBtn = 'modifier';
 
         if( $membre === null) {
@@ -56,15 +61,16 @@ class MembreController extends AbstractController
         
         $membreForm = $this->createForm(MembreType::class, $membre);
         $membreForm->handleRequest($request);
-
         if( $membreForm->isSubmitted() && $membreForm->isValid() ){
 
             $encodedPassword = $encoder->encodePassword($membre, $membre->getMdp());
             $membre->setMdp($encodedPassword);
-            
+            if( ! $membre->getStatut()) {
+                $membre->setStatut('ROLE_USER');
+            }
             $membre->setDateInscription( new \DateTime() );
             $membre->setDescriptionPhoto( 'Photo de profil de ' . $membre->getNom() . ' ' . $membre->getPrenom() );
-
+            
             /**@var UploadedFile $imageFile */
             if( $membre->getImageFile() !== null ){
 

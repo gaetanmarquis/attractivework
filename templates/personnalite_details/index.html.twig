@@ -4,9 +4,9 @@
 
 {% block body %}
 	{% if role == 'candidat' %}
-		{% include 'navbar_candidat/index.html.twig' %}
+		{% include 'navbar_candidat/index.html.twig' with { 'id' : idUser } %}
 	{% elseif role == 'recruteur' %}
-		{% include 'navbar_recruteur/index.html.twig' %}
+		{% include 'navbar_recruteur/index.html.twig' with { 'id' : idUser } %}
 	{% endif %}
 	
 <style>

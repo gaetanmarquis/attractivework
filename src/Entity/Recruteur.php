@@ -20,7 +20,7 @@ class Recruteur
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Membre", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
     private $membre;
 

@@ -40,7 +40,7 @@
                 <td>{{ recruteur.membre.id }}</td>
                 <td>{{ recruteur.nbrEmploye }}</td>
                 <td>{{ recruteur.secteurActivite }}</td>
-                <td><img src="{{ recruteur.logoEntreprise }}" alt="{{ recruteur.descriptionLogo }}"></td>
+                <td><img src="{{ asset(recruteur.logoEntreprise) }}" alt="{{ recruteur.descriptionLogo }}"></td>
                 <td>{{ recruteur.nomEntreprise }}</td>
                 <td><a class="btn btn-primary" href="{{ path('recruteur_edit', {'id' : recruteur.id }) }}" role="button"> Modifier</a></td>
                 <td><a class="btn btn-danger" href="{{ path('delete_recruteur', {'id' : recruteur.id }) }}" role="button">Supprimer</a></td>

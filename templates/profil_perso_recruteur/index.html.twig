@@ -56,7 +56,7 @@
 	<div class="d-flex">
 		
 		<div class="text-center list-group list-group-flush col-3 mt-5 flex-fill">
-			<h4 class="colorTitle">Vos informations <a href="{{ path('profil_perso_infos_edit', { 'id' : recruteur.id}) }}"><i class="fas fa-pencil-alt iconColor"></i></a></h4>
+			<h4 class="colorTitle">Vos informations <a href="{{ path('profil_perso_infos_edit_r', { 'id' : recruteur.id}) }}"><i class="fas fa-pencil-alt iconColor"></i></a></h4>
 			<ul class="p-0 text-dark">
 				<li class="list-group-item">{{ recruteur.membre.prenom }} {{ recruteur.membre.nom }}</li>
 				<li class="list-group-item">{{ recruteur.membre.email }}</li>
@@ -64,7 +64,7 @@
 			</ul>
 
 			<hr class="my-5">
-			<h4 class="colorTitle">Vos informations professionnelles <a href="{{ path('profil_perso_cv_edit', { 'id' : recruteur.id}) }}"><i class="fas fa-pencil-alt iconColor"></i></a></h4>
+			<h4 class="colorTitle">Vos informations professionnelles <a href="{{ path('profil_perso_cv_edit_r', { 'id' : recruteur.id}) }}"><i class="fas fa-pencil-alt iconColor"></i></a></h4>
 			<ul class="p-0 text-dark">
 				<li class="list-group-item">Votre secteur d'activité: {{ recruteur.secteurActivite }}</li>
 				<li class="list-group-item">Votre entreprise: {{ recruteur.nomEntreprise }}</li>

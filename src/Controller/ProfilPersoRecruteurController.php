@@ -37,7 +37,7 @@ class ProfilPersoRecruteurController extends AbstractController
     }
 
     /**
-     * @Route("/profil/perso/recruteur/{id}/edit/cv", name="profil_perso_cv_edit")
+     * @Route("/profil/perso/recruteur/{id}/edit/cv", name="profil_perso_cv_edit_r")
      */
     public function edit_cv(Request $request, ObjectManager $objectManager, Recruteur $recruteur = null)
     {
@@ -62,18 +62,17 @@ class ProfilPersoRecruteurController extends AbstractController
     }
 
     /**
-     * @Route("/profil/perso/recruteur/{id}/edit/infos", name="profil_perso_infos_edit")
+     * @Route("/profil/perso/recruteur/{id}/edit/infos", name="profil_perso_infos_edit_r")
      */
     public function edit_infos(Request $request, ObjectManager $objectManager, RecruteurRepository $recruteurRepository, int $id)
     {
-
     	$recruteur = $recruteurRepository->createQueryBuilder('r')
-    	->where('r.id = :id')
-    	->setParameter('id', $id)
-    	->join('r.membre', 'm')
-    	->addSelect('m')
-    	->getQuery()
-    	->getResult();
+            ->where('r.membre = :membre')
+            ->setParameter('membre', $this->getUser())
+            ->join('r.membre', 'm')
+            ->addSelect('m')
+            ->getQuery()
+            ->getResult();
 
     	$membre = $recruteur[0]->getMembre();
 

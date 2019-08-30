@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Membre;
 use App\Entity\Personnalite;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -20,6 +21,10 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class MembreType extends AbstractType
 {
+    private $security;
+    public function __construct(Security $security) {
+        $this->security = $security;
+    }
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -64,15 +69,18 @@ class MembreType extends AbstractType
                     'Candidat' => 'candidat',
                     'Recruteur' => 'recruteur'
                 ]
-            ])
-            ->add('statut', ChoiceType::class, [
-                'label' => 'Statut',
-                'choices' => [
-                    'Membre' => 'ROLE_USER',
-                    'Admin' => 'ROLE_USER,ROLE_ADMIN'
-                ] 
-            ])
-            ->add('submit', SubmitType::class, [
+            ]);
+            if($this->security->isGranted('ROLE_ADMIN')) {
+
+                $builder->add('statut', ChoiceType::class, [
+                    'label' => 'Statut',
+                    'choices' => [
+                        'Membre' => 'ROLE_USER',
+                        'Admin' => 'ROLE_USER,ROLE_ADMIN'
+                    ] 
+                ]);
+            }
+            $builder->add('submit', SubmitType::class, [
                 'label' => 'Enregistrer'
             ])
         ;
